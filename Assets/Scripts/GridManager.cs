@@ -2,58 +2,64 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    public int rows = 6;
-    public int columns = 5;
-    public GameObject gridCellPrefab;    // Assign your GridCell prefab in the Inspector.
-    public Transform gridParent;         // Optional parent object for organizational purposes.
+    // Use gridCount to set both rows and columns (square grid).
+    public int gridCount = 6;
+    public GameObject gridCellPrefab;
+    public Transform gridParent;
 
     private float cellSize;
 
     void Start()
     {
-        CreateRightSideGrid();
+        CreateRightSquareGrid();
     }
 
-    void CreateRightSideGrid()
+    void CreateRightSquareGrid()
     {
-        // Get world positions for the right half of the screen.
-        Vector3 midPoint = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
-        Vector3 topRight = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, 0));
-        Vector3 bottomRight = Camera.main.ViewportToWorldPoint(new Vector3(1f, 0f, 0));
+        // 1) Get camera boundaries in world space.
+        Vector3 cameraTopRight = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, 0f));
+        Vector3 cameraBottomLeft = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 0f));
 
-        // Define the grid area: from midPoint.x to topRight.x.
-        float gridWidth = topRight.x - midPoint.x;
-        float gridHeight = topRight.y - bottomRight.y;
+        // 2) Calculate total camera width.
+        float cameraWidth = cameraTopRight.x - cameraBottomLeft.x;
 
-        // Calculate cell size based on grid width and number of columns.
-        cellSize = gridWidth / columns;
+        // 3) Decide how large each square area is (half of camera width in this example).
+        float squareSize = cameraWidth / 2f;
 
-        // Define the origin of the grid (top-left corner of the right half).
-        Vector3 origin = new Vector3(midPoint.x, topRight.y, 0);
+        // 4) For the right square, define boundaries:
+        float squareRight = cameraTopRight.x;
+        float squareLeft = squareRight - squareSize;
+        float squareTop = cameraTopRight.y;
+        // The bottom would be squareTop - squareSize (not explicitly used below).
 
-        // Instantiate grid cells.
-        for (int row = 0; row < rows; row++)
+        // 5) The origin is the top-left corner of this right-side square.
+        Vector3 origin = new Vector3(squareLeft, squareTop, 0f);
+
+        // 6) Compute each cell’s size.
+        cellSize = squareSize / gridCount;
+
+        // 7) Build the grid from top-left to bottom-right, placing each cell
+        // so that its *top-left corner* aligns with the correct position.
+        for (int row = 0; row < gridCount; row++)
         {
-            for (int col = 0; col < columns; col++)
+            for (int col = 0; col < gridCount; col++)
             {
-                // Calculate cell position. Cells are arranged so that increasing row moves downward.
-                Vector3 cellPos = origin + new Vector3(col * cellSize, -row * cellSize, 0);
+                // This is where the top-left corner should be.
+                Vector3 topLeftPos = new Vector3(
+                    origin.x + col * cellSize,  // left edge
+                    origin.y - row * cellSize,  // top edge
+                    0f
+                );
 
-                GameObject cell = Instantiate(gridCellPrefab, cellPos, Quaternion.identity, gridParent);
-                cell.transform.localScale = new Vector3(cellSize, cellSize, 1);
+                // Because the pivot is in the center of the sprite,
+                // we shift the cell's transform by half a cell to align the top-left corner.
+                Vector3 pivotOffset = new Vector3(cellSize * 0.5f, -cellSize * 0.5f, 0f);
+                Vector3 finalPos = topLeftPos + pivotOffset;
+
+                GameObject cell = Instantiate(gridCellPrefab, finalPos, Quaternion.identity, gridParent);
+                cell.transform.localScale = new Vector3(cellSize, cellSize, 1f);
+
                 cell.name = $"GridCell_{row}_{col}";
-
-                // For the leftmost column (col == 0), add a BoxCollider2D if not already present.
-                if (col == 0)
-                {
-                    BoxCollider2D col2d = cell.GetComponent<BoxCollider2D>();
-                    if (col2d == null)
-                        cell.AddComponent<BoxCollider2D>();
-
-                    // Optionally, you can also add a script for detecting player entry.
-                    if (cell.GetComponent<GridCellDetector>() == null)
-                        cell.AddComponent<GridCellDetector>();
-                }
             }
         }
     }

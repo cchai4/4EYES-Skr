@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovementWASD : MonoBehaviour
+public class MovementArrows : MonoBehaviour
 {
     public float acceleration = 10f;  // Units per second^2
     public float maxSpeed = 5f;       // Maximum overall speed
@@ -15,13 +15,13 @@ public class MovementWASD : MonoBehaviour
     {
         // Gather WASD input into a single vector.
         Vector2 input = Vector2.zero;
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.RightArrow))
             input.x += 1;
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
             input.x -= 1;
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.UpArrow))
             input.y += 1;
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.DownArrow))
             input.y -= 1;
 
         // Normalize the input so that diagonal movement isn't faster.
