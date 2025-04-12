@@ -1,25 +1,19 @@
 fileFormatVersion: 2
-guid: d2a09927de7811b4a88a3406b79f366c
+guid: 841ddcf7d76a44c81a8d6cf7add5b1f4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8705678204878440728
-    second: B500-4_0
+      213: -5877686724310098552
+    second: Red_Wizard2_0
   - first:
-      213: -8123478775673930305
-    second: B500-4_1
+      213: 5060125619618853826
+    second: Red_Wizard2_1
   - first:
-      213: -3049919150840595961
-    second: B500-4_2
+      213: -2819555830813808448
+    second: Red_Wizard2_2
   - first:
-      213: 4586923070314464042
-    second: B500-4_3
-  - first:
-      213: 4060419291593026906
-    second: B500-4_4
-  - first:
-      213: -2137352023522499087
-    second: B500-4_5
+      213: 6661118402665204167
+    second: Red_Wizard2_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -128,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: B500-4_0
+      name: Red_Wizard2_0
       rect:
         serializedVersion: 2
-        x: 315
-        y: 488
-        width: 50
-        height: 24
+        x: 1887
+        y: 5919
+        width: 98
+        height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e63c5d1cc73f2780800000000000000
-      internalID: -8705678204878440728
+      spriteID: 88d9778c0134e6ea0800000000000000
+      internalID: -5877686724310098552
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: B500-4_1
+      name: Red_Wizard2_1
       rect:
         serializedVersion: 2
-        x: 147
-        y: 333
-        width: 15
-        height: 14
+        x: 1695
+        y: 5695
+        width: 130
+        height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,20 +159,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fbdb783f71b934f80800000000000000
-      internalID: -8123478775673930305
+      spriteID: 2c33c3cf07d293640800000000000000
+      internalID: 5060125619618853826
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: B500-4_2
+      name: Red_Wizard2_2
       rect:
         serializedVersion: 2
-        x: 172
-        y: 345
-        width: 49
-        height: 38
+        x: 1983
+        y: 5727
+        width: 162
+        height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 70a3c7401b28ca5d0800000000000000
-      internalID: -3049919150840595961
+      spriteID: 0c826f719eceed8d0800000000000000
+      internalID: -2819555830813808448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: B500-4_3
+      name: Red_Wizard2_3
       rect:
         serializedVersion: 2
-        x: 160
-        y: 143
-        width: 14
-        height: 14
+        x: 1023
+        y: 4031
+        width: 1154
+        height: 1634
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,52 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a23432ada3608af30800000000000000
-      internalID: 4586923070314464042
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: B500-4_4
-      rect:
-        serializedVersion: 2
-        x: 196
-        y: 143
-        width: 25
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a5dab8a25d1895830800000000000000
-      internalID: 4060419291593026906
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: B500-4_5
-      rect:
-        serializedVersion: 2
-        x: 315
-        y: 0
-        width: 37
-        height: 38
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1f5aaf5a8a99652e0800000000000000
-      internalID: -2137352023522499087
+      spriteID: 7c94da525eb017c50800000000000000
+      internalID: 6661118402665204167
       vertices: []
       indices: 
       edges: []
@@ -272,13 +222,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      B500-4_0: -8705678204878440728
-      B500-4_1: -8123478775673930305
-      B500-4_2: -3049919150840595961
-      B500-4_3: 4586923070314464042
-      B500-4_4: 4060419291593026906
-      B500-4_5: -2137352023522499087
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
