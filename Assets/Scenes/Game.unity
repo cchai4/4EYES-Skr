@@ -214,7 +214,9 @@ GameObject:
   - component: {fileID: 102036882}
   - component: {fileID: 102036883}
   - component: {fileID: 102036884}
-  m_Layer: 7
+  - component: {fileID: 102036886}
+  - component: {fileID: 102036885}
+  m_Layer: 0
   m_Name: Red
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -412,6 +414,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4400b9a8b05f341a0b84edcc583d0a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &102036885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102036876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76318cd605e54fe479310094aba15101, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballPrefab: {fileID: 2369533509064009450, guid: 9b5e122ee1667b749ba114e56ce1bdf3, type: 3}
+  firePoint: {fileID: 102036878}
+  fireballSpeed: 10
+  fireballCooldown: 1
+--- !u!114 &102036886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102036876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17055ef19da3dd04e9995fc5770227db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStunned: 0
+  stunTimer: 5
 --- !u!1 &118102780
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +460,10 @@ GameObject:
   - component: {fileID: 118102787}
   - component: {fileID: 118102788}
   - component: {fileID: 118102789}
-  m_Layer: 3
+  - component: {fileID: 118102790}
+  - component: {fileID: 118102791}
+  - component: {fileID: 118102792}
+  m_Layer: 0
   m_Name: Blue
   m_TagString: Blue
   m_Icon: {fileID: 0}
@@ -595,6 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 571bdaa7df3d69543a10cf6a5bfe2dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastDirection: {x: 0, y: 1}
 --- !u!114 &118102788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -626,6 +662,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b6d53a1d53145b1b1d9bb236cd43d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &118102790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118102780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369edf9d0f369384fa569b08dacf3efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStunned: 0
+  stunTimer: 5
+--- !u!114 &118102791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118102780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1247ab16b62c04748a16683a633426c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballPrefab: {fileID: 2369533509064009450, guid: 9b5e122ee1667b749ba114e56ce1bdf3, type: 3}
+  firePoint: {fileID: 118102784}
+  fireballSpeed: 10
+  fireballCooldown: 1
+--- !u!114 &118102792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118102780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369edf9d0f369384fa569b08dacf3efb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isStunned: 0
+  stunTimer: 0
 --- !u!1 &152843839
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +820,7 @@ MonoBehaviour:
   tintOwner: 0
   startRow: 0
   startCol: 0
+  hasJoined: 0
 --- !u!4 &228181970
 Transform:
   m_ObjectHideFlags: 0
@@ -767,7 +848,7 @@ GameObject:
   - component: {fileID: 326058511}
   - component: {fileID: 326058510}
   - component: {fileID: 326058512}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: DashHitboxRed
   m_TagString: Red
   m_Icon: {fileID: 0}
@@ -1017,6 +1098,7 @@ MonoBehaviour:
   tintOwner: 0
   startRow: 0
   startCol: 0
+  hasJoined: 0
 --- !u!4 &604476071
 Transform:
   m_ObjectHideFlags: 0
@@ -1099,6 +1181,7 @@ MonoBehaviour:
   tintOwner: 1
   startRow: 3
   startCol: 0
+  hasJoined: 0
 --- !u!4 &769465702
 Transform:
   m_ObjectHideFlags: 0
@@ -1678,7 +1761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7ad5270c82f4059bdd3c0d20ccdc42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remaining_time: 5
+  remaining_time: 300
   timer: 0
   time_text: {fileID: 52443435}
   gold: {fileID: 4356808937301415986, guid: eb9a835c12b55410e93da7cc5e761868, type: 3}
@@ -1716,7 +1799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79223328d1b3c344ab9597ec027a9094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridCount: 9
+  gridSize: 6
   gridCellPrefab: {fileID: 7746484411982521030, guid: b86ae42f9160a914288b372743616d96, type: 3}
   gridParent: {fileID: 699122475}
 --- !u!4 &2024737191
@@ -1982,7 +2065,7 @@ GameObject:
   - component: {fileID: 2130878635}
   - component: {fileID: 2130878634}
   - component: {fileID: 2130878633}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: DashHitboxBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
