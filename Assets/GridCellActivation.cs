@@ -3,11 +3,7 @@ using UnityEngine;
 public class GridCellActivation : MonoBehaviour
 {
     private int row, col;
-    private bool activated = false;
 
-    /// <summary>
-    /// Called from GridManager.cs to assign this cell's coordinates.
-    /// </summary>
     public void SetCoords(int r, int c)
     {
         row = r;
@@ -16,33 +12,33 @@ public class GridCellActivation : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (activated)
-            return;
-
-        // Check if a Red or Blue entity hit this cell.
         if (other.CompareTag("Red"))
         {
-            activated = true;
+            // Deactivate the Red entity.
             other.gameObject.SetActive(false);
-
-            var cursor = GameObject.Find("Player1Cursor")?.GetComponent<GridCursor>();
-            if (cursor != null)
+            GameObject player1Cursor = GameObject.Find("Player1Cursor");
+            if (player1Cursor != null)
             {
-                cursor.ForcePlaceAt(row, col);
-                Debug.Log($"Red touched cell [{row},{col}]. Player1Cursor joined.");
+                var cursor = player1Cursor.GetComponent<GridCursor>();
+                if (cursor != null)
+                {
+                    cursor.ForcePlaceAt(row, col);
+                    Debug.Log($"Red touched cell [{row},{col}]. Player1Cursor updated.");
+                }
             }
         }
-
         else if (other.CompareTag("Blue"))
         {
-            activated = true;
             other.gameObject.SetActive(false);
-
-            var cursor = GameObject.Find("Player2Cursor")?.GetComponent<GridCursor>();
-            if (cursor != null)
+            GameObject player2Cursor = GameObject.Find("Player2Cursor");
+            if (player2Cursor != null)
             {
-                cursor.ForcePlaceAt(row, col);
-                Debug.Log($"Blue touched cell [{row},{col}]. Player2Cursor joined.");
+                var cursor = player2Cursor.GetComponent<GridCursor>();
+                if (cursor != null)
+                {
+                    cursor.ForcePlaceAt(row, col);
+                    Debug.Log($"Blue touched cell [{row},{col}]. Player2Cursor updated.");
+                }
             }
         }
     }
