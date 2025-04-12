@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1699999164011971811}
   - component: {fileID: -5390166035750368725}
   - component: {fileID: -143011721664834153}
+  - component: {fileID: -7214775590970718258}
   m_Layer: 0
   m_Name: GridCell
   m_TagString: Untagged
@@ -173,3 +174,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a386a59830bba67449b3f340df7c32cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7214775590970718258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7746484411982521030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4949c86efafded841ac0a95e997691a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentBuildingType: 0
+  buildingAnchor: {fileID: 0}
+  buildingPrefabs: []
