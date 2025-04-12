@@ -142,28 +142,50 @@ public class GridCursor : MonoBehaviour
     }
 
     // Called externally (for example, from GridCellActivation) to force the cursor to a specific cell.
-    public void ForcePlaceAt(int r, int c)
-    {
-        if (cells == null || occupied == null) return;
-        ExitCell(curRow, curCol);
-        curRow = Mathf.Clamp(r, 0, rows - 1);
-        curCol = Mathf.Clamp(c, 0, cols - 1);
-        if (!occupied[curRow, curCol])
-        {
-            hasJoined = true;
-            EnterCell(curRow, curCol);
-        }
-        else
-        {
-            // If the cell is already occupied, reset the state.
-            ExitCell(curRow, curCol);
-            hasJoined = true;
-            EnterCell(curRow, curCol);
-            Debug.LogWarning("ForcePlaceAt: Target cell already occupied; state reset.");
-        }
-        // Release the occupancy flag so the same cell can be re-converted later.
-        occupied[curRow, curCol] = false;
-    }
+    // public void ForcePlaceAt(int r, int c)
+    // {
+    //     if (cells == null || occupied == null) return;
+    //     ExitCell(curRow, curCol);
+    //     curRow = Mathf.Clamp(r, 0, rows - 1);
+    //     curCol = Mathf.Clamp(c, 0, cols - 1);
+    //     if (!occupied[curRow, curCol])
+    //     {
+    //         hasJoined = true;
+    //         EnterCell(curRow, curCol);
+    //     }
+    //     else
+    //     {
+    //         // If the cell is already occupied, reset the state.
+    //         ExitCell(curRow, curCol);
+    //         hasJoined = true;
+    //         EnterCell(curRow, curCol);
+    //         Debug.LogWarning("ForcePlaceAt: Target cell already occupied; state reset.");
+    //     }
+    //     // Release the occupancy flag so the same cell can be re-converted later.
+    //     occupied[curRow, curCol] = false;
+    // }
+    // public void ForcePlaceAt(int r, int c)
+    // {
+    //     if (cells == null || occupied == null) return;
+    //     ExitCell(curRow, curCol);
+    //     curRow = Mathf.Clamp(r, 0, rows - 1);
+    //     curCol = Mathf.Clamp(c, 0, cols - 1);
+    //     if (!occupied[curRow, curCol])
+    //     {
+    //         hasJoined = true;
+    //         EnterCell(curRow, curCol);
+    //     }
+    //     else
+    //     {
+    //         // If the cell is already occupied, reset the state.
+    //         ExitCell(curRow, curCol);
+    //         hasJoined = true;
+    //         EnterCell(curRow, curCol);
+    //         Debug.LogWarning("ForcePlaceAt: Target cell already occupied; state reset.");
+    //     }
+    //     // Optionally, clear the occupancy flag if needed.
+    //     occupied[curRow, curCol] = false;
+    // }
 
     // Reactivates the underlying entity (Red or Blue) when the cursor is at the leftmost cell 
     // and the left key is pressed.
