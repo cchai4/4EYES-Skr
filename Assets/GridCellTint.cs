@@ -26,10 +26,14 @@ public class GridCellTint : MonoBehaviour
 
     void UpdateTint()
     {
-        if (redCount > 0 && blueCount > 0) sr.color = Color.magenta;   // purple
-        else if (redCount > 0) sr.color = Color.red;
-        else if (blueCount > 0) sr.color = Color.blue;
-        else sr.color = Color.white;     // default
+        if (redCount > 0 && blueCount > 0)
+            sr.color = new Color(1f, 0.5f, 1f); // Light purple
+        else if (redCount > 0)
+            sr.color = new Color(1f, 0.6f, 0.6f); // Light red
+        else if (blueCount > 0)
+            sr.color = new Color(0.6f, 0.6f, 1f); // Light blue
+        else
+            sr.color = Color.white; // Default
     }
 
     public enum ColorType { Red, Blue }
