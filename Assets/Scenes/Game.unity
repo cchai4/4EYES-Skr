@@ -317,8 +317,8 @@ MonoBehaviour:
   dashDuration: 0.2
   dashCooldown: 2
   doubleTapThreshold: 0.3
-  dashHitbox: {fileID: 326058508}
   knockbackForce: 10
+  dashHitbox: {fileID: 326058508}
   dashDirection: {x: 0, y: 0}
 --- !u!1 &118102780
 GameObject:
@@ -518,8 +518,8 @@ MonoBehaviour:
   dashDuration: 0.2
   dashCooldown: 2
   doubleTapThreshold: 0.3
-  dashHitboxBlue: {fileID: 2130878631}
   knockbackForce: 10
+  dashHitboxBlue: {fileID: 2130878631}
   dashDirection: {x: 0, y: 0}
 --- !u!1 &152843839
 GameObject:
@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 326058512}
   m_Layer: 0
   m_Name: DashHitboxRed
-  m_TagString: Untagged
+  m_TagString: Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
