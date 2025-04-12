@@ -62,5 +62,8 @@ public class GridManager : MonoBehaviour
                 cell.name = $"GridCell_{row}_{col}";
             }
         }
+        GameObject selector = GameObject.Find("GridSelector");
+        if (selector != null)
+            selector.SetActive(true);
     }
 }

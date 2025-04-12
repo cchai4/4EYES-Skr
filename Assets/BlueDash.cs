@@ -47,7 +47,7 @@ public class BlueDash : MonoBehaviour
             { dashOnCooldown = false; cooldownTimer = 0f; }
         }
 
-        /* double?tap Right Shift */
+        /* double?tap Rightï¿½Shift */
         if (!isDashing && !dashOnCooldown && Input.GetKeyDown(KeyCode.RightShift))
         {
             float t = Time.time;
@@ -67,7 +67,7 @@ public class BlueDash : MonoBehaviour
         {
             dashTimer += Time.deltaTime;
             if (dashTimer <= dashDuration)
-                rb.velocity = dashDirection * dashSpeed;
+                rb.linearVelocity = dashDirection * dashSpeed;
             else
             {
                 isDashing = false;

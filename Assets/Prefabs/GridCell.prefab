@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1116341780053679700}
   - component: {fileID: 4838119930132023982}
   - component: {fileID: 1699999164011971811}
+  - component: {fileID: -5390166035750368725}
   m_Layer: 0
   m_Name: GridCell
   m_TagString: Untagged
@@ -139,7 +140,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -147,3 +148,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-5390166035750368725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7746484411982521030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e5bf788d5b20894186d94ae1003bbfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
