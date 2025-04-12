@@ -21,7 +21,7 @@ public class DashHitboxBlue : MonoBehaviour
         Rigidbody2D blueRb = blueDash.GetComponent<Rigidbody2D>();
         if (blueRb)
         {
-            blueRb.velocity = Vector2.zero;
+            blueRb.linearVelocity = Vector2.zero;
             blueRb.AddForce(-blueDash.dashDirection *
                             blueDash.knockbackForce * recoilMultiplier,
                             ForceMode2D.Impulse);
