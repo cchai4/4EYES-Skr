@@ -247,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Blue_Wizard2_0: 7745138507185162523
+      Blue_Wizard2_1: 1418919992106161943
+      Blue_Wizard2_2: 5097893844616226763
+      Blue_Wizard2_3: 1510641840463779444
+      Blue_Wizard2_4: 3047198433007489750
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

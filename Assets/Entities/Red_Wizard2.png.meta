@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Red_Wizard2_0: -5877686724310098552
+      Red_Wizard2_1: 5060125619618853826
+      Red_Wizard2_2: -2819555830813808448
+      Red_Wizard2_3: 6661118402665204167
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
