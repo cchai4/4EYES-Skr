@@ -632,6 +632,7 @@ MonoBehaviour:
   downKey: 115
   leftKey: 97
   rightKey: 100
+  hasJoined: 0
   tintOwner: 0
   startRow: 0
   startCol: 0
@@ -876,57 +877,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &604476069
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 604476071}
-  - component: {fileID: 604476070}
-  m_Layer: 0
-  m_Name: GridCursor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &604476070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604476069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615892108f05034aa726ad9f6794106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upKey: 119
-  downKey: 115
-  leftKey: 97
-  rightKey: 100
-  tintOwner: 0
-  startRow: 0
-  startCol: 0
---- !u!4 &604476071
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604476069}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.0091536, y: -0.033865698, z: 0.029392121}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &699122474
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,8 +941,9 @@ MonoBehaviour:
   downKey: 274
   leftKey: 276
   rightKey: 275
+  hasJoined: 0
   tintOwner: 1
-  startRow: 3
+  startRow: 0
   startCol: 0
 --- !u!4 &769465702
 Transform:
@@ -1175,7 +1126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79223328d1b3c344ab9597ec027a9094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridCount: 9
+  gridSize: 9
   gridCellPrefab: {fileID: 7746484411982521030, guid: b86ae42f9160a914288b372743616d96, type: 3}
   gridParent: {fileID: 699122475}
 --- !u!4 &2024737191
@@ -1431,6 +1382,5 @@ SceneRoots:
   - {fileID: 118102784}
   - {fileID: 2024737191}
   - {fileID: 699122475}
-  - {fileID: 604476071}
   - {fileID: 228181970}
   - {fileID: 769465702}
