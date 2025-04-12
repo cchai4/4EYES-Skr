@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FireScript : MonoBehaviour
+public class fireScriptRed : MonoBehaviour
 {
     [Header("Fireball Settings")]
     public GameObject fireballPrefab;          // Reference to your fireball prefab.
