@@ -4,6 +4,14 @@ using System.Collections;
 
 public class GridCursor : MonoBehaviour
 {
+    public void ForcePlaceAt(int row, int col)
+    {
+        // Example: Calculate the world position from grid coordinates.
+        // You may need to adjust these calculations based on your grid design.
+        Vector2 newPosition = new Vector2(col, row);
+        transform.position = newPosition;
+    }
+
     [Header("Controls")]
     public KeyCode upKey = KeyCode.W;
     public KeyCode downKey = KeyCode.S;
