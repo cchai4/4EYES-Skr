@@ -2,38 +2,38 @@ using UnityEngine;
 
 public class DashHitboxBlue : MonoBehaviour
 {
+    // Recoil multiplier determines the strength of recoil relative to knockbackForce.
+    public float recoilMultiplier = 0.2f; // 20% of knockbackForce as recoil
+
     // Reference to the parent's BlueDash script.
     private BlueDash blueDash;
-
-    // Recoil multiplier determines how strong the backward impulse is relative to knockbackForce.
-    public float recoilMultiplier = 0.2f; // 20% of knockback force as recoil
 
     void Awake()
     {
         blueDash = GetComponentInParent<BlueDash>();
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the collided object is the Red character.
-        if (collision.CompareTag("Red"))
-        {
-            Rigidbody2D redRb = collision.GetComponent<Rigidbody2D>();
-            if (redRb != null)
-            {
-                // Apply knockback to Red based on Blue's dash direction.
-                Vector2 knockbackDir = blueDash.dashDirection;
-                redRb.AddForce(knockbackDir * blueDash.knockbackForce, ForceMode2D.Impulse);
+        if (!other.CompareTag("Red")) return;
 
-                // Now stop Blue's momentum and apply a slight recoil in the opposite direction.
-                Rigidbody2D blueRb = blueDash.GetComponent<Rigidbody2D>();
-                if (blueRb != null)
-                {
-                    blueRb.linearVelocity = Vector2.zero;
-                    float recoilForce = blueDash.knockbackForce * recoilMultiplier;
-                    blueRb.AddForce(-blueDash.dashDirection * recoilForce, ForceMode2D.Impulse);
-                }
-            }
+        // Get Red's rigidbody and dash component.
+        Rigidbody2D redRb = other.GetComponent<Rigidbody2D>();
+        if (redRb == null) return;
+
+        RedDash redDash = other.GetComponent<RedDash>();
+        if (redDash != null)
+        {
+            redDash.ApplyKnockBack(blueDash.dashDirection, blueDash.knockbackForce, 0.15f);
         }
+
+        // Stop Blue's dash and apply recoil.
+        blueDash.CancelDash();
+        Rigidbody2D blueRb = blueDash.GetComponent<Rigidbody2D>();
+        // Reset Blue's momentum.
+        blueRb.linearVelocity = Vector2.zero; // Updated to use linearVelocity
+                                             // Apply recoil force. Adjust recoilMultiplier as needed in the inspector.
+        blueRb.AddForce(-blueDash.dashDirection * blueDash.knockbackForce * recoilMultiplier,
+                         ForceMode2D.Impulse);
     }
 }

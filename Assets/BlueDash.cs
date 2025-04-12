@@ -3,104 +3,112 @@ using UnityEngine;
 public class BlueDash : MonoBehaviour
 {
     // Dash parameters
-    public float dashSpeed = 7f;            // Speed during dash (e.g., 7 units)
-    public float dashDuration = 0.2f;       // How long the dash lasts
-    public float dashCooldown = 1f;         // Cooldown period between dashes
-    public float doubleTapThreshold = 0.3f; // Maximum time between Right Shift taps to trigger a dash
-
-    // Reference to the dash hitbox (if needed)
-    public GameObject dashHitboxBlue;
-
-    // Optional: Knockback force (if your dash hitbox will handle knockback on Red)
+    public float dashSpeed = 7f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1f;
+    public float doubleTapThreshold = 0.3f;
     public float knockbackForce = 10f;
 
+    public GameObject dashHitboxBlue;
+
     private Rigidbody2D rb;
-    private float lastShiftTime = -1f;      // Time when Right Shift was last pressed
+    private float lastShiftTime = -Mathf.Infinity;
     private bool isDashing = false;
     private float dashTimer = 0f;
     private bool dashOnCooldown = false;
     private float cooldownTimer = 0f;
 
-    // Use this variable to store the last recorded arrow key input.
-    private Vector2 lastInputDir = Vector2.up;
-    // This is the direction for the dash (set when dash is triggered)
+    private Vector2 lastInputDir = Vector2.up;   // updated from arrow keys
     [HideInInspector] public Vector2 dashDirection;
+
+    /* new */
+    private float knockBackTimer = 0f; // freezes movement during recoil
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-
-        // Ensure the dash hitbox is disabled by default.
         if (dashHitboxBlue != null)
+        {
+            // Ensure the dash hitbox does not collide with Red's own collider.
+            Collider2D hitboxCollider = dashHitboxBlue.GetComponent<Collider2D>();
+            Collider2D selfCollider = GetComponent<Collider2D>();
+            if (hitboxCollider != null && selfCollider != null)
+            {
+                Physics2D.IgnoreCollision(hitboxCollider, selfCollider, true);
+            }
             dashHitboxBlue.SetActive(false);
+        }
+    }
+
+
+    // Called by DashHitboxRed when Blue is knocked back
+    public void ApplyKnockBack(Vector2 dir, float force, float freezeTime)
+    {
+        rb.linearVelocity = Vector2.zero;
+        rb.AddForce(dir * force, ForceMode2D.Impulse);
+        knockBackTimer = freezeTime;
     }
 
     void Update()
     {
-        // Continuously update the arrow key input from arrow keys.
-        Vector2 currentInput = Vector2.zero;
-        if (Input.GetKey(KeyCode.UpArrow))
-            currentInput += Vector2.up;
-        if (Input.GetKey(KeyCode.DownArrow))
-            currentInput += Vector2.down;
-        if (Input.GetKey(KeyCode.LeftArrow))
-            currentInput += Vector2.left;
-        if (Input.GetKey(KeyCode.RightArrow))
-            currentInput += Vector2.right;
-        // If there is any input, update the lastInputDir.
-        if (currentInput.sqrMagnitude > 0.001f)
-            lastInputDir = currentInput.normalized;
+        /* freeze while stunned */
+        BlueStun st = GetComponent<BlueStun>();
+        // BlueDash uses BlueStun
+        if (st != null && st.isStunned)
+        {
+            rb.linearVelocity = Vector2.zero;
+            return;
+        }
 
-        // Handle dash cooldown.
+        if (knockBackTimer > 0f)
+        {
+            knockBackTimer -= Time.deltaTime;
+            return;              // skip writing rb.velocity this frame
+        }
+
+        Vector2 input = Vector2.zero;
+        if (Input.GetKey(KeyCode.UpArrow)) input += Vector2.up;
+        if (Input.GetKey(KeyCode.DownArrow)) input += Vector2.down;
+        if (Input.GetKey(KeyCode.LeftArrow)) input += Vector2.left;
+        if (Input.GetKey(KeyCode.RightArrow)) input += Vector2.right;
+        if (input.sqrMagnitude > 0.001f) lastInputDir = input.normalized;
+
         if (dashOnCooldown)
         {
             cooldownTimer += Time.deltaTime;
             if (cooldownTimer >= dashCooldown)
-            {
-                dashOnCooldown = false;
-                cooldownTimer = 0f;
-            }
+            { dashOnCooldown = false; cooldownTimer = 0f; }
         }
 
-        // Check for a double-tap of Right Shift if not currently dashing and cooldown is over.
-        if (!isDashing && !dashOnCooldown)
+        if (!isDashing && !dashOnCooldown && Input.GetKeyDown(KeyCode.RightShift))
         {
-            if (Input.GetKeyDown(KeyCode.RightShift))
+            if (Time.time - lastShiftTime <= doubleTapThreshold)
             {
-                float currentTime = Time.time;
-                if (currentTime - lastShiftTime <= doubleTapThreshold)
-                {
-                    // Set dashDirection using the last recorded arrow input direction.
-                    dashDirection = lastInputDir;
-
-                    // Start the dash.
-                    isDashing = true;
-                    dashTimer = 0f;
-                    dashOnCooldown = true;
-
-                    // Activate the dash hitbox if assigned.
-                    if (dashHitboxBlue != null)
-                        dashHitboxBlue.SetActive(true);
-                }
-                lastShiftTime = currentTime;
+                dashDirection = lastInputDir;
+                isDashing = true;
+                dashTimer = 0f;
+                dashOnCooldown = true;
+                if (dashHitboxBlue) dashHitboxBlue.SetActive(true);
             }
+            lastShiftTime = Time.time;
         }
 
-        // During the dash, override the velocity.
         if (isDashing)
         {
             dashTimer += Time.deltaTime;
             if (dashTimer <= dashDuration)
-            {
                 rb.linearVelocity = dashDirection * dashSpeed;
-            }
             else
             {
                 isDashing = false;
-                // Deactivate the dash hitbox when the dash ends.
-                if (dashHitboxBlue != null)
-                    dashHitboxBlue.SetActive(false);
+                if (dashHitboxBlue) dashHitboxBlue.SetActive(false);
             }
         }
+    }
+
+    public void CancelDash()
+    {
+        isDashing = false;
+        if (dashHitboxBlue) dashHitboxBlue.SetActive(false);
     }
 }
