@@ -740,6 +740,7 @@ MonoBehaviour:
   tintOwner: 0
   startRow: 0
   startCol: 0
+  hasJoined: 0
 --- !u!4 &228181970
 Transform:
   m_ObjectHideFlags: 0
@@ -1017,6 +1018,7 @@ MonoBehaviour:
   tintOwner: 0
   startRow: 0
   startCol: 0
+  hasJoined: 0
 --- !u!4 &604476071
 Transform:
   m_ObjectHideFlags: 0
@@ -1099,6 +1101,7 @@ MonoBehaviour:
   tintOwner: 1
   startRow: 3
   startCol: 0
+  hasJoined: 0
 --- !u!4 &769465702
 Transform:
   m_ObjectHideFlags: 0
@@ -1716,7 +1719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79223328d1b3c344ab9597ec027a9094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridCount: 9
+  gridSize: 9
   gridCellPrefab: {fileID: 7746484411982521030, guid: b86ae42f9160a914288b372743616d96, type: 3}
   gridParent: {fileID: 699122475}
 --- !u!4 &2024737191
