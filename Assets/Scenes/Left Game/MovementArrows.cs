@@ -16,11 +16,10 @@ public class MovementArrows : MonoBehaviour
 
     void Update()
     {
-        // Check if blueStun is assigned and if the player is stunned.
+        // If the player is stunned, skip input-based movement
+        // but DO NOT zero velocity repeatedly. This allows knockback.
         if (blueStun != null && blueStun.isStunned)
         {
-            // Optionally, stop the player's movement immediately.
-            rb2.linearVelocity = Vector2.zero;
             return;
         }
 
@@ -35,7 +34,7 @@ public class MovementArrows : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow))
             input.y -= 1;
 
-        // Normalize the input so that diagonal movement isn't faster.
+        // Normalize the input so diagonal movement isn't faster.
         if (input != Vector2.zero)
             input = input.normalized;
 
@@ -43,6 +42,10 @@ public class MovementArrows : MonoBehaviour
         Vector2 targetVelocity = input * maxSpeed;
 
         // Smoothly move the current velocity toward the target velocity.
-        rb2.linearVelocity = Vector2.MoveTowards(rb2.linearVelocity, targetVelocity, acceleration * Time.deltaTime);
+        rb2.linearVelocity = Vector2.MoveTowards(
+            rb2.linearVelocity,
+            targetVelocity,
+            acceleration * Time.deltaTime
+        );
     }
 }

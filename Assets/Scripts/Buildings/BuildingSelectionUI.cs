@@ -4,14 +4,14 @@ using static GridCellTint;
 
 /// <summary>
 /// Singleton that keeps the left/right building buttons visible
-/// and simply changes their highlight color while a player
-/// is in Building?Select mode.
+/// and changes their highlight color while a player
+/// is in Building-Select mode.
 /// </summary>
 public class BuildingSelectionUI : MonoBehaviour
 {
     public static BuildingSelectionUI Instance { get; private set; }
 
-    [Header("Button Icons (order: Troop, Wall, Cannon, Flag)")]
+    [Header("Button Icons (order: TroopSpawner, Generator, Cannon, Flag)")]
     public Image[] redIcons;          // size 4
     public Image[] blueIcons;         // size 4
     public Color normalColor = Color.white;
@@ -21,7 +21,8 @@ public class BuildingSelectionUI : MonoBehaviour
 
     void Awake()
     {
-        if (Instance && Instance != this) Destroy(gameObject);
+        if (Instance && Instance != this)
+            Destroy(gameObject);
         Instance = this;
         ClearHighlight();
     }
@@ -34,21 +35,27 @@ public class BuildingSelectionUI : MonoBehaviour
         Highlight(startIndex);
     }
 
-    /// <summary>Moves the yellow outline when A / D is pressed.</summary>
+    /// <summary>Moves the highlight when the user cycles building selection.</summary>
     public void Highlight(int index)
     {
         ClearHighlight();
-        Image[] arr = currentOwner == ColorType.Red ? redIcons : blueIcons;
-        if (index >= 0 && index < arr.Length) arr[index].color = highlightColor;
+        Image[] arr = (currentOwner == ColorType.Red) ? redIcons : blueIcons;
+        if (index >= 0 && index < arr.Length)
+            arr[index].color = highlightColor;
     }
 
-    /// <summary>Called when the player confirms or cancels.</summary>
-    public void EndSelection() => ClearHighlight();
+    /// <summary>Called when the player confirms or cancels building selection.</summary>
+    public void EndSelection()
+    {
+        ClearHighlight();
+    }
 
     /* ---------- helpers ---------- */
     void ClearHighlight()
     {
-        foreach (var img in redIcons) if (img) img.color = normalColor;
-        foreach (var img in blueIcons) if (img) img.color = normalColor;
+        foreach (var img in redIcons)
+            if (img) img.color = normalColor;
+        foreach (var img in blueIcons)
+            if (img) img.color = normalColor;
     }
 }

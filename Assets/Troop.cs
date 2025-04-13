@@ -1,24 +1,32 @@
 using UnityEngine;
 using System.Linq;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class Troop : MonoBehaviour
 {
     [Header("Team & Stats")]
-    public Team team;            // set by Barrack when spawned
-    public int maxHP = 5; // tweak per prefab
+    public Team team;
+    public int maxHP = 5;
     public float moveSpeed = 2f;
-    public float decayInterval = 3f;   // lose 1?HP every 3?s
-    public int contactDamage = 1;    // dmg dealt to buildings on hit
+    public float decayInterval = 3f;
+    public int contactDamage = 1;
 
-    /* private runtime */
-    int currentHP;
-    float decayTimer;
-    float retargetTimer;
-    const float retargetInterval = 1.0f;
+    [Header("Knockback Settings")]
+    public float knockbackForce = 3f;
+    public float knockbackDuration = 0.4f;
+    public float knockbackDamping = 15f;
 
-    Rigidbody2D rb;
-    BuildingBase target;
+    private int currentHP;
+    private float decayTimer;
+    private float retargetTimer;
+    private const float retargetInterval = 1f;
+
+    private Rigidbody2D rb;
+    private Transform target;
+
+    private bool isKnockedBack = false;
+    private Vector2 knockbackVelocity = Vector2.zero;
+    private float knockbackTimer = 0f;
 
     void Awake()
     {
@@ -28,63 +36,120 @@ public class Troop : MonoBehaviour
 
     void Update()
     {
-        /* passive HP decay */
+        // Passive decay over time
         decayTimer += Time.deltaTime;
         if (decayTimer >= decayInterval)
         {
-            decayTimer = 0f;
             TakeDamage(1);
+            decayTimer = 0f;
         }
 
-        /* retarget every second */
+        // Handle knockback
+        if (isKnockedBack)
+        {
+            knockbackTimer += Time.deltaTime;
+            rb.linearVelocity = Vector2.Lerp(rb.linearVelocity, Vector2.zero, Time.deltaTime * knockbackDamping);
+
+            RotateTowards(rb.linearVelocity); // ✅ Face knockback direction
+
+            if (knockbackTimer >= knockbackDuration)
+            {
+                isKnockedBack = false;
+                knockbackTimer = 0f;
+            }
+            return;
+        }
+
+        // Target tracking
         retargetTimer += Time.deltaTime;
         if (retargetTimer >= retargetInterval)
         {
+            target = FindClosestEnemy();
             retargetTimer = 0f;
-            target = FindClosestEnemyBuilding();
         }
 
-        /* move toward target */
+        // Normal movement
         if (target != null)
         {
-            Vector2 dir = (target.transform.position - transform.position).normalized;
+            Vector2 dir = (target.position - transform.position).normalized;
             rb.linearVelocity = dir * moveSpeed;
+
+            RotateTowards(rb.linearVelocity); // ✅ Face movement direction
         }
         else
         {
-            rb.linearVelocity = Vector2.zero; // no enemy buildings � stay idle
+            rb.linearVelocity = Vector2.zero;
         }
     }
 
-    /* search all buildings, pick nearest enemy */
-    BuildingBase FindClosestEnemyBuilding()
+    Transform FindClosestEnemy()
     {
-        var all = FindObjectsOfType<BuildingBase>();
-        var enemies = all.Where(b => b.team != team);
-        float bestDist = float.MaxValue;
-        BuildingBase closest = null;
+        var enemies =
+            FindObjectsByType<BuildingBase>(FindObjectsSortMode.None).Where(b => b.team != team).Select(b => b.transform)
+            .Concat(FindObjectsByType<Troop>(FindObjectsSortMode.None).Where(t => t.team != team).Select(t => t.transform));
 
-        foreach (var b in enemies)
+        float bestDist = float.MaxValue;
+        Transform closest = null;
+
+        foreach (var t in enemies)
         {
-            float d = Vector2.SqrMagnitude(b.transform.position - transform.position);
-            if (d < bestDist) { bestDist = d; closest = b; }
+            float d = (t.position - transform.position).sqrMagnitude;
+            if (d < bestDist)
+            {
+                bestDist = d;
+                closest = t;
+            }
         }
+
         return closest;
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        var b = col.GetComponent<BuildingBase>();
-        if (b && b.team != team)
+        // Enemy building
+        var building = col.GetComponent<BuildingBase>();
+        if (building && building.team != team)
         {
-            b.TakeDamage(contactDamage);
-            TakeDamage(maxHP); // die after hit (kamikaze). Remove if you want survival.
+            building.TakeDamage(contactDamage);
+            KnockBack(col.transform.position);
+            return;
+        }
+
+        // Enemy troop
+        var enemyTroop = col.GetComponent<Troop>();
+        if (enemyTroop && enemyTroop.team != team)
+        {
+            enemyTroop.TakeDamage(contactDamage);
+            KnockBack(col.transform.position);
         }
     }
 
-    void TakeDamage(int dmg)
+    void KnockBack(Vector3 hitSource)
+    {
+        Vector2 knockDir = (transform.position - hitSource).normalized;
+
+        isKnockedBack = true;
+        knockbackVelocity = knockDir * knockbackForce;
+        rb.linearVelocity = knockbackVelocity;
+
+        RotateTowards(rb.linearVelocity); // ✅ Immediately face knockback direction
+
+        TakeDamage(1); // Optional: self-damage
+    }
+
+    void RotateTowards(Vector2 velocity)
+    {
+        if (velocity.sqrMagnitude > 0.01f)
+        {
+            float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg - 90f; // Subtract 90 degrees
+            transform.rotation = Quaternion.Euler(0, 0, angle);
+        }
+    }
+
+    public void TakeDamage(int dmg)
     {
         currentHP -= dmg;
-        if (currentHP <= 0) Destroy(gameObject);
+        if (currentHP <= 0)
+            Destroy(gameObject);
     }
 }

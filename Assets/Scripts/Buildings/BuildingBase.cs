@@ -5,16 +5,18 @@ public enum Team { Red, Blue }
 public abstract class BuildingBase : MonoBehaviour
 {
     [Header("Team + Health")]
-    public Team team;                      // <— set during placement
+    public Team team;                      // Set during placement
     [SerializeField] private int maxHP = 10;
-    private int currentHP;
+    protected int currentHP;
 
     protected virtual void Awake() => currentHP = maxHP;
 
-    public void TakeDamage(int dmg)
+    // ? Marked as virtual so child classes can override it
+    public virtual void TakeDamage(int dmg)
     {
         currentHP -= dmg;
-        if (currentHP <= 0) DestroyBuilding();
+        if (currentHP <= 0)
+            DestroyBuilding();
     }
 
     protected virtual void DestroyBuilding()

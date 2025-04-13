@@ -13,42 +13,56 @@ public class TimeScript : MonoBehaviour
     public GameObject resource_spawner;
     public Spawner spawner;
     public float spawnRate = 2;
-     private string[] resource_options = {"gold", "silver"};
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public int maxGold = 6;  // New: max gold allowed on screen
+
+    private string[] resource_options = { "gold", "silver" };
+
     void Start()
     {
         spawner = resource_spawner.GetComponent<Spawner>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Subtract the delta time from your total time
+        remaining_time -= Time.deltaTime;
+
+        // Use Mathf.FloorToInt to display the integer portion
+        int displayTime = Mathf.FloorToInt(remaining_time);
+        time_text.text = displayTime.ToString();
+
+        // Check if there's time left
         if (remaining_time > 0)
         {
+            // Handle spawning every "spawnRate" seconds
             if (timer < spawnRate)
             {
-                timer = timer + Time.deltaTime;
+                timer += Time.deltaTime;
             }
             else
             {
+                GameObject[] goldObjects = GameObject.FindGameObjectsWithTag("Gold"); // New
+                GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Diamond");
+                int num_objects = taggedObjects.Length;
+                int gold_count = goldObjects.Length; // New
                 int randInt = Random.Range(0, resource_options.Length);
-                if (randInt == 0)
+
+                if (randInt == 0 && gold_count < maxGold) // Check gold limit
                 {
                     spawner.spawnResources(gold);
                     spawner.spawnResources(gold);
-                    spawner.spawnResources(gold);
                 }
-                else if (randInt == 1)
+                else if (randInt == 1 && num_objects < 1)
                 {
                     spawner.spawnResources(silver);
                 }
                 timer = 0;
             }
-            remaining_time = remaining_time - Time.deltaTime;
-            time_text.text = remaining_time.ToString();
+
         }
         else
         {
+            // Time is up
             time_text.text = "Game Over";
             gameOverScreen.SetActive(true);
         }
@@ -56,6 +70,7 @@ public class TimeScript : MonoBehaviour
 
     public void Restart()
     {
+        // Reload the current active scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

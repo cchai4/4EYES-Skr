@@ -1,22 +1,59 @@
 using UnityEngine;
 
-public class Silver : MonoBehaviour
+public class diamond : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    public float Hover_duration = 3f;
+    private float hover_time = 0f;
+    private bool collected = false;
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == 6)
+        if (collision.gameObject.layer == 6 || collision.gameObject.layer == 7)
         {
-            Blue_Inventory blue_inven = collision.GetComponent<Blue_Inventory>();
+            hover_time += Time.deltaTime;
 
-            blue_inven.add_silver();
+            if (!collected && hover_time >= Hover_duration)
+            {
+                collected = true;
+
+                if (collision.gameObject.layer == 6) // Blue
+                {
+                    Blue_Inventory blueInv = Blue_Inventory.Instance;
+                    if (blueInv != null)
+                    {
+                        blueInv.add_diamond();
+                        blueInv.write_diamond();
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Blue Inventory singleton not found!");
+                    }
+                }
+                else if (collision.gameObject.layer == 7) // Red
+                {
+                    RedInventory redInv = RedInventory.Instance;
+                    if (redInv != null)
+                    {
+                        redInv.add_diamond();
+                        redInv.write_diamond();
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Red Inventory singleton not found!");
+                    }
+                }
+
+                Destroy(gameObject);
+            }
         }
-        else if(collision.gameObject.layer == 7)
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 6 || collision.gameObject.layer == 7)
         {
-            RedInventory red_inven = collision.GetComponent<RedInventory>();
-
-            red_inven.add_silver();
+            hover_time = 0f;
+            collected = false;
         }
-
-        Destroy(gameObject);
     }
 }

@@ -1,10 +1,9 @@
 using UnityEngine;
-using static GridCellTint;      // ColorType enum
+using static GridCellTint;
 using System.Collections;
 
 public class GridCursor : MonoBehaviour
 {
-    /* ????? Inspector ????? */
     [Header("Movement Keys")]
     public KeyCode upKey;
     public KeyCode downKey;
@@ -12,33 +11,28 @@ public class GridCursor : MonoBehaviour
     public KeyCode rightKey;
 
     [Header("Action Keys")]
-    public KeyCode buildKey;    // Red: Space  •  Blue: RightShift
-    public KeyCode cancelKey;   // Red: LeftShift • Blue: Slash (/)
+    public KeyCode buildKey;
+    public KeyCode cancelKey;
 
     [Header("Cursor Settings")]
-    public ColorType tintOwner; // Red or Blue
+    public ColorType tintOwner;
     public int startRow = 0, startCol = 0;
 
-    /* ????? state ????? */
     private enum CursorState { Free, BuildingSelect }
     private CursorState currentState = CursorState.Free;
     [HideInInspector] public bool hasJoined = false;
 
-    /* grid data (shared) */
     private static GameObject[,] cells;
     private static bool[,] occupied;
     private static int rows, cols;
 
-    /* runtime */
     private int curRow, curCol;
     private BuildingSlot currentSlot;
     private int selectionIndex;
     private float debounce = 0f;
 
-    /* ????? init grid ????? */
     void Awake()
     {
-        /* default keys if you forget to set them in Inspector */
         if (buildKey == KeyCode.None)
             buildKey = (tintOwner == ColorType.Red) ? KeyCode.Space : KeyCode.RightShift;
         if (cancelKey == KeyCode.None)
@@ -52,7 +46,7 @@ public class GridCursor : MonoBehaviour
         Transform gp = null;
         while (gp == null || gp.childCount == 0)
         {
-            gp = FindFirstObjectByType<GridManager>()?.gridParent; // Updated to use FindFirstObjectByType
+            gp = FindFirstObjectByType<GridManager>()?.gridParent;
             yield return null;
         }
 
@@ -82,12 +76,11 @@ public class GridCursor : MonoBehaviour
                     curRow = rr;
                     curCol = cc;
                     EnterCell(rr, cc);
-                    yield break; // Updated to use yield break instead of return
+                    yield break;
                 }
             }
     }
 
-    /* ????? update ????? */
     void Update()
     {
         if (cells == null) return;
@@ -97,7 +90,6 @@ public class GridCursor : MonoBehaviour
         else HandleBuildingSelect();
     }
 
-    /* ????? FREE state ????? */
     void HandleFree()
     {
         if (Input.GetKeyDown(leftKey) && curCol == 0) { ReactivatePlayer(); return; }
@@ -115,7 +107,12 @@ public class GridCursor : MonoBehaviour
             var slot = cells[nr, nc].GetComponent<BuildingSlot>();
             bool blocked = slot && slot.IsBlocked(tintOwner);
             if (!blocked && !occupied[nr, nc])
-            { ExitCell(curRow, curCol); EnterCell(nr, nc); curRow = nr; curCol = nc; }
+            {
+                ExitCell(curRow, curCol);
+                EnterCell(nr, nc);
+                curRow = nr;
+                curCol = nc;
+            }
         }
 
         if (Input.GetKeyDown(buildKey) && hasJoined)
@@ -123,13 +120,19 @@ public class GridCursor : MonoBehaviour
             currentSlot = cells[curRow, curCol].GetComponent<BuildingSlot>();
             if (currentSlot == null) return;
 
+            // ? NEW: Prevent entering building mode if cell has a building
+            if (currentSlot.HasBuilding())
+            {
+                Debug.Log("Cannot build here — cell already contains a building.");
+                return;
+            }
+
             currentState = CursorState.BuildingSelect;
             selectionIndex = 0;
             BuildingSelectionUI.Instance.StartSelection(tintOwner, selectionIndex);
         }
     }
 
-    /* ????? BUILDING?SELECT state ????? */
     void HandleBuildingSelect()
     {
         int Dir() => (tintOwner == ColorType.Red) ? 1 : -1;
@@ -150,12 +153,10 @@ public class GridCursor : MonoBehaviour
             debounce = 0.25f;
             var chosen = (BuildingType)(selectionIndex + 1);
             currentSlot.PlaceBuilding(tintOwner, chosen);
-
             BuildingSelectionUI.Instance.EndSelection();
             currentState = CursorState.Free;
         }
 
-        /* NEW: cancel key */
         if (Input.GetKeyDown(cancelKey))
         {
             BuildingSelectionUI.Instance.EndSelection();
@@ -163,12 +164,12 @@ public class GridCursor : MonoBehaviour
         }
     }
 
-    /* ????? cell helpers ????? */
     void EnterCell(int r, int c)
     {
         occupied[r, c] = true;
         if (hasJoined) cells[r, c].GetComponent<GridCellTint>()?.Enter(tintOwner);
     }
+
     void ExitCell(int r, int c)
     {
         occupied[r, c] = false;
@@ -180,11 +181,11 @@ public class GridCursor : MonoBehaviour
         ExitCell(curRow, curCol);
         curRow = Mathf.Clamp(r, 0, rows - 1);
         curCol = Mathf.Clamp(c, 0, cols - 1);
-        hasJoined = true; EnterCell(curRow, curCol);
+        hasJoined = true;
+        EnterCell(curRow, curCol);
         occupied[curRow, curCol] = false;
     }
 
-    /* ????? re?activate entity ????? */
     void ReactivatePlayer()
     {
         ExitCell(curRow, curCol); hasJoined = false;

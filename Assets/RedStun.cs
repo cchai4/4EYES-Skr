@@ -11,6 +11,13 @@ public class RedStun : MonoBehaviour
         isStunned = true;
         stunTimer = duration;
         Debug.Log("Red is stunned for " + duration + " seconds.");
+
+        // ADDED: Immediately zero out velocity at the moment of stun.
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+        }
     }
 
     void Update()
