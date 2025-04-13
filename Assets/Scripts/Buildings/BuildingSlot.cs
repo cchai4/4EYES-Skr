@@ -32,6 +32,8 @@ public class BuildingSlot : MonoBehaviour
                 Vector3 pos = transform.position + new Vector3(0, 0, -0.1f); // render on top
                 current = Instantiate(prefab, pos, Quaternion.identity, transform);
                 owner = who;
+                var baseScript = current.GetComponent<BuildingBase>();
+                if (baseScript) baseScript.team = (who == ColorType.Red) ? Team.Red : Team.Blue;
                 return;
             }
 

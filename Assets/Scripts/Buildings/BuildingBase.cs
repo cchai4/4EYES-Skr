@@ -1,16 +1,24 @@
 using UnityEngine;
 
+public enum Team { Red, Blue }
+
 public abstract class BuildingBase : MonoBehaviour
 {
-    [Header("Common Stats")]
-    public int maxHealth = 100;
-    protected int currentHealth;
+    [Header("Team + Health")]
+    public Team team;                      // <— set during placement
+    [SerializeField] private int maxHP = 10;
+    private int currentHP;
 
-    protected virtual void Awake() => currentHealth = maxHealth;
+    protected virtual void Awake() => currentHP = maxHP;
 
-    public virtual void TakeDamage(int dmg)
+    public void TakeDamage(int dmg)
     {
-        currentHealth -= dmg;
-        if (currentHealth <= 0) Destroy(gameObject);
+        currentHP -= dmg;
+        if (currentHP <= 0) DestroyBuilding();
+    }
+
+    protected virtual void DestroyBuilding()
+    {
+        Destroy(gameObject);
     }
 }
