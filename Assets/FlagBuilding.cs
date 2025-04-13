@@ -4,23 +4,26 @@ public class FlagBuilding : BuildingBase
 {
     protected override void Awake()
     {
-        base.Awake(); // Initializes currentHP from maxHP
-        FlagManager.Instance.RegisterFlag(this);
-    }
+        // Call the base Awake to initialize BuildingBase variables.
+        base.Awake();
+        Debug.Log("FlagBuilding: Awake called.");
 
-    public override void TakeDamage(int amount)
-    {
-        currentHP -= amount;
-        if (currentHP <= 0)
+        // Example: Ensure that a SpriteRenderer is present.
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr == null)
         {
-            FlagManager.Instance.UnregisterFlag(this);
-            DestroyBuilding();
+            Debug.LogWarning("FlagBuilding: SpriteRenderer is missing on flag prefab!");
         }
-    }
+        else
+        {
+            // Optionally, set properties such as sorting order.
+            sr.sortingOrder = 5; // Adjust as needed to ensure visibility.
+        }
 
-    protected override void DestroyBuilding()
-    {
-        // Optional: add flag-specific logic here
-        base.DestroyBuilding();
+        // Add any other initialization code here with proper null checks.
+        // For example, if you need to reference an AudioSource:
+        // AudioSource aud = GetComponent<AudioSource>();
+        // if (aud == null)
+        //     Debug.LogWarning("FlagBuilding: AudioSource is missing on flag prefab!");
     }
 }

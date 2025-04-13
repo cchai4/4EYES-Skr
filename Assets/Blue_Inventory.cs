@@ -6,8 +6,13 @@ public class Blue_Inventory : MonoBehaviour
 {
     public static Blue_Inventory Instance { get; private set; }
 
+    [Header("Starting Resources")]
+    [SerializeField] private int startingGold = 10;
+    [SerializeField] private int startingRunes = 0;
+
     private int gold_count;
     private int diamond_count;
+
     public Text blue_gold;
     public Text blue_diamond;
 
@@ -20,10 +25,14 @@ public class Blue_Inventory : MonoBehaviour
         }
         Instance = this;
     }
+
     void Start()
     {
-        gold_count = 0;
-        diamond_count = 0;
+        gold_count = startingGold;
+        diamond_count = startingRunes;
+
+        write_gold();
+        write_diamond();
     }
 
     public void write_gold()
@@ -59,7 +68,6 @@ public class Blue_Inventory : MonoBehaviour
         write_diamond();
     }
 
-    // NEW: Flash the resource text if lacking gold or runes.
     public void FlashInsufficientResources(int requiredGold, int requiredDiamonds)
     {
         if (gold_count < requiredGold)

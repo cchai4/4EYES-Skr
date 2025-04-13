@@ -4,6 +4,9 @@ public class GridCellActivation : MonoBehaviour
 {
     private int row, col;
 
+    /// <summary>
+    /// Called by GridManager to assign the correct (row, col) at creation.
+    /// </summary>
     public void SetCoords(int r, int c)
     {
         row = r;
@@ -12,10 +15,10 @@ public class GridCellActivation : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        // Example tags: "Red" or "Blue"
         if (other.CompareTag("Red"))
         {
-            // Deactivate the Red entity.
-            other.gameObject.SetActive(false);
+            other.gameObject.SetActive(false); // or however you handle it
             GameObject player1Cursor = GameObject.Find("Player1Cursor");
             if (player1Cursor != null)
             {

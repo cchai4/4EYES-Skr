@@ -140,12 +140,14 @@ public class GridCursor : MonoBehaviour
         if (Input.GetKeyDown(leftKey))
         {
             selectionIndex = Mathf.Clamp(selectionIndex - Dir(), 0, 3);
-            BuildingSelectionUI.Instance.Highlight(selectionIndex);
+            BuildingSelectionUI.Instance.Highlight(tintOwner, selectionIndex);
+
         }
         if (Input.GetKeyDown(rightKey))
         {
             selectionIndex = Mathf.Clamp(selectionIndex + Dir(), 0, 3);
-            BuildingSelectionUI.Instance.Highlight(selectionIndex);
+            BuildingSelectionUI.Instance.Highlight(tintOwner, selectionIndex);
+
         }
 
         if (Input.GetKeyDown(buildKey) && debounce <= 0f)
@@ -153,13 +155,15 @@ public class GridCursor : MonoBehaviour
             debounce = 0.25f;
             var chosen = (BuildingType)(selectionIndex + 1);
             currentSlot.PlaceBuilding(tintOwner, chosen);
-            BuildingSelectionUI.Instance.EndSelection();
+            BuildingSelectionUI.Instance.EndSelection(tintOwner);
+
             currentState = CursorState.Free;
         }
 
         if (Input.GetKeyDown(cancelKey))
         {
-            BuildingSelectionUI.Instance.EndSelection();
+            BuildingSelectionUI.Instance.EndSelection(tintOwner);
+
             currentState = CursorState.Free;
         }
     }

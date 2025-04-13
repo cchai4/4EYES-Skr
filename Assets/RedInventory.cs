@@ -6,8 +6,13 @@ public class RedInventory : MonoBehaviour
 {
     public static RedInventory Instance { get; private set; }
 
+    [Header("Starting Resources")]
+    [SerializeField] private int startingGold = 10;
+    [SerializeField] private int startingRunes = 0;
+
     private int gold_count;
     private int diamond_count;
+
     public Text red_gold;
     public Text red_diamond;
 
@@ -20,10 +25,14 @@ public class RedInventory : MonoBehaviour
         }
         Instance = this;
     }
+
     void Start()
     {
-        gold_count = 0;
-        diamond_count = 0;
+        gold_count = startingGold;
+        diamond_count = startingRunes;
+
+        write_gold();
+        write_diamond();
     }
 
     public void write_gold()
@@ -46,13 +55,11 @@ public class RedInventory : MonoBehaviour
         diamond_count++;
     }
 
-    // Check whether we have enough for cost
     public bool HasEnoughResources(int requiredGold, int requiredDiamonds)
     {
         return (gold_count >= requiredGold && diamond_count >= requiredDiamonds);
     }
 
-    // Subtract the cost
     public void RemoveResources(int goldToRemove, int diamondsToRemove)
     {
         gold_count -= goldToRemove;
@@ -61,9 +68,6 @@ public class RedInventory : MonoBehaviour
         write_diamond();
     }
 
-    // ?????????????????????????????????????????????????????????????????????
-    //  NEW: Flash the resource text if we're missing gold or runes.
-    // ?????????????????????????????????????????????????????????????????????
     public void FlashInsufficientResources(int requiredGold, int requiredDiamonds)
     {
         if (gold_count < requiredGold)
@@ -73,18 +77,15 @@ public class RedInventory : MonoBehaviour
             StartCoroutine(FlashText(red_diamond));
     }
 
-    // A simple coroutine that blinks the text UI in red 3 times
     private IEnumerator FlashText(Text textUI)
     {
         Color originalColor = textUI.color;
 
-        for (int i = 0; i < 3; i++) // number of flashes
+        for (int i = 0; i < 3; i++)
         {
-            // Turn it red
             textUI.color = Color.red;
             yield return new WaitForSeconds(0.2f);
 
-            // Back to original
             textUI.color = originalColor;
             yield return new WaitForSeconds(0.2f);
         }

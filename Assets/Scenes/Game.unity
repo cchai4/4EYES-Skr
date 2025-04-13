@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5798fe9500f9a6f44a4cbfc556968d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 5
+  acceleration: 15
   maxSpeed: 2
 --- !u!50 &102036880
 Rigidbody2D:
@@ -572,9 +572,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29cc5f7fdce009649965c62b6eaf0e18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 5
-  dashDuration: 0.2
-  dashCooldown: 1.5
+  dashSpeed: 7
+  dashDuration: 0.25
+  dashCooldown: 1.25
   doubleTapThreshold: 0.3
   knockbackForce: 7
   dashHitbox: {fileID: 326058508}
@@ -817,7 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2be0fc271d6bc8d409bb5afede751781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 5
+  acceleration: 15
   maxSpeed: 2
 --- !u!212 &118102783
 SpriteRenderer:
@@ -941,9 +941,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb2d73c1b0223f4aad49cc9144ffe73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 5
-  dashDuration: 0.2
-  dashCooldown: 1.5
+  dashSpeed: 7
+  dashDuration: 0.25
+  dashCooldown: 1.25
   doubleTapThreshold: 0.3
   knockbackForce: 7
   dashHitboxBlue: {fileID: 2130878631}
@@ -1051,6 +1051,66 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.51, y: 5.5, z: 0.03453563}
   m_LocalScale: {x: 9.02, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &193012296
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 193012298}
+  - component: {fileID: 193012297}
+  m_Layer: 0
+  m_Name: BuildingCostManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &193012297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193012296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa6492e1cc338f429bb76202f37df63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  costs:
+  - type: 0
+    gold: 0
+    runes: 0
+  - type: 1
+    gold: 20
+    runes: 1
+  - type: 2
+    gold: 10
+    runes: 0
+  - type: 3
+    gold: 25
+    runes: 2
+  - type: 4
+    gold: 50
+    runes: 3
+--- !u!4 &193012298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193012296}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7706517, y: 2.894554, z: 0.8301205}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1524,6 +1584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51b6d53a1d53145b1b1d9bb236cd43d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingGold: 10
+  startingRunes: 0
   blue_gold: {fileID: 1948872661}
   blue_diamond: {fileID: 1005643901}
 --- !u!4 &666312301
@@ -1693,51 +1755,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745039036}
   m_CullTransparentMesh: 1
---- !u!1 &759687051
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 759687053}
-  - component: {fileID: 759687052}
-  m_Layer: 0
-  m_Name: FlagManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &759687052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 759687051}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae5255bdef6c0d141b4e28c8d88e1e4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  winFlagCount: 3
---- !u!4 &759687053
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 759687051}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5015025, y: -0.27520424, z: -8.443398}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &769465700
 GameObject:
   m_ObjectHideFlags: 0
@@ -1913,6 +1930,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772611760}
   m_CullTransparentMesh: 1
+--- !u!1 &810929438
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 810929440}
+  - component: {fileID: 810929439}
+  m_Layer: 0
+  m_Name: FlagInitializer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &810929439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810929438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9276daeba0bc4ca4bb832897a79ad617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redFlagPrefab: {fileID: 8785059805562286425, guid: dd48bcb7ed6a9604a87638ad4ab80f81, type: 3}
+  blueFlagPrefab: {fileID: 400152796769770179, guid: 5440bf0e4f2fcc044ac90141145b5136, type: 3}
+--- !u!4 &810929440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810929438}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.15282764, y: -0.04428903, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &898301157
 GameObject:
   m_ObjectHideFlags: 0
@@ -2920,6 +2983,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4400b9a8b05f341a0b84edcc583d0a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingGold: 10
+  startingRunes: 0
   red_gold: {fileID: 1858246203}
   red_diamond: {fileID: 1620104090}
 --- !u!4 &1302153309
@@ -3373,7 +3438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4dc8a233f4c96649835e9e9749f731b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldInterval: 1
+  goldInterval: 2
 --- !u!4 &1449963482
 Transform:
   m_ObjectHideFlags: 0
@@ -4009,9 +4074,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Gold: 0
-
-'
+  m_Text: 'Gold: 10'
 --- !u!222 &1858246204
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4226,7 +4289,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Gold: 0'
+  m_Text: 'Gold: 10
+
+'
 --- !u!222 &1948872662
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4397,7 +4462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79223328d1b3c344ab9597ec027a9094, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSize: 9
+  gridSize: 11
   gridCellPrefab: {fileID: 7746484411982521030, guid: b86ae42f9160a914288b372743616d96, type: 3}
   gridParent: {fileID: 699122475}
 --- !u!4 &2024737191
@@ -4902,7 +4967,8 @@ SceneRoots:
   - {fileID: 1317770614}
   - {fileID: 1994609423}
   - {fileID: 1054402080}
-  - {fileID: 759687053}
   - {fileID: 1449963482}
   - {fileID: 1302153309}
   - {fileID: 666312301}
+  - {fileID: 193012298}
+  - {fileID: 810929440}
