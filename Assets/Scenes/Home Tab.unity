@@ -896,7 +896,10 @@ GameObject:
   - component: {fileID: 1616604316}
   - component: {fileID: 1616604315}
   - component: {fileID: 1616604314}
+<<<<<<< Updated upstream
   - component: {fileID: 1616604318}
+=======
+>>>>>>> Stashed changes
   - component: {fileID: 1616604317}
   m_Layer: 0
   m_Name: Main Camera
@@ -988,6 +991,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1616604313}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< Updated upstream
   m_Script: {fileID: 11500000, guid: 7419f944cd58a4950b125c0820f17ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -1000,6 +1004,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1616604313}
   m_Enabled: 1
   m_EditorHideFlags: 0
+=======
+>>>>>>> Stashed changes
   m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -1035,6 +1041,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+<<<<<<< Updated upstream
 --- !u!1 &1705394143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1564,6 +1571,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1939743839}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
