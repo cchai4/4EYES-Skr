@@ -1,6 +1,1 @@
-using UnityEngine;
-
-public class BuildingManager
-{
-    
-}
+public class BuildingManager { }

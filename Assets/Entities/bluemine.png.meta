@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7ccbbfe07c46640549096728a2fd3971
+guid: 0f06d95056295ff4999ed630c3385734
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5689511904572181803
-    second: catastrophe_0
+      213: -7189512286040090714
+    second: bluemine_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: catastrophe_0
+      name: bluemine_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 626
-        height: 417
+        x: 15
+        y: 15
+        width: 226
+        height: 226
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d27e9e211bca01b0800000000000000
-      internalID: -5689511904572181803
+      spriteID: 6a71642eaa8b93c90800000000000000
+      internalID: -7189512286040090714
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      catastrophe_0: -5689511904572181803
+      bluemine_0: -7189512286040090714
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

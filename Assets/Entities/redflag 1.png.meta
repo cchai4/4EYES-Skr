@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7ccbbfe07c46640549096728a2fd3971
+guid: 65ee1fd1bb0e63247b6f26489c32c7cf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5689511904572181803
-    second: catastrophe_0
+      213: -1728987350458118440
+    second: redflag 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: catastrophe_0
+      name: redflag 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 626
-        height: 417
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d27e9e211bca01b0800000000000000
-      internalID: -5689511904572181803
+      spriteID: 8deccc25a276108e0800000000000000
+      internalID: -1728987350458118440
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      catastrophe_0: -5689511904572181803
+      redflag 1_0: -1728987350458118440
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

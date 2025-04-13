@@ -1,45 +1,61 @@
 using UnityEngine;
-using static GridCellTint; // For ColorType enum
+using static GridCellTint;      // ColorType enum
 using System.Collections;
 
 public class GridCursor : MonoBehaviour
 {
-    [Header("Controls")]
-    public KeyCode upKey;    // For red: W, for blue: UpArrow
-    public KeyCode downKey;  // For red: S, for blue: DownArrow
-    public KeyCode leftKey;  // For both, reactivation triggered when pressed in leftmost cell
-    public KeyCode rightKey; // For red: D, for blue: RightArrow
+    /* ????? Inspector ????? */
+    [Header("Movement Keys")]
+    public KeyCode upKey;
+    public KeyCode downKey;
+    public KeyCode leftKey;
+    public KeyCode rightKey;
+
+    [Header("Action Keys")]
+    public KeyCode buildKey;    // Red: Space  •  Blue: RightShift
+    public KeyCode cancelKey;   // Red: LeftShift • Blue: Slash (/)
 
     [Header("Cursor Settings")]
-    public ColorType tintOwner;   // For Player1Cursor: Red; for Player2Cursor: Blue.
+    public ColorType tintOwner; // Red or Blue
     public int startRow = 0, startCol = 0;
 
-    // Indicates whether the entity has joined the grid (and so the cursor tints cells)
+    /* ????? state ????? */
+    private enum CursorState { Free, BuildingSelect }
+    private CursorState currentState = CursorState.Free;
     [HideInInspector] public bool hasJoined = false;
 
-    // Shared grid arrays (initialized only once)
+    /* grid data (shared) */
     private static GameObject[,] cells;
     private static bool[,] occupied;
     private static int rows, cols;
 
-    // The current cell indices for this cursor
+    /* runtime */
     private int curRow, curCol;
+    private BuildingSlot currentSlot;
+    private int selectionIndex;
+    private float debounce = 0f;
 
-    void Start() => StartCoroutine(InitWhenGridReady());
-
-    IEnumerator InitWhenGridReady()
+    /* ????? init grid ????? */
+    void Awake()
     {
-        // Wait until GridManager has finished building the grid.
-        GridManager gm = null;
+        /* default keys if you forget to set them in Inspector */
+        if (buildKey == KeyCode.None)
+            buildKey = (tintOwner == ColorType.Red) ? KeyCode.Space : KeyCode.RightShift;
+        if (cancelKey == KeyCode.None)
+            cancelKey = (tintOwner == ColorType.Red) ? KeyCode.LeftShift : KeyCode.Slash;
+    }
+
+    void Start() => StartCoroutine(InitGrid());
+
+    IEnumerator InitGrid()
+    {
         Transform gp = null;
         while (gp == null || gp.childCount == 0)
         {
-            gm = Object.FindFirstObjectByType<GridManager>();
-            gp = gm ? gm.gridParent : null;
+            gp = FindFirstObjectByType<GridManager>()?.gridParent; // Updated to use FindFirstObjectByType
             yield return null;
         }
 
-        // Initialize shared arrays only once.
         if (cells == null)
         {
             rows = cols = Mathf.RoundToInt(Mathf.Sqrt(gp.childCount));
@@ -48,149 +64,138 @@ public class GridCursor : MonoBehaviour
 
             foreach (Transform t in gp)
             {
-                string[] parts = t.name.Split('_');
-                if (parts.Length == 3 &&
-                    int.TryParse(parts[1], out int r) &&
-                    int.TryParse(parts[2], out int c))
-                {
-                    if (r < rows && c < cols)
-                        cells[r, c] = t.gameObject;
-                }
+                var p = t.name.Split('_');
+                if (p.Length == 3 &&
+                    int.TryParse(p[1], out int r) &&
+                    int.TryParse(p[2], out int c))
+                    cells[r, c] = t.gameObject;
             }
         }
 
-        // Find the nearest free cell starting at (startRow, startCol).
-        bool placed = false;
-        for (int r = 0; r < rows && !placed; r++)
-        {
-            for (int c = 0; c < cols && !placed; c++)
+        for (int r = 0; r < rows; r++)
+            for (int c = 0; c < cols; c++)
             {
-                int tryRow = (startRow + r) % rows;
-                int tryCol = (startCol + c) % cols;
-                if (!occupied[tryRow, tryCol])
+                int rr = (startRow + r) % rows;
+                int cc = (startCol + c) % cols;
+                if (!occupied[rr, cc])
                 {
-                    curRow = tryRow;
-                    curCol = tryCol;
-                    EnterCell(curRow, curCol);
-                    placed = true;
+                    curRow = rr;
+                    curCol = cc;
+                    EnterCell(rr, cc);
+                    yield break; // Updated to use yield break instead of return
                 }
             }
-        }
-        if (!placed)
-            Debug.LogError("GridCursor: No available cell found!");
     }
 
+    /* ????? update ????? */
     void Update()
     {
         if (cells == null) return;
+        if (debounce > 0) debounce -= Time.deltaTime;
 
-        // Reactivation logic: if leftKey is pressed while at the leftmost column, reactivate the underlying entity.
-        if (Input.GetKeyDown(leftKey) && curCol == 0)
+        if (currentState == CursorState.Free) HandleFree();
+        else HandleBuildingSelect();
+    }
+
+    /* ????? FREE state ????? */
+    void HandleFree()
+    {
+        if (Input.GetKeyDown(leftKey) && curCol == 0) { ReactivatePlayer(); return; }
+
+        int nr = curRow, nc = curCol;
+        if (Input.GetKeyDown(upKey)) nr--;
+        if (Input.GetKeyDown(downKey)) nr++;
+        if (Input.GetKeyDown(leftKey)) nc--;
+        if (Input.GetKeyDown(rightKey)) nc++;
+        nr = Mathf.Clamp(nr, 0, rows - 1);
+        nc = Mathf.Clamp(nc, 0, cols - 1);
+
+        if ((nr != curRow || nc != curCol))
         {
-            ReactivatePlayer();
-            return; // Skip normal movement.
+            var slot = cells[nr, nc].GetComponent<BuildingSlot>();
+            bool blocked = slot && slot.IsBlocked(tintOwner);
+            if (!blocked && !occupied[nr, nc])
+            { ExitCell(curRow, curCol); EnterCell(nr, nc); curRow = nr; curCol = nc; }
         }
 
-        int newRow = curRow;
-        int newCol = curCol;
-        if (Input.GetKeyDown(upKey)) newRow--;
-        if (Input.GetKeyDown(downKey)) newRow++;
-        if (Input.GetKeyDown(leftKey)) newCol--; // normal left movement (if not reactivating)
-        if (Input.GetKeyDown(rightKey)) newCol++;
-
-        newRow = Mathf.Clamp(newRow, 0, rows - 1);
-        newCol = Mathf.Clamp(newCol, 0, cols - 1);
-
-        // Only move if the destination cell is not occupied.
-        if ((newRow != curRow || newCol != curCol) && !occupied[newRow, newCol])
+        if (Input.GetKeyDown(buildKey) && hasJoined)
         {
-            ExitCell(curRow, curCol);
-            EnterCell(newRow, newCol);
-            curRow = newRow;
-            curCol = newCol;
+            currentSlot = cells[curRow, curCol].GetComponent<BuildingSlot>();
+            if (currentSlot == null) return;
+
+            currentState = CursorState.BuildingSelect;
+            selectionIndex = 0;
+            BuildingSelectionUI.Instance.StartSelection(tintOwner, selectionIndex);
         }
     }
 
+    /* ????? BUILDING?SELECT state ????? */
+    void HandleBuildingSelect()
+    {
+        int Dir() => (tintOwner == ColorType.Red) ? 1 : -1;
+
+        if (Input.GetKeyDown(leftKey))
+        {
+            selectionIndex = Mathf.Clamp(selectionIndex - Dir(), 0, 3);
+            BuildingSelectionUI.Instance.Highlight(selectionIndex);
+        }
+        if (Input.GetKeyDown(rightKey))
+        {
+            selectionIndex = Mathf.Clamp(selectionIndex + Dir(), 0, 3);
+            BuildingSelectionUI.Instance.Highlight(selectionIndex);
+        }
+
+        if (Input.GetKeyDown(buildKey) && debounce <= 0f)
+        {
+            debounce = 0.25f;
+            var chosen = (BuildingType)(selectionIndex + 1);
+            currentSlot.PlaceBuilding(tintOwner, chosen);
+
+            BuildingSelectionUI.Instance.EndSelection();
+            currentState = CursorState.Free;
+        }
+
+        /* NEW: cancel key */
+        if (Input.GetKeyDown(cancelKey))
+        {
+            BuildingSelectionUI.Instance.EndSelection();
+            currentState = CursorState.Free;
+        }
+    }
+
+    /* ????? cell helpers ????? */
     void EnterCell(int r, int c)
     {
         occupied[r, c] = true;
-        if (hasJoined)
-        {
-            var tint = cells[r, c].GetComponent<GridCellTint>();
-            if (tint != null)
-                tint.Enter(tintOwner);
-        }
+        if (hasJoined) cells[r, c].GetComponent<GridCellTint>()?.Enter(tintOwner);
     }
-
     void ExitCell(int r, int c)
     {
         occupied[r, c] = false;
-        if (hasJoined)
-        {
-            var tint = cells[r, c].GetComponent<GridCellTint>();
-            if (tint != null)
-                tint.Exit(tintOwner);
-        }
+        if (hasJoined) cells[r, c].GetComponent<GridCellTint>()?.Exit(tintOwner);
     }
 
-    // Called externally (for example, from GridCellActivation) to force the cursor to a specific cell.
     public void ForcePlaceAt(int r, int c)
     {
-        if (cells == null || occupied == null) return;
         ExitCell(curRow, curCol);
         curRow = Mathf.Clamp(r, 0, rows - 1);
         curCol = Mathf.Clamp(c, 0, cols - 1);
-        if (!occupied[curRow, curCol])
-        {
-            hasJoined = true;
-            EnterCell(curRow, curCol);
-        }
-        else
-        {
-            // If the cell is already occupied, reset the state.
-            ExitCell(curRow, curCol);
-            hasJoined = true;
-            EnterCell(curRow, curCol);
-            Debug.LogWarning("ForcePlaceAt: Target cell already occupied; state reset.");
-        }
-        // Release the occupancy flag so the same cell can be re-converted later.
+        hasJoined = true; EnterCell(curRow, curCol);
         occupied[curRow, curCol] = false;
     }
 
-    // Reactivates the underlying entity (Red or Blue) when the cursor is at the leftmost cell 
-    // and the left key is pressed.
+    /* ????? re?activate entity ????? */
     void ReactivatePlayer()
     {
-        ExitCell(curRow, curCol);
-        hasJoined = false;
+        ExitCell(curRow, curCol); hasJoined = false;
+        string name = tintOwner == ColorType.Red ? "Red" : "Blue";
+        GameObject ent = null;
+        foreach (var o in Resources.FindObjectsOfTypeAll<GameObject>())
+            if (o.name == name) { ent = o; break; }
+        if (ent == null || ent.activeInHierarchy) return;
 
-        // Determine the entity name based on tintOwner.
-        string entityName = tintOwner == ColorType.Red ? "Red" : "Blue";
-        GameObject entity = null;
-        GameObject[] allObjs = Resources.FindObjectsOfTypeAll<GameObject>();
-        foreach (GameObject obj in allObjs)
-        {
-            if (obj.name == entityName)
-            {
-                entity = obj;
-                break;
-            }
-        }
-        if (entity == null)
-        {
-            Debug.LogWarning($"ReactivatePlayer: Could not find the {entityName} entity!");
-            return;
-        }
-        if (entity.activeInHierarchy)
-            return;  // Already active.
-
-        entity.SetActive(true);
-        float cellWidth = cells[curRow, curCol].transform.localScale.x;
-        Vector3 cellPos = cells[curRow, curCol].transform.position;
-        // For both Red and Blue, we now use left offset.
-        float offsetMultiplier = 1.5f;  // Change as needed.
-        entity.transform.position = cellPos + Vector3.left * (cellWidth * offsetMultiplier);
-
-        Debug.Log($"Reactivated {entityName} at cell [{curRow},{curCol}] with offset {cellWidth * offsetMultiplier}");
+        ent.SetActive(true);
+        float w = cells[curRow, curCol].transform.localScale.x;
+        ent.transform.position = cells[curRow, curCol].transform.position + Vector3.left * w * 1.5f;
     }
 }
