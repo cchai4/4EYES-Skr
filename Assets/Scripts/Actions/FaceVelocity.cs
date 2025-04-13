@@ -3,8 +3,8 @@ using UnityEngine;
 public class FaceLastDirection : MonoBehaviour
 {
     private Rigidbody2D rb;
-    // This holds the last input direction (or "intended" direction) when movement keys were pressed.
-    private Vector2 lastDirection = Vector2.up; // start facing up
+    // Holds the last non-zero movement direction. By default, facing up.
+    public Vector2 LastDirection { get; private set; } = Vector2.up;
 
     void Awake()
     {
@@ -13,7 +13,6 @@ public class FaceLastDirection : MonoBehaviour
 
     void Update()
     {
-        // Get input from keyboard (WASD)
         Vector2 inputDir = Vector2.zero;
         if (Input.GetKey(KeyCode.W))
             inputDir.y += 1;
@@ -24,17 +23,13 @@ public class FaceLastDirection : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             inputDir.x += 1;
 
-        // If there is active input, update the stored direction.
         if (inputDir.sqrMagnitude > 0.01f)
         {
-            lastDirection = inputDir.normalized;
+            LastDirection = inputDir.normalized;
         }
-        // Otherwise, keep using the lastDirection even if rb.velocity is decaying or noisy.
 
-        // Calculate the angle.
-        // Atan2 returns an angle with 0° along the positive x-axis.
-        // Subtract 90° so that a 0° angle means facing upward (the sprite's original direction).
-        float angle = Mathf.Atan2(lastDirection.y, lastDirection.x) * Mathf.Rad2Deg - 90f;
+        // Rotate sprite so that 0Â° corresponds to up (optional).
+        float angle = Mathf.Atan2(LastDirection.y, LastDirection.x) * Mathf.Rad2Deg - 90f;
         transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 }

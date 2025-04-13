@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MovementArrows : MonoBehaviour
 {
+    private BlueStun blueStun;
     public float acceleration = 10f;  // Units per second^2
     public float maxSpeed = 5f;       // Maximum overall speed
     private Rigidbody2D rb2;
@@ -9,11 +10,21 @@ public class MovementArrows : MonoBehaviour
     void Awake()
     {
         rb2 = GetComponent<Rigidbody2D>();
+        // Cache the BlueStun component from the same GameObject.
+        blueStun = GetComponent<BlueStun>();
     }
 
     void Update()
     {
-        // Gather WASD input into a single vector.
+        // Check if blueStun is assigned and if the player is stunned.
+        if (blueStun != null && blueStun.isStunned)
+        {
+            // Optionally, stop the player's movement immediately.
+            rb2.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        // Gather arrow key input into a single vector.
         Vector2 input = Vector2.zero;
         if (Input.GetKey(KeyCode.RightArrow))
             input.x += 1;

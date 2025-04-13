@@ -4,17 +4,18 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Blue
   - Red
+  - Blue
+  - Fireball
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Fireball
   - Water
   - UI
-  - Red Layer
-  - Blue Layer
+  - 
+  - 
   - 
   - 
   - 

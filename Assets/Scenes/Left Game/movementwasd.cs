@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class MovementWASD : MonoBehaviour
 {
+    // Reference to the RedStun component.
+    private RedStun redStun;
     public float acceleration = 10f;  // Units per second^2
     public float maxSpeed = 5f;       // Maximum overall speed
     private Rigidbody2D rb2;
@@ -9,10 +11,19 @@ public class MovementWASD : MonoBehaviour
     void Awake()
     {
         rb2 = GetComponent<Rigidbody2D>();
+        // Cache the RedStun component from the same GameObject.
+        redStun = GetComponent<RedStun>();
     }
 
     void Update()
     {
+        // If the red character is stunned, stop movement immediately.
+        if (redStun != null && redStun.isStunned)
+        {
+            rb2.linearVelocity = Vector2.zero;
+            return;
+        }
+
         // Gather WASD input into a single vector.
         Vector2 input = Vector2.zero;
         if (Input.GetKey(KeyCode.D))
