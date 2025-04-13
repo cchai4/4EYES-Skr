@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class TimeScript : MonoBehaviour
 {
-    public float remaining_time = 5;
+    public float remaining_time = 180;
     public float timer = 0;
     public Text time_text;
     public GameObject gold;

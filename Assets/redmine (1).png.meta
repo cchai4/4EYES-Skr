@@ -1,10 +1,25 @@
 fileFormatVersion: 2
-guid: b2c55a32c9e51454f8dcb06daba58a31
+guid: d9ef94ca964e842e78ce0a8abd9007f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1247658096400603272
-    second: Wiz_Fireball_0
+      213: -827852124332826228
+    second: redmine (1)_0
+  - first:
+      213: 3585542485900989631
+    second: redmine (1)_1
+  - first:
+      213: -2458467764064163229
+    second: redmine (1)_2
+  - first:
+      213: 7781466218043599317
+    second: redmine (1)_3
+  - first:
+      213: 100280066258841668
+    second: redmine (1)_4
+  - first:
+      213: 7023283763905542117
+    second: redmine (1)_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wiz_Fireball_0
+      name: redmine (1)_0
       rect:
         serializedVersion: 2
-        x: 3039
-        y: 4767
-        width: 610
-        height: 546
+        x: 863
+        y: 5599
+        width: 322
+        height: 322
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +143,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8881915ad62905110800000000000000
-      internalID: 1247658096400603272
+      spriteID: c81e69a01e0e284f0800000000000000
+      internalID: -827852124332826228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmine (1)_1
+      rect:
+        serializedVersion: 2
+        x: 2623
+        y: 4671
+        width: 898
+        height: 1122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb41337d4e762c130800000000000000
+      internalID: 3585542485900989631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmine (1)_2
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 4671
+        width: 898
+        height: 898
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36ae4371894c1edd0800000000000000
+      internalID: -2458467764064163229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmine (1)_3
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 2623
+        width: 898
+        height: 1058
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d9e03e1c425dfb60800000000000000
+      internalID: 7781466218043599317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmine (1)_4
+      rect:
+        serializedVersion: 2
+        x: 2623
+        y: 2623
+        width: 898
+        height: 994
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 440396f5034446100800000000000000
+      internalID: 100280066258841668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redmine (1)_5
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 575
+        width: 898
+        height: 898
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e7bb505f57b77160800000000000000
+      internalID: 7023283763905542117
       vertices: []
       indices: 
       edges: []
@@ -147,8 +272,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Wiz_Fireball_0: 1247658096400603272
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
