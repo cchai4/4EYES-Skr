@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Blue
   - Red
+  - Fireball
   layers:
   - Default
   - TransparentFX
@@ -13,8 +14,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Red Layer
   - Blue Layer
+  - Red Layer
   - 
   - 
   - 
