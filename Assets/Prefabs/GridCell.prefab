@@ -186,6 +186,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4949c86efafded841ac0a95e997691a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentBuildingType: 0
-  buildingAnchor: {fileID: 0}
-  buildingPrefabs: []
+  prefabs:
+  - type: 1
+    redPrefab: {fileID: 9113157820349577116, guid: b490911fbc1d11040bec6e6b2c9c802b, type: 3}
+    bluePrefab: {fileID: 2181165315895291626, guid: 9fc209d0814a4f84ba639228f389b547, type: 3}
+  - type: 3
+    redPrefab: {fileID: 6318199854624921893, guid: 503963cb6b4340b4abba728cf94e22be, type: 3}
+    bluePrefab: {fileID: 5764846007184382515, guid: 76a9c4ec3324c7d4db82f4753de70434, type: 3}
+  - type: 2
+    redPrefab: {fileID: 2375935238936327703, guid: 691314665a6d31342bc944324137f94e, type: 3}
+    bluePrefab: {fileID: 2118240990984091370, guid: 935e67f7a72fdba4c9984d3225a7b386, type: 3}
+  - type: 4
+    redPrefab: {fileID: 8785059805562286425, guid: dd48bcb7ed6a9604a87638ad4ab80f81, type: 3}
+    bluePrefab: {fileID: 400152796769770179, guid: 5440bf0e4f2fcc044ac90141145b5136, type: 3}

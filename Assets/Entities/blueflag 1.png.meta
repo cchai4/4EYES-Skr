@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7ccbbfe07c46640549096728a2fd3971
+guid: 720b6ce6777e25f4ba2e62ade9cfecc1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5689511904572181803
-    second: catastrophe_0
+      213: 6298425001245175957
+    second: blueflag 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: catastrophe_0
+      name: blueflag 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 626
-        height: 417
+        width: 256
+        height: 256
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5d27e9e211bca01b0800000000000000
-      internalID: -5689511904572181803
+      spriteID: 59078ab0b20886750800000000000000
+      internalID: 6298425001245175957
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      catastrophe_0: -5689511904572181803
+      blueflag 1_0: 6298425001245175957
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

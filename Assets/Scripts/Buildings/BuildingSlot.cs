@@ -1,38 +1,46 @@
 using UnityEngine;
+using static GridCellTint;
 
 public class BuildingSlot : MonoBehaviour
 {
     [System.Serializable]
-    public struct PrefabMap
+    public struct PrefabSet
     {
         public BuildingType type;
-        public GameObject prefab;
+        public GameObject redPrefab;
+        public GameObject bluePrefab;
     }
 
-    [Header("Prefabs for each type")]
-    public PrefabMap[] prefabs;         // fill in via Inspector
+    [Header("Prefab Mapping (set in Inspector)")]
+    public PrefabSet[] prefabs;
 
-    GameObject current;
+    private GameObject current;
+    private ColorType owner = ColorType.Red;   // default
 
-    public bool IsOccupied => current != null;
-
-    public void PlaceBuilding(BuildingType type)
+    /* place a building owned by 'who' */
+    public void PlaceBuilding(ColorType who, BuildingType type)
     {
-        if (IsOccupied) { Debug.LogWarning($"Cell {name} already has a building"); return; }
+        if (type == BuildingType.None) return;
+        if (current != null) { Debug.Log("Slot already occupied"); return; }
 
-        foreach (var m in prefabs)
-            if (m.type == type)
+        foreach (var p in prefabs)
+            if (p.type == type)
             {
-                current = Instantiate(m.prefab, transform.position, Quaternion.identity, transform);
+                GameObject prefab = (who == ColorType.Red) ? p.redPrefab : p.bluePrefab;
+                if (prefab == null) { Debug.LogWarning($"No prefab for {who} {type}"); return; }
+
+                Vector3 pos = transform.position + new Vector3(0, 0, -0.1f); // render on top
+                current = Instantiate(prefab, pos, Quaternion.identity, transform);
+                owner = who;
                 return;
             }
 
-        Debug.LogWarning($"No prefab mapped for {type}");
+        Debug.LogWarning($"BuildingSlot: No mapping for {type}");
     }
 
-    public void Clear()
+    /* true if this cell has an enemy building */
+    public bool IsBlocked(ColorType asker)
     {
-        if (current) Destroy(current);
-        current = null;
+        return current != null && owner != asker;
     }
 }
