@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b2c55a32c9e51454f8dcb06daba58a31
+guid: 311c313d0ce6641318d1f08660f1f1f2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1247658096400603272
-    second: Wiz_Fireball_0
+      213: -2058064273264372900
+    second: Multiplayer_Button_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wiz_Fireball_0
+      name: Multiplayer_Button_0
       rect:
         serializedVersion: 2
-        x: 3039
-        y: 4767
-        width: 610
-        height: 546
+        x: 3
+        y: 26
+        width: 90
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8881915ad62905110800000000000000
-      internalID: 1247658096400603272
+      spriteID: c53972392794073e0800000000000000
+      internalID: -2058064273264372900
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Wiz_Fireball_0: 1247658096400603272
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

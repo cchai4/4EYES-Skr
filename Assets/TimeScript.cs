@@ -9,7 +9,8 @@ public class TimeScript : MonoBehaviour
     public Text time_text;
     public GameObject gold;
     public GameObject silver;
-    public GameObject gameOverScreen;
+    public GameObject gameOverScreen_mult;
+    public GameObject gameOverScreen_single;
     public GameObject resource_spawner;
     public Spawner spawner;
     public float spawnRate = 2;
@@ -20,6 +21,8 @@ public class TimeScript : MonoBehaviour
     void Start()
     {
         spawner = resource_spawner.GetComponent<Spawner>();
+        gameOverScreen_mult.SetActive(false);
+        gameOverScreen_single.SetActive(false);
     }
 
     void Update()
@@ -64,7 +67,14 @@ public class TimeScript : MonoBehaviour
         {
             // Time is up
             time_text.text = "Game Over";
-            gameOverScreen.SetActive(true);
+            if(Game_Manager.Instance.isMultiplayer)
+            {
+                gameOverScreen_mult.SetActive(true);
+            }
+            else if(!Game_Manager.Instance.isMultiplayer)
+            {
+                gameOverScreen_single.SetActive(true);
+            }
         }
     }
 
@@ -72,5 +82,9 @@ public class TimeScript : MonoBehaviour
     {
         // Reload the current active scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void Exit()
+    {
+        SceneManager.LoadScene("Home Tab");
     }
 }

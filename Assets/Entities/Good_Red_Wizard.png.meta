@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: b2c55a32c9e51454f8dcb06daba58a31
+guid: 16cb2885b3b2c42aa82b13d3a03cbe99
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1247658096400603272
-    second: Wiz_Fireball_0
+      213: -8693132876666514029
+    second: Good_Red_Wizard_0
+  - first:
+      213: -6310297870194580621
+    second: Good_Red_Wizard_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wiz_Fireball_0
+      name: Good_Red_Wizard_0
       rect:
         serializedVersion: 2
-        x: 3039
-        y: 4767
-        width: 610
-        height: 546
+        x: 5
+        y: 1
+        width: 53
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8881915ad62905110800000000000000
-      internalID: 1247658096400603272
+      spriteID: 395d505f4b9cb5780800000000000000
+      internalID: -8693132876666514029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Good_Red_Wizard_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 56
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 373e52c35815d68a0800000000000000
+      internalID: -6310297870194580621
       vertices: []
       indices: 
       edges: []
@@ -147,8 +172,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Wiz_Fireball_0: 1247658096400603272
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
