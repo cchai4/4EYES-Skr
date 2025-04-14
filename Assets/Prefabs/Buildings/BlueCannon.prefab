@@ -138,8 +138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  maxHP: 20
+  maxHP: 15
   cannonballPrefab: {fileID: 8712394805136771531, guid: 09e613f378f42ac4a97a67d9384df423, type: 3}
-  shootInterval: 1.5
+  shootInterval: 1.75
   projectileSpeed: 8
   projectileKnockback: 4

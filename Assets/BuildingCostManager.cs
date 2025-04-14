@@ -20,22 +20,22 @@ public class BuildingCostManager : MonoBehaviour
         switch (type)
         {
             case BuildingType.Generator:
-                gold = Mathf.Min(10 + 10 * count, 40);
+                gold = Mathf.Min(10 + 5 * count, 40);
                 runes = 0;
                 break;
 
-            case BuildingType.Barrack: // barracks
-                gold = Mathf.Min(20 + 10 * count, 50);
+            case BuildingType.TroopSpawner: // barracks
+                gold = Mathf.Min(20 + 5 * count, 50);
                 runes = 1;
                 break;
 
             case BuildingType.Cannon:
-                gold = Mathf.Min(30 + 10 * count, 60);
+                gold = Mathf.Min(30 + 5 * count, 60);
                 runes = 2;
                 break;
 
-            case BuildingType.FlagBuilding:
-                gold = Mathf.Min(40 + 10 * count, 70);
+            case BuildingType.Flag:
+                gold = Mathf.Min(50 + 5 * count, 70);
                 runes = Mathf.Min(3 + count, 5);
                 break;
         }

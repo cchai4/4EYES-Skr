@@ -10,18 +10,6 @@ public class BuildingSelectionUI : MonoBehaviour
     public Image[] redIcons;     // size 4
     public Image[] blueIcons;    // size 4
 
-    [Header("Red Cost Texts (order: TroopSpawner, Generator, Cannon, Flag)")]
-    public Text[] redGoldCostTexts;
-    public Text[] redRuneCostTexts;
-
-    [Header("Blue Cost Texts (order: TroopSpawner, Generator, Cannon, Flag)")]
-    public Text[] blueGoldCostTexts;
-    public Text[] blueRuneCostTexts;
-
-
-    [Header("Building Types (order: TroopSpawner, Generator, Cannon, Flag)")]
-    public BuildingType[] buildingTypes; // Order must match icons & cost texts
-
     public Color normalColor = Color.white;
     public Color highlightColor = Color.green;
 
@@ -50,9 +38,6 @@ public class BuildingSelectionUI : MonoBehaviour
             blueHighlightIndex = startIndex;
             UpdateHighlight(ColorType.Blue);
         }
-
-        // New: Update costs when the selection starts.
-        UpdateCostDisplay(owner);
     }
 
     public void Highlight(ColorType owner, int index)
@@ -107,23 +92,4 @@ public class BuildingSelectionUI : MonoBehaviour
         redHighlightIndex = -1;
         blueHighlightIndex = -1;
     }
-
-    // New: Updates the cost texts for each building type based on the player's current resources.
-    public void UpdateCostDisplay(ColorType owner)
-    {
-        Text[] goldTexts = (owner == ColorType.Red) ? redGoldCostTexts : blueGoldCostTexts;
-        Text[] runeTexts = (owner == ColorType.Red) ? redRuneCostTexts : blueRuneCostTexts;
-
-        for (int i = 0; i < buildingTypes.Length; i++)
-        {
-            (int gold, int runes) = BuildingCostManager.Instance.GetCost(buildingTypes[i], owner);
-
-            if (i < goldTexts.Length && goldTexts[i] != null)
-                goldTexts[i].text = gold.ToString();
-
-            if (i < runeTexts.Length && runeTexts[i] != null)
-                runeTexts[i].text = runes.ToString();
-        }
-    }
-
 }

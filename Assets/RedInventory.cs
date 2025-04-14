@@ -37,12 +37,12 @@ public class RedInventory : MonoBehaviour
 
     public void write_gold()
     {
-        red_gold.text = gold_count.ToString();
+        red_gold.text = "Gold: " + gold_count.ToString();
     }
 
     public void write_diamond()
     {
-        red_diamond.text = diamond_count.ToString();
+        red_diamond.text = "Runes: " + diamond_count.ToString();
     }
 
     public void add_gold()

@@ -16,5 +16,5 @@ MonoBehaviour:
   downKey: 274
   leftKey: 276
   rightKey: 275
-  dashDoubleTapKey: 303
-  cancelKey: 47
+  dashDoubleTapKey: 64
+  cancelKey: 46

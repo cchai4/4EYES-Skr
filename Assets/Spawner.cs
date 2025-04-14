@@ -1,23 +1,27 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using System.Collections.Generic;
 
 public class Spawner : MonoBehaviour
 {
+    // Prefabs to spawn:
     public GameObject goldPrefab;
     public GameObject silverPrefab;
 
-    public float spawnRadius = 5f;           // Radius to check for overlap
-    public LayerMask resourceLayer;          // Layer where gold/silver exist
-    public int maxRetries = 10;              // Prevent infinite attempts
-    public float spawnRangeXMin = -8.6f;
-    public float spawnRangeXMax = -2f;
-    public float spawnRangeYMin = -3f;
-    public float spawnRangeYMax = 5f;
+    // Spawning settings:
+    public float spawnRadius = 0.4f;           // Radius to check for overlap
+    public LayerMask resourceLayer;            // Layer where gold/silver exist
+    public int maxRetries = 10;                // Maximum number of attempts for a valid spawn position
 
+    // Spawning range boundaries:
+    public float spawnRangeXMin = -8f;
+    public float spawnRangeXMax = -2f;
+    public float spawnRangeYMin = -4f;
+    public float spawnRangeYMax = 4f;
+
+    // Track spawned resources:
     public List<GameObject> spawnedResources = new List<GameObject>();
 
-    public void spawnResources(GameObject spawn_obj)
+    public void SpawnResources(GameObject spawn_obj)
     {
         for (int attempt = 0; attempt < maxRetries; attempt++)
         {
@@ -31,7 +35,7 @@ public class Spawner : MonoBehaviour
                 GameObject newResource = Instantiate(spawn_obj, spawnPos, Quaternion.identity);
                 spawnedResources.Add(newResource);
                 Debug.Log($"Spawner: Spawned object at {spawnPos}");
-                return; // success, exit early
+                return; // Success: exit once an object is spawned
             }
         }
 
@@ -45,12 +49,11 @@ public class Spawner : MonoBehaviour
         {
             if (resource != null)
             {
-                Vector2 pos = resource.transform.position;
-                positions.Add(pos);
+                positions.Add(resource.transform.position);
             }
         }
 
-        // Debug out the positions to verify the list.
+        // Debug out the positions to verify the list
         foreach (Vector2 p in positions)
         {
             Debug.Log("Spawned resource position: " + p);
