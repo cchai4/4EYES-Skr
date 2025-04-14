@@ -2,31 +2,29 @@ using UnityEngine;
 
 public class FaceLastDirection : MonoBehaviour
 {
-    [Header("Key Assignments")]
-    public PlayerControlsSO controls;
+    // Reference to MovementWASD script to obtain target velocity.
+    public MovementWASD movementScript;
 
-    private Rigidbody2D rb;
-    private Vector2 lastDirection = Vector2.up; // start facing up
-
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    // Fallback if movementScript is not provided.
+    private Vector2 lastDirection = Vector2.up;
 
     void Update()
     {
-        Vector2 inputDir = Vector2.zero;
-        if (Input.GetKey(controls.upKey)) inputDir.y += 1;
-        if (Input.GetKey(controls.downKey)) inputDir.y -= 1;
-        if (Input.GetKey(controls.leftKey)) inputDir.x -= 1;
-        if (Input.GetKey(controls.rightKey)) inputDir.x += 1;
-
-        if (inputDir.sqrMagnitude > 0.01f)
+        if (movementScript != null)
         {
-            lastDirection = inputDir.normalized;
+            Vector2 targetVelocity = movementScript.CurrentTargetVelocity;
+            // Use the target velocity's normalized direction if significant.
+            if (targetVelocity.sqrMagnitude > 0.01f)
+            {
+                lastDirection = targetVelocity.normalized;
+            }
         }
 
+        // Calculate angle to face; subtract 90 degrees if your sprite faces up by default.
         float angle = Mathf.Atan2(lastDirection.y, lastDirection.x) * Mathf.Rad2Deg - 90f;
         transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        // Debug log to see the current target velocity and calculated angle.
+        Debug.Log($"Target Velocity: {movementScript?.CurrentTargetVelocity}, Facing direction: {lastDirection}, Angle: {angle}");
     }
 }
