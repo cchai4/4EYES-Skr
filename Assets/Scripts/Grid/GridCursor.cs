@@ -135,7 +135,7 @@ public class GridCursor : MonoBehaviour
 
             if (currentSlot.HasBuilding())
             {
-                Debug.Log("Cannot build here � cell already contains a building.");
+                Debug.Log("Cannot build here � cell already contains a building.");
                 return;
             }
 
@@ -164,7 +164,35 @@ public class GridCursor : MonoBehaviour
         if (Input.GetKeyDown(controls.dashDoubleTapKey) && debounce <= 0f)
         {
             debounce = 0.25f;
-            var chosen = (BuildingType)(selectionIndex + 1);
+            var chosen = (BuildingType)(selectionIndex + 1); // Assuming BuildingType values align with UI order
+
+            // Check if the current team can afford this building before placing it.
+            if (tintOwner == ColorType.Red)
+            {
+                // Obtain the required cost from the BuildingCostManager.
+                (int goldCost, int runeCost) = BuildingCostManager.Instance.GetCost(chosen, tintOwner);
+                if (!RedInventory.Instance.HasEnoughResources(goldCost, runeCost))
+                {
+                    // Not enough resources – flash the UI text and exit early.
+                    RedInventory.Instance.FlashInsufficientResources(goldCost, runeCost);
+                    Debug.Log("GridCursor: Not enough resources to build " + chosen);
+                    return;
+                }
+            }
+            else  // For blue team – similar check with Blue_Inventory if desired.
+            {
+                // (Assuming a similar Blue_Inventory exists.)
+                (int goldCost, int runeCost) = BuildingCostManager.Instance.GetCost(chosen, tintOwner);
+                var blueInv = Object.FindAnyObjectByType<Blue_Inventory>();
+                if (blueInv != null && !blueInv.HasEnoughResources(goldCost, runeCost))
+                {
+                    blueInv.FlashInsufficientResources(goldCost, runeCost);
+                    Debug.Log("GridCursor: Not enough resources to build " + chosen);
+                    return;
+                }
+            }
+
+            // If enough resources, proceed to place the building.
             currentSlot.PlaceBuilding(tintOwner, chosen);
             BuildingSelectionUI.Instance.EndSelection(tintOwner);
             currentState = CursorState.Free;
@@ -176,6 +204,7 @@ public class GridCursor : MonoBehaviour
             currentState = CursorState.Free;
         }
     }
+
 
     void EnterCell(int r, int c)
     {

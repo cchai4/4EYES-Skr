@@ -701,7 +701,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102036876}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29cc5f7fdce009649965c62b6eaf0e18, type: 3}
   m_Name: 
@@ -712,7 +712,9 @@ MonoBehaviour:
   dashCooldown: 1.2
   doubleTapThreshold: 0.5
   knockbackForce: 8
+  minDashDistance: 2
   dashHitbox: {fileID: 326058508}
+  movementScript: {fileID: 102036879}
   dashDirection: {x: 0, y: 0}
 --- !u!114 &102036884
 MonoBehaviour:

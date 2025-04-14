@@ -614,6 +614,10 @@ MonoBehaviour:
   controls: {fileID: 11400000, guid: 2644daf17187b7a479c93c15d8d326e3, type: 2}
   acceleration: 15
   maxSpeed: 3
+  spawner: {fileID: 0}
+  dampeningDistance: 1.5
+  requiredGoldForDestination: 5
+  requiredDiamondForDestination: 3
 --- !u!50 &102036880
 Rigidbody2D:
   serializedVersion: 5
@@ -689,7 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a502b1fec8ea31840b7d697279c6e32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controls: {fileID: 11400000, guid: 2644daf17187b7a479c93c15d8d326e3, type: 2}
+  movementScript: {fileID: 0}
 --- !u!114 &102036883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,7 +712,9 @@ MonoBehaviour:
   dashCooldown: 1.2
   doubleTapThreshold: 0.5
   knockbackForce: 8
+  minDashDistance: 2
   dashHitbox: {fileID: 326058508}
+  movementScript: {fileID: 102036879}
   dashDirection: {x: 0, y: 0}
 --- !u!114 &102036884
 MonoBehaviour:
@@ -5381,6 +5387,7 @@ MonoBehaviour:
   spawnRangeXMax: -2
   spawnRangeYMin: -4
   spawnRangeYMax: 4
+  spawnedResources: []
 --- !u!4 &1392184107
 Transform:
   m_ObjectHideFlags: 0

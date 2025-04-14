@@ -693,7 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a502b1fec8ea31840b7d697279c6e32e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementScript: {fileID: 0}
+  movementScript: {fileID: 102036879}
 --- !u!114 &102036883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,7 +712,9 @@ MonoBehaviour:
   dashCooldown: 1.2
   doubleTapThreshold: 0.5
   knockbackForce: 8
+  minDashDistance: 2
   dashHitbox: {fileID: 326058508}
+  movementScript: {fileID: 102036879}
   dashDirection: {x: 0, y: 0}
 --- !u!114 &102036884
 MonoBehaviour:
