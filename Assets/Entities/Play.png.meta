@@ -172,7 +172,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bluetroop_0: 8135878678927475631
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

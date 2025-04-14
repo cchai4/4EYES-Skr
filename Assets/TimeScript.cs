@@ -23,7 +23,20 @@ public class TimeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+<<<<<<< Updated upstream
         if (remaining_time > 0)
+=======
+        // Subtract the delta time from your total time
+        remaining_time -= Time.deltaTime;
+
+        // Use Mathf.FloorToInt to display the integer portion
+        int displayTime = Mathf.FloorToInt(remaining_time);
+        time_text.text = displayTime.ToString();
+
+        // Check if there's time left
+        if (true)
+        // if (remaining_time > 0)
+>>>>>>> Stashed changes
         {
             if (timer < spawnRate)
             {
@@ -44,13 +57,27 @@ public class TimeScript : MonoBehaviour
                 }
                 timer = 0;
             }
+<<<<<<< Updated upstream
             remaining_time = remaining_time - Time.deltaTime;
             time_text.text = remaining_time.ToString();
+=======
+>>>>>>> Stashed changes
         }
         else
         {
             time_text.text = "Game Over";
             gameOverScreen.SetActive(true);
+        }
+    }
+
+    // New method to reset the timer values
+    public void ResetTimer()
+    {
+        remaining_time = 5;  // Reset to starting time (adjust as needed)
+        timer = 0;
+        if (time_text != null)
+        {
+            time_text.text = Mathf.FloorToInt(remaining_time).ToString();
         }
     }
 

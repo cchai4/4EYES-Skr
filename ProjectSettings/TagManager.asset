@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
+<<<<<<< Updated upstream
   tags: []
+=======
+  tags:
+  - Blue
+  - Red
+  - Fireball
+  - Gold
+  - Diamond
+  - Boundary
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Wiz_Fireball_0: 1247658096400603272
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

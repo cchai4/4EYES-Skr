@@ -178,7 +178,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+<<<<<<< Updated upstream:Assets/Entities/Square.png.meta
       Square: 7482667652216324306
+=======
+      sprite_03_0: -8688910480350348910
+>>>>>>> Stashed changes:Assets/Entities/sprite_03.png.meta
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

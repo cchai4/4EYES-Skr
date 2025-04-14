@@ -26,4 +26,10 @@ public class RedInventory : MonoBehaviour
     {
         silver_count++;
     }
+
+    public int GetDiamondCount()
+    {
+        return diamond_count;
+    }
+
 }
