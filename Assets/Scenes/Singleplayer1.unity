@@ -2195,7 +2195,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1054402079}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TimeScript, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
@@ -4419,7 +4419,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1054402080}
-  - component: {fileID: 1054402079}
+  - component: {fileID: 1054402081}
   m_Layer: 0
   m_Name: GameTimer
   m_TagString: Untagged
@@ -4427,29 +4427,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1054402079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1054402078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a7ad5270c82f4059bdd3c0d20ccdc42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  remaining_time: 5
-  timer: 0
-  time_text: {fileID: 548865094}
-  gold: {fileID: 4356808937301415986, guid: eb9a835c12b55410e93da7cc5e761868, type: 3}
-  silver: {fileID: 2503758699055250113, guid: 911263584a14c41faa2bdabdd75b1940, type: 3}
-  gameOverScreen_mult: {fileID: 0}
-  gameOverScreen_single: {fileID: 233827806}
-  resource_spawner: {fileID: 1392184105}
-  spawner: {fileID: 0}
-  spawnRate: 1
-  maxGold: 20
 --- !u!4 &1054402080
 Transform:
   m_ObjectHideFlags: 0
@@ -4465,6 +4442,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1054402081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054402078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f2ba36eef258d4491e16eb6bc43cba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  remaining_time: 300
+  timer: 0
+  time_text: {fileID: 548865094}
+  gold: {fileID: 4356808937301415986, guid: eb9a835c12b55410e93da7cc5e761868, type: 3}
+  silver: {fileID: 2503758699055250113, guid: 911263584a14c41faa2bdabdd75b1940, type: 3}
+  gameOverScreen_single: {fileID: 233827806}
+  resource_spawner: {fileID: 1392184105}
+  spawner: {fileID: 0}
+  spawnRate: 2
+  maxGold: 6
 --- !u!1 &1055309862
 GameObject:
   m_ObjectHideFlags: 0
@@ -6607,7 +6606,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1054402079}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TimeScript, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1

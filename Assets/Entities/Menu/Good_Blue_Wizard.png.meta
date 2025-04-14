@@ -172,7 +172,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Good_Blue_Wizard_0: -7239159421350294156
+      Good_Blue_Wizard_1: -9197459624082551556
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -4463,7 +4463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea7d0a51d96e0b4e9e0556540076f07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  remaining_time: 5
+  remaining_time: 300
   timer: 0
   time_text: {fileID: 548865094}
   gold: {fileID: 4356808937301415986, guid: eb9a835c12b55410e93da7cc5e761868, type: 3}
