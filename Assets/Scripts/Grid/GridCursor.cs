@@ -4,15 +4,8 @@ using System.Collections;
 
 public class GridCursor : MonoBehaviour
 {
-    [Header("Movement Keys")]
-    public KeyCode upKey;
-    public KeyCode downKey;
-    public KeyCode leftKey;
-    public KeyCode rightKey;
-
-    [Header("Action Keys")]
-    public KeyCode buildKey;
-    public KeyCode cancelKey;
+    [Header("Controls")]
+    public PlayerControlsSO controls;
 
     [Header("Cursor Settings")]
     public ColorType tintOwner;
@@ -30,14 +23,6 @@ public class GridCursor : MonoBehaviour
     private BuildingSlot currentSlot;
     private int selectionIndex;
     private float debounce = 0f;
-
-    void Awake()
-    {
-        if (buildKey == KeyCode.None)
-            buildKey = (tintOwner == ColorType.Red) ? KeyCode.Space : KeyCode.RightShift;
-        if (cancelKey == KeyCode.None)
-            cancelKey = (tintOwner == ColorType.Red) ? KeyCode.LeftShift : KeyCode.Slash;
-    }
 
     void Start() => StartCoroutine(InitGrid());
 
@@ -92,13 +77,13 @@ public class GridCursor : MonoBehaviour
 
     void HandleFree()
     {
-        if (Input.GetKeyDown(leftKey) && curCol == 0) { ReactivatePlayer(); return; }
+        if (Input.GetKeyDown(controls.leftKey) && curCol == 0) { ReactivatePlayer(); return; }
 
         int nr = curRow, nc = curCol;
-        if (Input.GetKeyDown(upKey)) nr--;
-        if (Input.GetKeyDown(downKey)) nr++;
-        if (Input.GetKeyDown(leftKey)) nc--;
-        if (Input.GetKeyDown(rightKey)) nc++;
+        if (Input.GetKeyDown(controls.upKey)) nr--;
+        if (Input.GetKeyDown(controls.downKey)) nr++;
+        if (Input.GetKeyDown(controls.leftKey)) nc--;
+        if (Input.GetKeyDown(controls.rightKey)) nc++;
         nr = Mathf.Clamp(nr, 0, rows - 1);
         nc = Mathf.Clamp(nc, 0, cols - 1);
 
@@ -115,12 +100,11 @@ public class GridCursor : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(buildKey) && hasJoined)
+        if (Input.GetKeyDown(controls.dashDoubleTapKey) && hasJoined)
         {
             currentSlot = cells[curRow, curCol].GetComponent<BuildingSlot>();
             if (currentSlot == null) return;
 
-            // ? NEW: Prevent entering building mode if cell has a building
             if (currentSlot.HasBuilding())
             {
                 Debug.Log("Cannot build here — cell already contains a building.");
@@ -137,33 +121,30 @@ public class GridCursor : MonoBehaviour
     {
         int Dir() => (tintOwner == ColorType.Red) ? 1 : -1;
 
-        if (Input.GetKeyDown(leftKey))
+        if (Input.GetKeyDown(controls.leftKey))
         {
             selectionIndex = Mathf.Clamp(selectionIndex - Dir(), 0, 3);
             BuildingSelectionUI.Instance.Highlight(tintOwner, selectionIndex);
-
         }
-        if (Input.GetKeyDown(rightKey))
+
+        if (Input.GetKeyDown(controls.rightKey))
         {
             selectionIndex = Mathf.Clamp(selectionIndex + Dir(), 0, 3);
             BuildingSelectionUI.Instance.Highlight(tintOwner, selectionIndex);
-
         }
 
-        if (Input.GetKeyDown(buildKey) && debounce <= 0f)
+        if (Input.GetKeyDown(controls.dashDoubleTapKey) && debounce <= 0f)
         {
             debounce = 0.25f;
             var chosen = (BuildingType)(selectionIndex + 1);
             currentSlot.PlaceBuilding(tintOwner, chosen);
             BuildingSelectionUI.Instance.EndSelection(tintOwner);
-
             currentState = CursorState.Free;
         }
 
-        if (Input.GetKeyDown(cancelKey))
+        if (Input.GetKeyDown(controls.cancelKey))
         {
             BuildingSelectionUI.Instance.EndSelection(tintOwner);
-
             currentState = CursorState.Free;
         }
     }
@@ -192,11 +173,13 @@ public class GridCursor : MonoBehaviour
 
     void ReactivatePlayer()
     {
-        ExitCell(curRow, curCol); hasJoined = false;
+        ExitCell(curRow, curCol);
+        hasJoined = false;
         string name = tintOwner == ColorType.Red ? "Red" : "Blue";
         GameObject ent = null;
         foreach (var o in Resources.FindObjectsOfTypeAll<GameObject>())
             if (o.name == name) { ent = o; break; }
+
         if (ent == null || ent.activeInHierarchy) return;
 
         ent.SetActive(true);

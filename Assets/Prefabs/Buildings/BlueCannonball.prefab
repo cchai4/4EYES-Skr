@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  speed: 8
-  lifetime: 1
+  speed: 10
+  lifetime: 0.5
   knockback: 4
-  damage: 1
+  damage: 2

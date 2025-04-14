@@ -90,6 +90,7 @@ public class GridManager : MonoBehaviour
     public void RefreshAllTerritories()
     {
         Debug.Log("GridManager: RefreshAllTerritories called.");
+
         for (int r = 0; r < rows; r++)
         {
             for (int c = 0; c < cols; c++)
@@ -97,13 +98,24 @@ public class GridManager : MonoBehaviour
                 GameObject cell = cells[r, c];
                 if (cell != null)
                 {
+                    // Log the cell being refreshed.
+                    Debug.Log($"Refreshing territory on cell at row {r}, col {c} (named {cell.name}).");
                     var tint = cell.GetComponent<TerritoryTint>();
                     if (tint != null)
                     {
                         tint.RefreshColor();
                     }
+                    else
+                    {
+                        Debug.LogWarning($"Cell {cell.name} does not have a TerritoryTint component.");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning($"Cell at row {r}, col {c} is null.");
                 }
             }
         }
     }
+
 }

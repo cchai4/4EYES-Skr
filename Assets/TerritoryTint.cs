@@ -10,7 +10,7 @@ public class TerritoryTint : MonoBehaviour
     public Color purpleTint = new Color(1f, 0.6f, 1f, 0.5f);
     public Color defaultColor = Color.white;
 
-    private GridCellTint cellTint; // handshake with the highlight script
+    private GridCellTint cellTint;
     private GridManager gm;
     private int row, col;
 
@@ -27,58 +27,74 @@ public class TerritoryTint : MonoBehaviour
     }
 
     /// <summary>
-    /// Called by GridManager.RefreshAllTerritories to re-check coverage 
-    /// from all buildings in a 3x3 area. Then sets baseColor in the highlight script.
+    /// Called by GridManager.RefreshAllTerritories to re-check coverage from all buildings
+    /// in a 3×3 area (radius=1). Then sets baseColor in the highlight script.
     /// </summary>
     public void RefreshColor()
     {
-        if (!gm || cellTint == null)
+        // Log that we're refreshing this cell
+        Debug.Log($"TerritoryTint [{name}] at row={row},col={col}: RefreshColor() called.");
+
+        if (!gm)
         {
-            // fallback: no coverage
+            Debug.LogWarning($"TerritoryTint [{name}]: gm is null, defaulting color.");
             cellTint?.SetBaseColor(defaultColor);
             return;
         }
+        if (cellTint == null)
+        {
+            Debug.LogWarning($"TerritoryTint [{name}]: cellTint is null, can't set color!");
+            return;
+        }
 
-        // 3x3 territory => radius=1
         bool inRed = IsInTerritory(Red, 1);
         bool inBlue = IsInTerritory(Blue, 1);
 
+        Debug.Log($"TerritoryTint [{name}] row={row},col={col}: inRed={inRed}, inBlue={inBlue}");
+
+        // Decide final color
         if (inRed && inBlue)
         {
             cellTint.SetBaseColor(purpleTint);
+            Debug.Log($"TerritoryTint [{name}] -> Purple");
         }
         else if (inRed)
         {
             cellTint.SetBaseColor(redTint);
+            Debug.Log($"TerritoryTint [{name}] -> Red");
         }
         else if (inBlue)
         {
             cellTint.SetBaseColor(blueTint);
+            Debug.Log($"TerritoryTint [{name}] -> Blue");
         }
         else
         {
             cellTint.SetBaseColor(defaultColor);
+            Debug.Log($"TerritoryTint [{name}] -> Default");
         }
     }
 
     /// <summary>
     /// True if there's a building from 'teamOwner' in the 3x3 block around this cell.
     /// </summary>
-    bool IsInTerritory(ColorType teamOwner, int radius)
+    private bool IsInTerritory(ColorType teamOwner, int radius)
     {
         for (int rr = row - radius; rr <= row + radius; rr++)
         {
             for (int cc = col - radius; cc <= col + radius; cc++)
             {
-                GameObject cell = gm.GetCell(rr, cc);
-                if (cell)
+                GameObject cellObj = gm.GetCell(rr, cc);
+                if (cellObj != null)
                 {
-                    var slot = cell.GetComponent<BuildingSlot>();
+                    BuildingSlot slot = cellObj.GetComponent<BuildingSlot>();
                     if (slot && slot.HasBuilding())
                     {
                         // If the building belongs to 'teamOwner'
                         if (slot.GetOwner() == teamOwner)
                         {
+                            // Log for clarity
+                            Debug.Log($"TerritoryTint [{name}] row={row},col={col}: Found {teamOwner} building at row={rr},col={cc}");
                             return true;
                         }
                     }

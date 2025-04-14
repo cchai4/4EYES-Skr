@@ -2,28 +2,33 @@
 
 public class RedDash : MonoBehaviour
 {
+    [Header("Key Assignments")]
+    public PlayerControlsSO controls;
+
     [Header("Dash Settings")]
     public float dashSpeed = 7f;
     public float dashDuration = 0.2f;
     public float dashCooldown = 1f;
     public float doubleTapThreshold = 0.3f;
 
-    [Header("Knock?back Settings")]
+    [Header("Knockback Settings")]
     public float knockbackForce = 10f;
 
     [Header("References")]
     public GameObject dashHitbox; // Child hitbox object
 
-    // ADDED: Reference the RedStun script.
+    // Reference the RedStun script.
     private RedStun redStun;
 
     private Rigidbody2D rb;
-    private float lastSpaceTime = -1f;
+    private float lastDashKeyTime = -1f; // was lastSpaceTime
     private bool isDashing;
     private float dashTimer;
     private bool dashOnCooldown;
     private float cooldownTimer;
-    private Vector2 lastInputDir = Vector2.up; // last WASD direction
+
+    // Store last movement input direction (WASD)
+    private Vector2 lastInputDir = Vector2.up;
     [HideInInspector] public Vector2 dashDirection;
 
     void Awake()
@@ -31,28 +36,25 @@ public class RedDash : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         if (dashHitbox) dashHitbox.SetActive(false);
 
-        // ADDED: Grab the RedStun component.
         redStun = GetComponent<RedStun>();
     }
 
     void Update()
     {
-        // Always allow the player to face different directions, even if stunned.
+        // Read directional input from controls
         Vector2 input = Vector2.zero;
-        if (Input.GetKey(KeyCode.W)) input += Vector2.up;
-        if (Input.GetKey(KeyCode.S)) input += Vector2.down;
-        if (Input.GetKey(KeyCode.A)) input += Vector2.left;
-        if (Input.GetKey(KeyCode.D)) input += Vector2.right;
-        if (input.sqrMagnitude > 0.001f) lastInputDir = input.normalized;
+        if (Input.GetKey(controls.upKey)) input += Vector2.up;
+        if (Input.GetKey(controls.downKey)) input += Vector2.down;
+        if (Input.GetKey(controls.leftKey)) input += Vector2.left;
+        if (Input.GetKey(controls.rightKey)) input += Vector2.right;
+        if (input.sqrMagnitude > 0.001f)
+            lastInputDir = input.normalized;
 
-        // ADDED: If stunned, skip any dash movement/cooldown logic,
-        // but keep the direction updates above.
-        if (redStun != null && redStun.isStunned)
-        {
+        // If stunned, skip dash logic
+        if (redStun && redStun.isStunned)
             return;
-        }
 
-        // -------- Original dash cooldown logic --------
+        // If on cooldown, track time
         if (dashOnCooldown)
         {
             cooldownTimer += Time.deltaTime;
@@ -63,11 +65,11 @@ public class RedDash : MonoBehaviour
             }
         }
 
-        // -------- Double-tap Space to dash --------
-        if (!isDashing && !dashOnCooldown && Input.GetKeyDown(KeyCode.Space))
+        // Double-tap dash key
+        if (!isDashing && !dashOnCooldown && Input.GetKeyDown(controls.dashDoubleTapKey))
         {
             float t = Time.time;
-            if (t - lastSpaceTime <= doubleTapThreshold)
+            if (t - lastDashKeyTime <= doubleTapThreshold)
             {
                 dashDirection = lastInputDir;
                 isDashing = true;
@@ -75,10 +77,10 @@ public class RedDash : MonoBehaviour
                 dashOnCooldown = true;
                 if (dashHitbox) dashHitbox.SetActive(true);
             }
-            lastSpaceTime = t;
+            lastDashKeyTime = t;
         }
 
-        // -------- Perform dash --------
+        // If currently dashing, apply velocity
         if (isDashing)
         {
             dashTimer += Time.deltaTime;

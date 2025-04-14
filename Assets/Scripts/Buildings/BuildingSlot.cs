@@ -28,7 +28,7 @@ public class BuildingSlot : MonoBehaviour
             return;
         }
 
-        // Resource + territory checks if not ignoring
+        // Resource and territory checks if not ignoring
         if (!ignoreResources)
         {
             if (!CanAffordBuilding(who, type))
@@ -37,14 +37,12 @@ public class BuildingSlot : MonoBehaviour
                 return;
             }
 
-            // For non-flag buildings, must be in your 3x3 territory
             if (type != BuildingType.Flag && !IsInRangeOfTeamTerritory(who, 1))
             {
                 Debug.Log("Cannot place building here — not in your 3x3 territory.");
                 return;
             }
 
-            // Also ensure it's not in the enemy’s 3x3 territory (exclusive rule).
             ColorType enemy = (who == ColorType.Red ? ColorType.Blue : ColorType.Red);
             if (type != BuildingType.Flag && IsInRangeOfTeamTerritory(enemy, 1))
             {
@@ -59,7 +57,9 @@ public class BuildingSlot : MonoBehaviour
             SpendResourcesFor(who, type);
         }
 
-        // Instantiate
+        Debug.Log($"BuildingSlot: Attempting to place {type} for {who} on cell {name}.");
+
+        // Instantiate the building prefab
         foreach (var p in prefabs)
         {
             if (p.type == type)
@@ -67,7 +67,7 @@ public class BuildingSlot : MonoBehaviour
                 GameObject prefab = (who == ColorType.Red) ? p.redPrefab : p.bluePrefab;
                 if (prefab == null)
                 {
-                    Debug.LogWarning($"No prefab for {who} {type}");
+                    Debug.LogWarning($"BuildingSlot: No prefab for {who} {type}");
                     return;
                 }
 
@@ -80,9 +80,9 @@ public class BuildingSlot : MonoBehaviour
                 {
                     baseScript.team = (who == ColorType.Red) ? Team.Red : Team.Blue;
                 }
+                Debug.Log($"BuildingSlot: Placed {type} for {who} on {name}.");
 
-                // After building is placed, refresh territory so coverage is updated
-                if (GridManager.Instance)
+                if (GridManager.Instance != null)
                 {
                     GridManager.Instance.RefreshAllTerritories();
                 }
@@ -105,17 +105,20 @@ public class BuildingSlot : MonoBehaviour
 
     public ColorType GetOwner() => owner;
 
-    // Check if there's a same-team building within 'radius' cells
-    // e.g. radius=1 => 3x3 territory
+    // Checks if there is a building belonging to teamOwner in this cell's 3×3 vicinity.
     private bool IsInRangeOfTeamTerritory(ColorType teamOwner, int radius)
     {
         string[] parts = gameObject.name.Split('_');
-        if (parts.Length < 3) return false;
-        if (!int.TryParse(parts[1], out int row)) return false;
-        if (!int.TryParse(parts[2], out int col)) return false;
+        if (parts.Length < 3)
+            return false;
+        if (!int.TryParse(parts[1], out int row))
+            return false;
+        if (!int.TryParse(parts[2], out int col))
+            return false;
 
         var gm = GridManager.Instance;
-        if (!gm) return false;
+        if (gm == null)
+            return false;
 
         for (int rr = row - radius; rr <= row + radius; rr++)
         {
@@ -125,7 +128,7 @@ public class BuildingSlot : MonoBehaviour
                 if (cell != null)
                 {
                     BuildingSlot slot = cell.GetComponent<BuildingSlot>();
-                    if (slot && slot.HasBuilding() && slot.GetOwner() == teamOwner)
+                    if (slot != null && slot.HasBuilding() && slot.GetOwner() == teamOwner)
                     {
                         return true;
                     }
@@ -135,16 +138,19 @@ public class BuildingSlot : MonoBehaviour
         return false;
     }
 
-    // Resource Logic
+    // Resource cost management using BuildingCostManager
     private bool CanAffordBuilding(ColorType who, BuildingType type)
     {
-        // If you have a separate BuildingCostManager, use it. Example:
-        (int goldCost, int runeCost) = BuildingCostManager.Instance.GetCost(type);
+        (int goldCost, int runeCost) = BuildingCostManager.Instance.GetCost(type, who);
 
         if (who == ColorType.Red)
         {
             var redInv = Object.FindAnyObjectByType<RedInventory>();
-            if (redInv == null) return false;
+            if (redInv == null)
+            {
+                Debug.LogError("BuildingSlot: RedInventory not found!");
+                return false;
+            }
             if (!redInv.HasEnoughResources(goldCost, runeCost))
             {
                 redInv.FlashInsufficientResources(goldCost, runeCost);
@@ -154,7 +160,11 @@ public class BuildingSlot : MonoBehaviour
         else
         {
             var blueInv = Object.FindAnyObjectByType<Blue_Inventory>();
-            if (blueInv == null) return false;
+            if (blueInv == null)
+            {
+                Debug.LogError("BuildingSlot: Blue_Inventory not found!");
+                return false;
+            }
             if (!blueInv.HasEnoughResources(goldCost, runeCost))
             {
                 blueInv.FlashInsufficientResources(goldCost, runeCost);
@@ -166,7 +176,7 @@ public class BuildingSlot : MonoBehaviour
 
     private void SpendResourcesFor(ColorType who, BuildingType type)
     {
-        (int goldCost, int runeCost) = BuildingCostManager.Instance.GetCost(type);
+        (int goldCost, int runeCost) = BuildingCostManager.Instance.GetCost(type, who);
 
         if (who == ColorType.Red)
         {
@@ -184,5 +194,12 @@ public class BuildingSlot : MonoBehaviour
                 blueInv.RemoveResources(goldCost, runeCost);
             }
         }
+    }
+
+    // New: Clears the building reference stored for this slot.
+    public void ClearBuilding()
+    {
+        Debug.Log($"BuildingSlot ({name}): Clearing building reference. Previous building: {current}");
+        current = null;
     }
 }

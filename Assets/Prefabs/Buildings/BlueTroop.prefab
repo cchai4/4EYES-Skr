@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  maxHP: 5
+  maxHP: 6
   moveSpeed: 1
   decayInterval: 3
   contactDamage: 1
