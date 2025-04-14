@@ -36,6 +36,9 @@ public class TimeScript : MonoBehaviour
         // Check if there's time left
         if (true)
         // if (remaining_time > 0)
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         {
             if (timer < spawnRate)
@@ -58,8 +61,11 @@ public class TimeScript : MonoBehaviour
                 timer = 0;
             }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             remaining_time = remaining_time - Time.deltaTime;
             time_text.text = remaining_time.ToString();
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         }

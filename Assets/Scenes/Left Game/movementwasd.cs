@@ -15,8 +15,11 @@ public class MovementWASD : MonoBehaviour
     void Update()
     {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         // Gather WASD input into a single vector.
 =======
+=======
+>>>>>>> Stashed changes
         // If the red character is stunned, skip input-based movement.
         // Allowing knockback to persist.
         if (redStun != null && redStun.isStunned)
@@ -25,6 +28,9 @@ public class MovementWASD : MonoBehaviour
         }
 
         // Get movement input from keyboard.
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         Vector2 input = Vector2.zero;
         if (Input.GetKey(KeyCode.D))
@@ -68,7 +74,11 @@ public class MovementWASD : MonoBehaviour
         Vector2 targetVelocity = input * maxSpeed;
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         // Smoothly move the current velocity toward the target velocity.
+=======
+        // Smoothly adjust the current velocity towards the target velocity.
+>>>>>>> Stashed changes
 =======
         // Smoothly adjust the current velocity towards the target velocity.
 >>>>>>> Stashed changes

@@ -13,6 +13,9 @@ TagManager:
   - Gold
   - Diamond
   - Boundary
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   layers:
   - Default
