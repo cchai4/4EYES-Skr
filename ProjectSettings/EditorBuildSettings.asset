@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Story.unity
     guid: 4a7f078e732d8452289c4d77bae948d0
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/Multiplayer.unity
     guid: 28f69c70df285a24f948919809d22167
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

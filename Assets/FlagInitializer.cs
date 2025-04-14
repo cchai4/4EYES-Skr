@@ -49,7 +49,7 @@ public class FlagInitializer : MonoBehaviour
             BuildingSlot redSlot = redCell.GetComponent<BuildingSlot>();
             if (redSlot != null)
             {
-                redSlot.PlaceBuilding(ColorType.Red, BuildingType.Flag, true); // bypass resource check
+                redSlot.PlaceBuilding(ColorType.Red, BuildingType.FlagBuilding, true); // bypass resource check
                 Debug.Log("FlagInitializer: Placed red flag (ignoring resources).");
             }
             else
@@ -69,7 +69,7 @@ public class FlagInitializer : MonoBehaviour
             BuildingSlot blueSlot = blueCell.GetComponent<BuildingSlot>();
             if (blueSlot != null)
             {
-                blueSlot.PlaceBuilding(ColorType.Blue, BuildingType.Flag, true); // bypass resource check
+                blueSlot.PlaceBuilding(ColorType.Blue, BuildingType.FlagBuilding, true); // bypass resource check
                 Debug.Log("FlagInitializer: Placed blue flag (ignoring resources).");
             }
             else

@@ -37,14 +37,14 @@ public class BuildingSlot : MonoBehaviour
                 return;
             }
 
-            if (type != BuildingType.Flag && !IsInRangeOfTeamTerritory(who, 1))
+            if (type != BuildingType.FlagBuilding && !IsInRangeOfTeamTerritory(who, 1))
             {
                 Debug.Log("Cannot place building here — not in your 3x3 territory.");
                 return;
             }
 
             ColorType enemy = (who == ColorType.Red ? ColorType.Blue : ColorType.Red);
-            if (type != BuildingType.Flag && IsInRangeOfTeamTerritory(enemy, 1))
+            if (type != BuildingType.FlagBuilding && IsInRangeOfTeamTerritory(enemy, 1))
             {
                 Debug.Log("Cannot place building here — it's in the other player's territory.");
                 return;
@@ -86,6 +86,13 @@ public class BuildingSlot : MonoBehaviour
                 {
                     GridManager.Instance.RefreshAllTerritories();
                 }
+
+                // New: Update the cost display in the UI after spending resources.
+                if (BuildingSelectionUI.Instance != null)
+                {
+                    BuildingSelectionUI.Instance.UpdateCostDisplay(who);
+                }
+
                 return;
             }
         }

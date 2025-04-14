@@ -1,8 +1,8 @@
 public enum BuildingType
 {
     None = 0,
-    TroopSpawner = 1,  // "Barracks" => 30 gold
+    Barrack = 1,                
     Generator = 2,     // 20 gold
     Cannon = 3,        // 30 gold + 1 rune
-    Flag = 4           // 50 gold + 3 runes
+    FlagBuilding = 4   // 50 gold + 3 runes
 }

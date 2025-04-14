@@ -5,13 +5,13 @@ public class Spawner : MonoBehaviour
     public GameObject goldPrefab;
     public GameObject silverPrefab;
 
-    public float spawnRadius = 0.4f;             // Radius to check for overlap
+    public float spawnRadius = 5f;           // Radius to check for overlap
     public LayerMask resourceLayer;              // Layer where gold/silver exist
     public int maxRetries = 10;                  // Prevent infinite attempts
-    public float spawnRangeXMin = -8f;
+    public float spawnRangeXMin = -8.6f;
     public float spawnRangeXMax = -2f;
-    public float spawnRangeYMin = -4f;
-    public float spawnRangeYMax = 4f;
+    public float spawnRangeYMin = -3f;
+    public float spawnRangeYMax = 5f;
 
     public void spawnResources(GameObject spawn_obj)
     {
