@@ -37,12 +37,12 @@ public class Blue_Inventory : MonoBehaviour
 
     public void write_gold()
     {
-        blue_gold.text = gold_count.ToString();
+        blue_gold.text = ":" + gold_count.ToString();
     }
 
     public void write_diamond()
     {
-        blue_diamond.text = diamond_count.ToString();
+        blue_diamond.text = ":" + diamond_count.ToString();
     }
 
     public void add_gold()
