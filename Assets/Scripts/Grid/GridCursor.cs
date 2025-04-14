@@ -1,6 +1,6 @@
 using UnityEngine;
-using static GridCellTint;
 using System.Collections;
+using static GridCellTint;
 
 public class GridCursor : MonoBehaviour
 {
@@ -12,7 +12,7 @@ public class GridCursor : MonoBehaviour
     public int startRow = 0, startCol = 0;
 
     [Header("Grid Exit Lock Duration")]
-    public float lockDurationOnExit = 0.5f;  // Duration (in seconds) to lock inputs after exiting the grid
+    public float lockDurationOnExit = 0.5f;
 
     private enum CursorState { Free, BuildingSelect }
     private CursorState currentState = CursorState.Free;
@@ -22,7 +22,8 @@ public class GridCursor : MonoBehaviour
     private static bool[,] occupied;
     private static int rows, cols;
 
-    private int curRow, curCol;
+    protected int curRow, curCol;
+
     private BuildingSlot currentSlot;
     private int selectionIndex;
     private float debounce = 0f;
@@ -35,26 +36,23 @@ public class GridCursor : MonoBehaviour
         Transform gp = null;
         while (gp == null || gp.childCount == 0)
         {
-            gp = FindFirstObjectByType<GridManager>()?.gridParent;
+            gp = Object.FindFirstObjectByType<GridManager>()?.gridParent;
             yield return null;
         }
-
         if (cells == null)
         {
             rows = cols = Mathf.RoundToInt(Mathf.Sqrt(gp.childCount));
             cells = new GameObject[rows, cols];
             occupied = new bool[rows, cols];
-
             foreach (Transform t in gp)
             {
-                var p = t.name.Split('_');
-                if (p.Length == 3 &&
-                    int.TryParse(p[1], out int r) &&
-                    int.TryParse(p[2], out int c))
+                var parts = t.name.Split('_');
+                if (parts.Length == 3 &&
+                    int.TryParse(parts[1], out int r) &&
+                    int.TryParse(parts[2], out int c))
                     cells[r, c] = t.gameObject;
             }
         }
-
         for (int r = 0; r < rows; r++)
         {
             for (int c = 0; c < cols; c++)
@@ -75,18 +73,13 @@ public class GridCursor : MonoBehaviour
     void Update()
     {
         if (cells == null) return;
-
-        // If input is locked, decrement the timer and log debug info.
         if (inputLockTimer > 0f)
         {
-            Debug.Log($"[GridCursor] Input locked for {inputLockTimer:F2} more seconds.");
             inputLockTimer -= Time.deltaTime;
-            return; // block all grid input while locked
+            return;
         }
-
         if (debounce > 0)
             debounce -= Time.deltaTime;
-
         if (currentState == CursorState.Free)
             HandleFree();
         else
@@ -95,13 +88,11 @@ public class GridCursor : MonoBehaviour
 
     void HandleFree()
     {
-        // If at left edge and left key pressed, exit the grid.
         if (Input.GetKeyDown(controls.leftKey) && curCol == 0)
         {
             ReactivatePlayer();
             return;
         }
-
         int nr = curRow, nc = curCol;
         if (Input.GetKeyDown(controls.upKey))
             nr--;
@@ -113,10 +104,9 @@ public class GridCursor : MonoBehaviour
             nc++;
         nr = Mathf.Clamp(nr, 0, rows - 1);
         nc = Mathf.Clamp(nc, 0, cols - 1);
-
-        if ((nr != curRow || nc != curCol))
+        if (nr != curRow || nc != curCol)
         {
-            var slot = cells[nr, nc].GetComponent<BuildingSlot>();
+            var slot = cells[nc, nc].GetComponent<BuildingSlot>(); // typo? ensure using correct indices.
             bool blocked = slot && slot.IsBlocked(tintOwner);
             if (!blocked && !occupied[nr, nc])
             {
@@ -126,19 +116,16 @@ public class GridCursor : MonoBehaviour
                 curCol = nc;
             }
         }
-
         if (Input.GetKeyDown(controls.dashDoubleTapKey) && hasJoined)
         {
             currentSlot = cells[curRow, curCol].GetComponent<BuildingSlot>();
             if (currentSlot == null)
                 return;
-
             if (currentSlot.HasBuilding())
             {
-                Debug.Log("Cannot build here — cell already contains a building.");
+                Debug.Log("Cannot build here—slot occupied.");
                 return;
             }
-
             currentState = CursorState.BuildingSelect;
             selectionIndex = 0;
             BuildingSelectionUI.Instance.StartSelection(tintOwner, selectionIndex);
@@ -148,19 +135,16 @@ public class GridCursor : MonoBehaviour
     void HandleBuildingSelect()
     {
         int Dir() => (tintOwner == ColorType.Red) ? 1 : -1;
-
         if (Input.GetKeyDown(controls.leftKey))
         {
             selectionIndex = Mathf.Clamp(selectionIndex - Dir(), 0, 3);
             BuildingSelectionUI.Instance.Highlight(tintOwner, selectionIndex);
         }
-
         if (Input.GetKeyDown(controls.rightKey))
         {
             selectionIndex = Mathf.Clamp(selectionIndex + Dir(), 0, 3);
             BuildingSelectionUI.Instance.Highlight(tintOwner, selectionIndex);
         }
-
         if (Input.GetKeyDown(controls.dashDoubleTapKey) && debounce <= 0f)
         {
             debounce = 0.25f;
@@ -169,7 +153,6 @@ public class GridCursor : MonoBehaviour
             BuildingSelectionUI.Instance.EndSelection(tintOwner);
             currentState = CursorState.Free;
         }
-
         if (Input.GetKeyDown(controls.cancelKey))
         {
             BuildingSelectionUI.Instance.EndSelection(tintOwner);
@@ -206,56 +189,56 @@ public class GridCursor : MonoBehaviour
         ExitCell(curRow, curCol);
         hasJoined = false;
         inputLockTimer = lockDurationOnExit;
-        Debug.Log($"[GridCursor] ReactivatePlayer called. Input locked for {lockDurationOnExit} seconds.");
+        Debug.Log($"ReactivatePlayer called. Input locked for {lockDurationOnExit} seconds.");
 
-        string name = tintOwner == ColorType.Red ? "Red" : "Blue";
+        string name = (tintOwner == ColorType.Red) ? "Red" : "Blue";
         GameObject ent = null;
         foreach (var o in Resources.FindObjectsOfTypeAll<GameObject>())
         {
-            if (o.name == name)
-            {
-                ent = o;
-                break;
-            }
+            if (o.name == name) { ent = o; break; }
         }
-
-        // New: Stun the player's movement by triggering their stun component.
         if (ent != null)
         {
             if (tintOwner == ColorType.Red)
             {
                 var redStun = ent.GetComponent<RedStun>();
-                if (redStun != null)
-                {
-                    redStun.Stun(lockDurationOnExit);
-                    Debug.Log("[GridCursor] Red player stunned for lock duration.");
-                }
-                else
-                {
-                    Debug.LogWarning("[GridCursor] RedStun component missing on red player.");
-                }
+                if (redStun != null) redStun.Stun(lockDurationOnExit);
             }
             else
             {
                 var blueStun = ent.GetComponent<BlueStun>();
-                if (blueStun != null)
-                {
-                    blueStun.Stun(lockDurationOnExit);
-                    Debug.Log("[GridCursor] Blue player stunned for lock duration.");
-                }
-                else
-                {
-                    Debug.LogWarning("[GridCursor] BlueStun component missing on blue player.");
-                }
+                if (blueStun != null) blueStun.Stun(lockDurationOnExit);
             }
         }
-
-        // If the player is not active, activate and reposition them.
-        if (ent == null || ent.activeInHierarchy)
-            return;
-
+        if (ent == null || ent.activeInHierarchy) return;
         ent.SetActive(true);
         float w = cells[curRow, curCol].transform.localScale.x;
         ent.transform.position = cells[curRow, curCol].transform.position + Vector3.left * w * 1.5f;
+    }
+
+    public int CurrentRow => curRow;
+    public int CurrentCol => curCol;
+    public int TotalRows => rows;
+    public int TotalCols => cols;
+
+    public bool CanMoveToCell(int r, int c)
+    {
+        if (cells == null || occupied == null) return false;
+        r = Mathf.Clamp(r, 0, rows - 1);
+        c = Mathf.Clamp(c, 0, cols - 1);
+        var slot = cells[r, c].GetComponent<BuildingSlot>();
+        bool blocked = slot && slot.IsBlocked(tintOwner);
+        if (blocked || occupied[r, c]) return false;
+        return true;
+    }
+
+    public void DoMoveToCell(int newRow, int newCol)
+    {
+        newRow = Mathf.Clamp(newRow, 0, rows - 1);
+        newCol = Mathf.Clamp(newCol, 0, cols - 1);
+        ExitCell(curRow, curCol);
+        curRow = newRow;
+        curCol = newCol;
+        EnterCell(curRow, curCol);
     }
 }

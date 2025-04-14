@@ -7,8 +7,8 @@ public class BuildingSelectionUI : MonoBehaviour
     public static BuildingSelectionUI Instance { get; private set; }
 
     [Header("Button Icons (order: TroopSpawner, Generator, Cannon, Flag)")]
-    public Image[] redIcons;     // size 4
-    public Image[] blueIcons;    // size 4
+    public Image[] redIcons;     // Ensure these arrays have valid elements in the Inspector (or adjust sizes)
+    public Image[] blueIcons;
 
     [Header("Red Cost Texts (order: TroopSpawner, Generator, Cannon, Flag)")]
     public Text[] redGoldCostTexts;
@@ -18,14 +18,12 @@ public class BuildingSelectionUI : MonoBehaviour
     public Text[] blueGoldCostTexts;
     public Text[] blueRuneCostTexts;
 
-
     [Header("Building Types (order: TroopSpawner, Generator, Cannon, Flag)")]
-    public BuildingType[] buildingTypes; // Order must match icons & cost texts
+    public BuildingType[] buildingTypes; // Make sure this array matches the expected order
 
     public Color normalColor = Color.white;
     public Color highlightColor = Color.green;
 
-    // Track active selection per player
     private int redHighlightIndex = -1;
     private int blueHighlightIndex = -1;
 
@@ -34,60 +32,56 @@ public class BuildingSelectionUI : MonoBehaviour
         if (Instance && Instance != this)
             Destroy(gameObject);
         Instance = this;
-
         ClearAllHighlights();
     }
 
-    public void StartSelection(ColorType owner, int startIndex)
+    public void StartSelection(GridCellTint.ColorType owner, int startIndex)
     {
-        if (owner == ColorType.Red)
+        if (owner == GridCellTint.ColorType.Red)
         {
             redHighlightIndex = startIndex;
-            UpdateHighlight(ColorType.Red);
+            UpdateHighlight(GridCellTint.ColorType.Red);
         }
         else
         {
             blueHighlightIndex = startIndex;
-            UpdateHighlight(ColorType.Blue);
+            UpdateHighlight(GridCellTint.ColorType.Blue);
         }
-
-        // New: Update costs when the selection starts.
         UpdateCostDisplay(owner);
     }
 
-    public void Highlight(ColorType owner, int index)
+    public void Highlight(GridCellTint.ColorType owner, int index)
     {
-        if (owner == ColorType.Red)
+        if (owner == GridCellTint.ColorType.Red)
         {
             redHighlightIndex = index;
-            UpdateHighlight(ColorType.Red);
+            UpdateHighlight(GridCellTint.ColorType.Red);
         }
         else
         {
             blueHighlightIndex = index;
-            UpdateHighlight(ColorType.Blue);
+            UpdateHighlight(GridCellTint.ColorType.Blue);
         }
     }
 
-    public void EndSelection(ColorType owner)
+    public void EndSelection(GridCellTint.ColorType owner)
     {
-        if (owner == ColorType.Red)
+        if (owner == GridCellTint.ColorType.Red)
         {
             redHighlightIndex = -1;
-            UpdateHighlight(ColorType.Red);
+            UpdateHighlight(GridCellTint.ColorType.Red);
         }
         else
         {
             blueHighlightIndex = -1;
-            UpdateHighlight(ColorType.Blue);
+            UpdateHighlight(GridCellTint.ColorType.Blue);
         }
     }
 
-    // Updates only the icons for the given player
-    private void UpdateHighlight(ColorType owner)
+    private void UpdateHighlight(GridCellTint.ColorType owner)
     {
-        Image[] arr = (owner == ColorType.Red) ? redIcons : blueIcons;
-        int highlightIndex = (owner == ColorType.Red) ? redHighlightIndex : blueHighlightIndex;
+        Image[] arr = (owner == GridCellTint.ColorType.Red) ? redIcons : blueIcons;
+        int highlightIndex = (owner == GridCellTint.ColorType.Red) ? redHighlightIndex : blueHighlightIndex;
 
         for (int i = 0; i < arr.Length; i++)
         {
@@ -108,22 +102,18 @@ public class BuildingSelectionUI : MonoBehaviour
         blueHighlightIndex = -1;
     }
 
-    // New: Updates the cost texts for each building type based on the player's current resources.
-    public void UpdateCostDisplay(ColorType owner)
+    public void UpdateCostDisplay(GridCellTint.ColorType owner)
     {
-        Text[] goldTexts = (owner == ColorType.Red) ? redGoldCostTexts : blueGoldCostTexts;
-        Text[] runeTexts = (owner == ColorType.Red) ? redRuneCostTexts : blueRuneCostTexts;
+        Text[] goldTexts = (owner == GridCellTint.ColorType.Red) ? redGoldCostTexts : blueGoldCostTexts;
+        Text[] runeTexts = (owner == GridCellTint.ColorType.Red) ? redRuneCostTexts : blueRuneCostTexts;
 
         for (int i = 0; i < buildingTypes.Length; i++)
         {
             (int gold, int runes) = BuildingCostManager.Instance.GetCost(buildingTypes[i], owner);
-
             if (i < goldTexts.Length && goldTexts[i] != null)
                 goldTexts[i].text = gold.ToString();
-
             if (i < runeTexts.Length && runeTexts[i] != null)
                 runeTexts[i].text = runes.ToString();
         }
     }
-
 }
