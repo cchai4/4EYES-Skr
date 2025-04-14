@@ -1,0 +1,3205 @@
+fileFormatVersion: 2
+guid: 3e1403a7c9ff5cc49b224bb6cd2c71b7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6929665200163992457
+    second: glowingrune_0
+  - first:
+      213: 3934003696095119064
+    second: glowingrune_1
+  - first:
+      213: -7081473137650485735
+    second: glowingrune_2
+  - first:
+      213: -7626109787402966068
+    second: glowingrune_3
+  - first:
+      213: 3214120727550037591
+    second: glowingrune_4
+  - first:
+      213: 2317997416787679015
+    second: glowingrune_5
+  - first:
+      213: -6655316057910621872
+    second: glowingrune_6
+  - first:
+      213: -3982506786133131533
+    second: glowingrune_7
+  - first:
+      213: 2411935623820806431
+    second: glowingrune_8
+  - first:
+      213: 5145683849835309987
+    second: glowingrune_9
+  - first:
+      213: -6432355384508445502
+    second: glowingrune_10
+  - first:
+      213: 8767861102277832738
+    second: glowingrune_11
+  - first:
+      213: 1725933944027224983
+    second: glowingrune_12
+  - first:
+      213: -7966237810264439094
+    second: glowingrune_13
+  - first:
+      213: -6932795353007469701
+    second: glowingrune_14
+  - first:
+      213: -6162949086688426942
+    second: glowingrune_15
+  - first:
+      213: 2406185704528823865
+    second: glowingrune_16
+  - first:
+      213: -816974371635058968
+    second: glowingrune_17
+  - first:
+      213: 4967305035886192951
+    second: glowingrune_18
+  - first:
+      213: -3339331293214916692
+    second: glowingrune_19
+  - first:
+      213: -8043469647538187505
+    second: glowingrune_20
+  - first:
+      213: 9133502328382359045
+    second: glowingrune_21
+  - first:
+      213: 1334699529880323184
+    second: glowingrune_22
+  - first:
+      213: 6694152665630357910
+    second: glowingrune_23
+  - first:
+      213: -305759374311218768
+    second: glowingrune_24
+  - first:
+      213: 2479690979715064604
+    second: glowingrune_25
+  - first:
+      213: 557383018608851790
+    second: glowingrune_26
+  - first:
+      213: 6401124151070772178
+    second: glowingrune_27
+  - first:
+      213: 8948585279582220921
+    second: glowingrune_28
+  - first:
+      213: 7432248818158768772
+    second: glowingrune_29
+  - first:
+      213: -3485405105339380282
+    second: glowingrune_30
+  - first:
+      213: 6674992227276482358
+    second: glowingrune_31
+  - first:
+      213: -8826586475485497697
+    second: glowingrune_32
+  - first:
+      213: 2473027073696492542
+    second: glowingrune_33
+  - first:
+      213: -8011112682656511316
+    second: glowingrune_34
+  - first:
+      213: 2074918507954626076
+    second: glowingrune_35
+  - first:
+      213: -2459889764911758465
+    second: glowingrune_36
+  - first:
+      213: 3393366473139189728
+    second: glowingrune_37
+  - first:
+      213: -442375620684063620
+    second: glowingrune_38
+  - first:
+      213: -8428900783200805848
+    second: glowingrune_39
+  - first:
+      213: -5520253995849738267
+    second: glowingrune_40
+  - first:
+      213: 7810393858539360096
+    second: glowingrune_41
+  - first:
+      213: 3553792246820716894
+    second: glowingrune_42
+  - first:
+      213: -2488059986115073330
+    second: glowingrune_43
+  - first:
+      213: -5582578010913895791
+    second: glowingrune_44
+  - first:
+      213: -8068444286222335194
+    second: glowingrune_45
+  - first:
+      213: -2717452446959811810
+    second: glowingrune_46
+  - first:
+      213: -873996446207619665
+    second: glowingrune_47
+  - first:
+      213: -2780416134152693557
+    second: glowingrune_48
+  - first:
+      213: 6414005449072574318
+    second: glowingrune_49
+  - first:
+      213: 7674394651838097397
+    second: glowingrune_50
+  - first:
+      213: 2839468860198429283
+    second: glowingrune_51
+  - first:
+      213: 4847751757288658255
+    second: glowingrune_52
+  - first:
+      213: -5429020397093097503
+    second: glowingrune_53
+  - first:
+      213: 4156479387051396544
+    second: glowingrune_54
+  - first:
+      213: 9018251318752866468
+    second: glowingrune_55
+  - first:
+      213: 4857826599689985633
+    second: glowingrune_56
+  - first:
+      213: -2920927102927184984
+    second: glowingrune_57
+  - first:
+      213: -8167063896124729102
+    second: glowingrune_58
+  - first:
+      213: 1450043015263589819
+    second: glowingrune_59
+  - first:
+      213: -8805418613646727066
+    second: glowingrune_60
+  - first:
+      213: -4334880982533882498
+    second: glowingrune_61
+  - first:
+      213: 5439575548798690887
+    second: glowingrune_62
+  - first:
+      213: 7047501422157052013
+    second: glowingrune_63
+  - first:
+      213: -7896727865865339995
+    second: glowingrune_64
+  - first:
+      213: 2989182717137923331
+    second: glowingrune_65
+  - first:
+      213: -1938668905327932366
+    second: glowingrune_66
+  - first:
+      213: -548718756528668552
+    second: glowingrune_67
+  - first:
+      213: 1963485649627325155
+    second: glowingrune_68
+  - first:
+      213: 2302620787289345244
+    second: glowingrune_69
+  - first:
+      213: 4166538353051486911
+    second: glowingrune_70
+  - first:
+      213: -4944824774767473539
+    second: glowingrune_71
+  - first:
+      213: 4694869030892493179
+    second: glowingrune_72
+  - first:
+      213: 6483008001830857028
+    second: glowingrune_73
+  - first:
+      213: 388928924680681814
+    second: glowingrune_74
+  - first:
+      213: -2714256991723194059
+    second: glowingrune_75
+  - first:
+      213: -3578196357874517135
+    second: glowingrune_76
+  - first:
+      213: 4487948088449550575
+    second: glowingrune_77
+  - first:
+      213: -2180739131617755684
+    second: glowingrune_78
+  - first:
+      213: -7321957691111041321
+    second: glowingrune_79
+  - first:
+      213: 6856128690579688850
+    second: glowingrune_80
+  - first:
+      213: -607833053378092514
+    second: glowingrune_81
+  - first:
+      213: 4981079220221562816
+    second: glowingrune_82
+  - first:
+      213: -2587954815362477111
+    second: glowingrune_83
+  - first:
+      213: 6846421862023792541
+    second: glowingrune_84
+  - first:
+      213: -1787395388550622700
+    second: glowingrune_85
+  - first:
+      213: 7957623116774265330
+    second: glowingrune_86
+  - first:
+      213: -4757810378734695467
+    second: glowingrune_87
+  - first:
+      213: 123057349070707335
+    second: glowingrune_88
+  - first:
+      213: -3158732861969578476
+    second: glowingrune_89
+  - first:
+      213: -5596817234170864251
+    second: glowingrune_90
+  - first:
+      213: 3368707426427530078
+    second: glowingrune_91
+  - first:
+      213: 2924480370163972551
+    second: glowingrune_92
+  - first:
+      213: 2014161115731826790
+    second: glowingrune_93
+  - first:
+      213: 2101402485741310123
+    second: glowingrune_94
+  - first:
+      213: -7843276071768939887
+    second: glowingrune_95
+  - first:
+      213: 4931390908340219900
+    second: glowingrune_96
+  - first:
+      213: 1826134150976549197
+    second: glowingrune_97
+  - first:
+      213: -6511462595488168306
+    second: glowingrune_98
+  - first:
+      213: 2648925249795161660
+    second: glowingrune_99
+  - first:
+      213: -5229841854850700345
+    second: glowingrune_100
+  - first:
+      213: 8625400837998324009
+    second: glowingrune_101
+  - first:
+      213: 4555460958560531979
+    second: glowingrune_102
+  - first:
+      213: 4761081366398289049
+    second: glowingrune_103
+  - first:
+      213: -5088261678955116006
+    second: glowingrune_104
+  - first:
+      213: 2885399893116369794
+    second: glowingrune_105
+  - first:
+      213: -7206966425158548905
+    second: glowingrune_106
+  - first:
+      213: 1805711245908588642
+    second: glowingrune_107
+  - first:
+      213: 3573065913108093470
+    second: glowingrune_108
+  - first:
+      213: 9052741431685651228
+    second: glowingrune_109
+  - first:
+      213: -8514030480706897597
+    second: glowingrune_110
+  - first:
+      213: -4537800394068708198
+    second: glowingrune_111
+  - first:
+      213: 820180450776312889
+    second: glowingrune_112
+  - first:
+      213: -9159394744687815417
+    second: glowingrune_113
+  - first:
+      213: -5905111656830430881
+    second: glowingrune_114
+  - first:
+      213: 3644034374196538229
+    second: glowingrune_115
+  - first:
+      213: -141042083940817219
+    second: glowingrune_116
+  - first:
+      213: 1425071297456086790
+    second: glowingrune_117
+  - first:
+      213: -5396775286824406248
+    second: glowingrune_118
+  - first:
+      213: 1810618125164362642
+    second: glowingrune_119
+  - first:
+      213: -1091820249323737677
+    second: glowingrune_120
+  - first:
+      213: 6199082160016033216
+    second: glowingrune_121
+  - first:
+      213: 4073134851866589222
+    second: glowingrune_122
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: glowingrune_0
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 16895
+        width: 1090
+        height: 1058
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77cc6d32732e4df90800000000000000
+      internalID: -6929665200163992457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_1
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 15583
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d6c2d2b483689630800000000000000
+      internalID: 3934003696095119064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_2
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 14847
+        width: 1218
+        height: 1058
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9163fd753bd89bd90800000000000000
+      internalID: -7081473137650485735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_3
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 15583
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccb67bf9d8d9a2690800000000000000
+      internalID: -7626109787402966068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_4
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 15263
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75e07d6c5c9da9c20800000000000000
+      internalID: 3214120727550037591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_5
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 15263
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72717e98e5e2b2020800000000000000
+      internalID: 2317997416787679015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_6
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 15135
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 059c8448e4193a3a0800000000000000
+      internalID: -6655316057910621872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_7
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 15103
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3feb3f0ad2b4bb8c0800000000000000
+      internalID: -3982506786133131533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_8
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 15103
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1903febbaae87120800000000000000
+      internalID: 2411935623820806431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_9
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 15135
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3abe5ebc234296740800000000000000
+      internalID: 5145683849835309987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_10
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 15039
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc8d4d9bdeabb6a0800000000000000
+      internalID: -6432355384508445502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_11
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 15039
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2203c39e733bda970800000000000000
+      internalID: 8767861102277832738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_12
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 14751
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79b188717cfb3f710800000000000000
+      internalID: 1725933944027224983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_13
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 14783
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac607e22bec327190800000000000000
+      internalID: -7966237810264439094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_14
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 14783
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7bc283ab53c9cf90800000000000000
+      internalID: -6932795353007469701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_15
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 14751
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2444e17557ec87aa0800000000000000
+      internalID: -6162949086688426942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_16
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 13535
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9364016562d746120800000000000000
+      internalID: 2406185704528823865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_17
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 12799
+        width: 1218
+        height: 1058
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e62814332689a4f0800000000000000
+      internalID: -816974371635058968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_18
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 13535
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 739610bbc996fe440800000000000000
+      internalID: 4967305035886192951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_19
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 13215
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caf3490a1ef48a1d0800000000000000
+      internalID: -3339331293214916692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_20
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 13215
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0399d0c8fadf5090800000000000000
+      internalID: -8043469647538187505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_21
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 13087
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5060f6ee9f7b0ce70800000000000000
+      internalID: 9133502328382359045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_22
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 13055
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 074c560a62ec58210800000000000000
+      internalID: 1334699529880323184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_23
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 13055
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 699b12bd16866ec50800000000000000
+      internalID: 6694152665630357910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_24
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 13087
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b12f631879b1cbf0800000000000000
+      internalID: -305759374311218768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_25
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 12991
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1328aedec1a96220800000000000000
+      internalID: 2479690979715064604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_26
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 12991
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4bf30cf6e83cb700800000000000000
+      internalID: 557383018608851790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_27
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 12703
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2db4fb3308c55d850800000000000000
+      internalID: 6401124151070772178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_28
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 12735
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 972b9cf66e2cf2c70800000000000000
+      internalID: 8948585279582220921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_29
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 12735
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4829ba02ce6a42760800000000000000
+      internalID: 7432248818158768772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_30
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 12703
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cdc9ede58a51afc0800000000000000
+      internalID: -3485405105339380282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_31
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 11487
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 637ee49a01652ac50800000000000000
+      internalID: 6674992227276482358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_32
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 10751
+        width: 1218
+        height: 1058
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f967b65ad5aa18580800000000000000
+      internalID: -8826586475485497697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_33
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 11487
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efb6a975505f15220800000000000000
+      internalID: 2473027073696492542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_34
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 11167
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caac1a6b57fc2d090800000000000000
+      internalID: -8011112682656511316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_35
+      rect:
+        serializedVersion: 2
+        x: 1631
+        y: 11167
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1ed48cb3679bcc10800000000000000
+      internalID: 2074918507954626076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_36
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 11039
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f73c0d7ba47bcddd0800000000000000
+      internalID: -2459889764911758465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_37
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 11007
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e77e2814d8a71f20800000000000000
+      internalID: 3393366473139189728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_38
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 11007
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7c55df77bd5cd9f0800000000000000
+      internalID: -442375620684063620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_39
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 11039
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82cdd4a5567860b80800000000000000
+      internalID: -8428900783200805848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_40
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 10943
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e712730d3e1463b0800000000000000
+      internalID: -5520253995849738267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_41
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 10943
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06f812645d7146c60800000000000000
+      internalID: 7810393858539360096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_42
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 10655
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e51494d383b915130800000000000000
+      internalID: 3553792246820716894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_43
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 10687
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eca6fbbff92a87dd0800000000000000
+      internalID: -2488059986115073330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_44
+      rect:
+        serializedVersion: 2
+        x: 1055
+        y: 10687
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19a029870e2b682b0800000000000000
+      internalID: -5582578010913895791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_45
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 10655
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62300bd8ba0270090800000000000000
+      internalID: -8068444286222335194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_46
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 8703
+        width: 1090
+        height: 1058
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e13c1fca56ba94ad0800000000000000
+      internalID: -2717452446959811810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_47
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 7711
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fad47d0ecd0fed3f0800000000000000
+      internalID: -873996446207619665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_48
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 7391
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc8501cd14af969d0800000000000000
+      internalID: -2780416134152693557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_49
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 6751
+        width: 930
+        height: 898
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6ff36b19ff130950800000000000000
+      internalID: 6414005449072574318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_50
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 7391
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f7a7f0764de08a60800000000000000
+      internalID: 7674394651838097397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_51
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 7199
+        width: 34
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36229ea52e1d76720800000000000000
+      internalID: 2839468860198429283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_52
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 7103
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f45577ce98ca64340800000000000000
+      internalID: 4847751757288658255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_53
+      rect:
+        serializedVersion: 2
+        x: 1535
+        y: 7103
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ef6ae886be38a4b0800000000000000
+      internalID: -5429020397093097503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_54
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 7039
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cd8e650bf7cea930800000000000000
+      internalID: 4156479387051396544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_55
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 7039
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a0767d2bc3472d70800000000000000
+      internalID: 9018251318752866468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_56
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 6943
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16e17f6fd877a6340800000000000000
+      internalID: 4857826599689985633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_57
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 6687
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8abd63f8648c677d0800000000000000
+      internalID: -2920927102927184984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_58
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 6687
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f8519d48a2c8ae80800000000000000
+      internalID: -8167063896124729102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_59
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 5663
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb592d190769f1410800000000000000
+      internalID: 1450043015263589819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_60
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 5663
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66869fa8c6edcc580800000000000000
+      internalID: -8805418613646727066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_61
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 5343
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7db87ca6b867d3c0800000000000000
+      internalID: -4334880982533882498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_62
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 4703
+        width: 930
+        height: 898
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 746eb0b34214d7b40800000000000000
+      internalID: 5439575548798690887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_63
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 5343
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d683bb54431cdc160800000000000000
+      internalID: 7047501422157052013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_64
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 5151
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5abfa2b38df296290800000000000000
+      internalID: -7896727865865339995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_65
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 5151
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d2eb708d5bb7920800000000000000
+      internalID: 2989182717137923331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_66
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 5055
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23c45d0f6e67815e0800000000000000
+      internalID: -1938668905327932366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_67
+      rect:
+        serializedVersion: 2
+        x: 1535
+        y: 5055
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 870c38bb23f8268f0800000000000000
+      internalID: -548718756528668552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_68
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 4991
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e22d9b9bc3bf3b10800000000000000
+      internalID: 1963485649627325155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_69
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 4991
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdccfcef76d84ff10800000000000000
+      internalID: 2302620787289345244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_70
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 4991
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbaccac8e8482d930800000000000000
+      internalID: 4166538353051486911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_71
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 4991
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7c0f6fe014706bb0800000000000000
+      internalID: -4944824774767473539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_72
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 4895
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7954555286872140800000000000000
+      internalID: 4694869030892493179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_73
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 4639
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 449a421ed6548f950800000000000000
+      internalID: 6483008001830857028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_74
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 4639
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 659777edbc0c56500800000000000000
+      internalID: 388928924680681814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_75
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 4543
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 539f73395a5055ad0800000000000000
+      internalID: -2714256991723194059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_76
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 4543
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17bfa40ee51b75ec0800000000000000
+      internalID: -3578196357874517135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_77
+      rect:
+        serializedVersion: 2
+        x: 959
+        y: 3743
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe8cd6e1205684e30800000000000000
+      internalID: 4487948088449550575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_78
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 3647
+        width: 34
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd312850557cb1e0800000000000000
+      internalID: -2180739131617755684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_79
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 3679
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d613e8f54e236a90800000000000000
+      internalID: -7321957691111041321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_80
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 3583
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29dcd5008bcd52f50800000000000000
+      internalID: 6856128690579688850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_81
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 3615
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1268a2fe0b8097f0800000000000000
+      internalID: -607833053378092514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_82
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 3615
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cfc26fe829502540800000000000000
+      internalID: 4981079220221562816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_83
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 3295
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c3de879eccb51cd0800000000000000
+      internalID: -2587954815362477111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_84
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 3295
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d97856cd860630f50800000000000000
+      internalID: 6846421862023792541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_85
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 2655
+        width: 930
+        height: 898
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 412d4483d55e137e0800000000000000
+      internalID: -1787395388550622700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_86
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 3295
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f154cb30182f6e60800000000000000
+      internalID: 7957623116774265330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_87
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 3199
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5db0ad22bacd8fdb0800000000000000
+      internalID: -4757810378734695467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_88
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 3231
+        width: 66
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78a5c5ac10035b100800000000000000
+      internalID: 123057349070707335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_89
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 3103
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41643fd923de924d0800000000000000
+      internalID: -3158732861969578476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_90
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 3103
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58d1674f06c1452b0800000000000000
+      internalID: -5596817234170864251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_91
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 3007
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5bee606e8d00ce20800000000000000
+      internalID: 3368707426427530078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_92
+      rect:
+        serializedVersion: 2
+        x: 1535
+        y: 3007
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c9f930f667d59820800000000000000
+      internalID: 2924480370163972551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_93
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 2943
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 668999ffcdcb3fb10800000000000000
+      internalID: 2014161115731826790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_94
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 2943
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba0dbb45d6ea92d10800000000000000
+      internalID: 2101402485741310123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_95
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 2943
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19224ead7f5172390800000000000000
+      internalID: -7843276071768939887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_96
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 2943
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cffa53c47e1df6440800000000000000
+      internalID: 4931390908340219900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_97
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 2847
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d41ba25c55bb75910800000000000000
+      internalID: 1826134150976549197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_98
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 2783
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e864fa3c443a2a5a0800000000000000
+      internalID: -6511462595488168306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_99
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 2591
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3e7a96ea7fd2c420800000000000000
+      internalID: 2648925249795161660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_100
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 2591
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cb672aba8edb67b0800000000000000
+      internalID: -5229841854850700345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_101
+      rect:
+        serializedVersion: 2
+        x: 1023
+        y: 2559
+        width: 98
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9292f32ec5493b770800000000000000
+      internalID: 8625400837998324009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_102
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 2559
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b06392f1b9f383f30800000000000000
+      internalID: 4555460958560531979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_103
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 2495
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 994c6e60742c21240800000000000000
+      internalID: 4761081366398289049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_104
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 2495
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1ac5a536fcd269b0800000000000000
+      internalID: -5088261678955116006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_105
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 1567
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28bb6205aeffa0820800000000000000
+      internalID: 2885399893116369794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_106
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 1567
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75202407836bbfb90800000000000000
+      internalID: -7206966425158548905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_107
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 1247
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2683f43afcc2f0910800000000000000
+      internalID: 1805711245908588642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_108
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 607
+        width: 930
+        height: 898
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1a5ddd5484169130800000000000000
+      internalID: 3573065913108093470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_109
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 1247
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1b951f5e5cc1ad70800000000000000
+      internalID: 9052741431685651228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_110
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 1055
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 349fd96136618d980800000000000000
+      internalID: -8514030480706897597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_111
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 1055
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9438e9759e7601c0800000000000000
+      internalID: -4537800394068708198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_112
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 959
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93ced3446cdd16b00800000000000000
+      internalID: 820180450776312889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_113
+      rect:
+        serializedVersion: 2
+        x: 1535
+        y: 959
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7059d4d120b43e080800000000000000
+      internalID: -9159394744687815417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_114
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 895
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f519a971c34dc0ea0800000000000000
+      internalID: -5905111656830430881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_115
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 895
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57b2c47d4f5329230800000000000000
+      internalID: 3644034374196538229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_116
+      rect:
+        serializedVersion: 2
+        x: 1567
+        y: 895
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db6a350d8faea0ef0800000000000000
+      internalID: -141042083940817219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_117
+      rect:
+        serializedVersion: 2
+        x: 1663
+        y: 895
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60f99707bced6c310800000000000000
+      internalID: 1425071297456086790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_118
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 799
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8137930587dca15b0800000000000000
+      internalID: -5396775286824406248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_119
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 543
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29b3e4e779b902910800000000000000
+      internalID: 1810618125164362642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_120
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 543
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bdea78944319d0f0800000000000000
+      internalID: -1091820249323737677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_121
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 447
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c587316160970650800000000000000
+      internalID: 6199082160016033216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: glowingrune_122
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 447
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62875cf319ea68830800000000000000
+      internalID: 4073134851866589222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

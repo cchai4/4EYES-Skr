@@ -27,11 +27,18 @@ public class Troop : MonoBehaviour
     private bool isKnockedBack = false;
     private Vector2 knockbackVelocity = Vector2.zero;
     private float knockbackTimer = 0f;
+    Animator animator;
 
+
+    public void PlayAnimation()
+    {
+        animator.SetTrigger("PlayAnim");
+    }
     void Awake()
     {
         currentHP = maxHP;
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()

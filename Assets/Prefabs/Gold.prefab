@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8859169424651448420}
   - component: {fileID: 7950306604629583052}
-  - component: {fileID: 7657812926965875636}
   - component: {fileID: -5902473125007314350}
+  - component: {fileID: 8191408062573657310}
   m_Layer: 3
   m_Name: Gold
   m_TagString: Gold
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.63, y: -1.11, z: 0.039642822}
-  m_LocalScale: {x: 6.1528, y: 4.9325, z: 1}
+  m_LocalScale: {x: 0.22, y: 0.22, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4078589816385665303, guid: 948f5ce778f8f4481aab69377934e058, type: 3}
+  m_Sprite: {fileID: 7675826601332790545, guid: 3029753ecbf4c05499a87a70a1bf5b76, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -89,8 +89,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7657812926965875636
-BoxCollider2D:
+--- !u!114 &-5902473125007314350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4356808937301415986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a45a72ab8fd14867954a1360d35f1bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &8191408062573657310
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -124,26 +136,4 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.14, y: 0.13}
-    newSize: {x: 0.14, y: 0.13}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.1, y: 0.1}
-  m_EdgeRadius: 0
---- !u!114 &-5902473125007314350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4356808937301415986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a45a72ab8fd14867954a1360d35f1bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Radius: 1

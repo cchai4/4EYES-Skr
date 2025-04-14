@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90b45be128a8ea43b6cfb5aa14b8102, type: 3}
   m_Name: BlueControls
   m_EditorClassIdentifier: 
-  upKey: 0
-  downKey: 0
-  leftKey: 0
-  rightKey: 0
-  dashDoubleTapKey: 0
-  cancelKey: 0
+  upKey: 273
+  downKey: 274
+  leftKey: 276
+  rightKey: 275
+  dashDoubleTapKey: 64
+  cancelKey: 46
