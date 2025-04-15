@@ -13,6 +13,16 @@ public class GridCellActivation : MonoBehaviour
         col = c;
     }
 
+    /// <summary>
+    /// Returns the grid cell coordinates as a Vector2Int.
+    /// </summary>
+    public Vector2Int GetCellCoords()
+    {
+        return new Vector2Int(row, col);
+    }
+    public bool redInGrid = false;
+    public bool blueInGrid = false;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         // Example tags: "Red" or "Blue"
@@ -27,6 +37,8 @@ public class GridCellActivation : MonoBehaviour
                 {
                     cursor.ForcePlaceAt(row, col);
                     Debug.Log($"Red touched cell [{row},{col}]. Player1Cursor updated.");
+                    redInGrid = true;
+                    Debug.Log(redInGrid);
                 }
             }
         }
@@ -41,8 +53,23 @@ public class GridCellActivation : MonoBehaviour
                 {
                     cursor.ForcePlaceAt(row, col);
                     Debug.Log($"Blue touched cell [{row},{col}]. Player2Cursor updated.");
+                    blueInGrid = true;
                 }
             }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Red"))
+        {
+            redInGrid = false;
+            Debug.Log($"Red left cell [{row},{col}]. redInGrid set to false.");
+        }
+        else if (other.CompareTag("Blue"))
+        {
+            blueInGrid = false;
+            Debug.Log($"Blue left cell [{row},{col}]. blueInGrid set to false.");
         }
     }
 }

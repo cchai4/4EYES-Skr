@@ -1332,6 +1332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 228181970}
   - component: {fileID: 228181969}
+  - component: {fileID: 228181971}
   m_Layer: 0
   m_Name: Player1Cursor
   m_TagString: Untagged
@@ -1355,7 +1356,6 @@ MonoBehaviour:
   tintOwner: 0
   startRow: 0
   startCol: 0
-  lockDurationOnExit: 0
   hasJoined: 0
 --- !u!4 &228181970
 Transform:
@@ -1372,6 +1372,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &228181971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228181968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee6e7bcc1a1380418d1fdfe0762402a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &230793003
 GameObject:
   m_ObjectHideFlags: 0
@@ -3137,7 +3149,6 @@ MonoBehaviour:
   tintOwner: 1
   startRow: 0
   startCol: 0
-  lockDurationOnExit: 0
   hasJoined: 0
 --- !u!4 &769465702
 Transform:
@@ -4899,6 +4910,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingGold: 10
   startingRunes: 0
+  gold_count: 0
+  diamond_count: 0
   red_gold: {fileID: 1858246203}
   red_diamond: {fileID: 1620104090}
 --- !u!4 &1302153309

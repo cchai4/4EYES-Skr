@@ -70,7 +70,7 @@ public class FlagInitializer : MonoBehaviour
             if (blueSlot != null)
             {
                 blueSlot.PlaceBuilding(ColorType.Blue, BuildingType.FlagBuilding, true); // bypass resource check
-                Debug.Log("FlagInitializer: Placed blue flag (ignoring resources).");
+                // Debug.Log("FlagInitializer: Placed blue flag (ignoring resources).");
             }
             else
             {

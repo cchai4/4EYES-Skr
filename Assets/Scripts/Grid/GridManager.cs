@@ -13,6 +13,7 @@ public class GridManager : MonoBehaviour
     {
         CreateRightSquareGrid();
     }
+
     public static GridManager Instance { get; private set; }
 
     void Awake()
@@ -24,6 +25,7 @@ public class GridManager : MonoBehaviour
         }
         Instance = this;
     }
+
     void CreateRightSquareGrid()
     {
         Vector3 camTopRight = Camera.main.ViewportToWorldPoint(new Vector3(1f, 1f, 0));
@@ -85,7 +87,7 @@ public class GridManager : MonoBehaviour
     public int GetColCount() => cols;
 
     /// <summary>
-    /// For territory refresh, if needed. (Optional if you already do a recompute from scratch.)
+    /// Refreshes the territory tints for all grid cells.
     /// </summary>
     public void RefreshAllTerritories()
     {
@@ -98,7 +100,6 @@ public class GridManager : MonoBehaviour
                 GameObject cell = cells[r, c];
                 if (cell != null)
                 {
-                    // Log the cell being refreshed.
                     Debug.Log($"Refreshing territory on cell at row {r}, col {c} (named {cell.name}).");
                     var tint = cell.GetComponent<TerritoryTint>();
                     if (tint != null)
@@ -118,4 +119,34 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Returns the first GridCellActivation that has redInGrid set to true.
+    /// </summary>
+    public GridCellActivation GetRedActivatedCell()
+    {
+        GridCellActivation[] activations = gridParent.GetComponentsInChildren<GridCellActivation>();
+        foreach (var act in activations)
+        {
+            if (act.redInGrid)
+                return act;
+        }
+        return null;
+    }
+
+    /// <summary>
+    /// Returns true if any GridCellActivation under gridParent has redInGrid set to true.
+    /// </summary>
+    public bool RedInGrid
+    {
+        get
+        {
+            GridCellActivation[] activations = gridParent.GetComponentsInChildren<GridCellActivation>();
+            foreach (var act in activations)
+            {
+                if (act.redInGrid)
+                    return true;
+            }
+            return false;
+        }
+    }
 }

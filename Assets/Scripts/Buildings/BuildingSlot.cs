@@ -1,6 +1,6 @@
 using UnityEngine;
 using static GridCellTint;
-using static GridCellTint.ColorType;
+using System.Collections.Generic;
 
 public class BuildingSlot : MonoBehaviour
 {
@@ -17,6 +17,9 @@ public class BuildingSlot : MonoBehaviour
 
     private GameObject current;
     private ColorType owner = ColorType.Red;   // default
+
+    // NEW: Store the type of building that has been placed in this slot.
+    private BuildingType currentBuildingType = BuildingType.None;
 
     public void PlaceBuilding(ColorType who, BuildingType type, bool ignoreResources = false)
     {
@@ -39,14 +42,14 @@ public class BuildingSlot : MonoBehaviour
 
             if (type != BuildingType.FlagBuilding && !IsInRangeOfTeamTerritory(who, 1))
             {
-                Debug.Log("Cannot place building here — not in your 3x3 territory.");
+                Debug.Log("Cannot place building here â€” not in your 3x3 territory.");
                 return;
             }
 
             ColorType enemy = (who == ColorType.Red ? ColorType.Blue : ColorType.Red);
             if (type != BuildingType.FlagBuilding && IsInRangeOfTeamTerritory(enemy, 1))
             {
-                Debug.Log("Cannot place building here — it's in the other player's territory.");
+                Debug.Log("Cannot place building here â€” it's in the other player's territory.");
                 return;
             }
         }
@@ -80,6 +83,9 @@ public class BuildingSlot : MonoBehaviour
                 {
                     baseScript.team = (who == ColorType.Red) ? Team.Red : Team.Blue;
                 }
+
+                // NEW: Store the building type after a successful placement.
+                currentBuildingType = type;
                 Debug.Log($"BuildingSlot: Placed {type} for {who} on {name}.");
 
                 if (GridManager.Instance != null)
@@ -87,7 +93,7 @@ public class BuildingSlot : MonoBehaviour
                     GridManager.Instance.RefreshAllTerritories();
                 }
 
-                // New: Update the cost display in the UI after spending resources.
+                // Update the cost display in the UI after spending resources.
                 if (BuildingSelectionUI.Instance != null)
                 {
                     BuildingSelectionUI.Instance.UpdateCostDisplay(who);
@@ -112,7 +118,7 @@ public class BuildingSlot : MonoBehaviour
 
     public ColorType GetOwner() => owner;
 
-    // Checks if there is a building belonging to teamOwner in this cell's 3×3 vicinity.
+    // Checks if there is a building belonging to teamOwner in this cell's 3Ã—3 vicinity.
     private bool IsInRangeOfTeamTerritory(ColorType teamOwner, int radius)
     {
         string[] parts = gameObject.name.Split('_');
@@ -203,10 +209,62 @@ public class BuildingSlot : MonoBehaviour
         }
     }
 
-    // New: Clears the building reference stored for this slot.
+    // Clears the building reference stored for this slot.
     public void ClearBuilding()
     {
         Debug.Log($"BuildingSlot ({name}): Clearing building reference. Previous building: {current}");
         current = null;
+        currentBuildingType = BuildingType.None;
+    }
+
+    // ====================================================================
+    // NEW: Return information about all buildings placed on the board.
+    // ====================================================================
+
+    // Structure to hold building record information.
+    public struct BuildingRecord
+    {
+        public BuildingType buildingType;
+        public int row;
+        public int col;
+        public ColorType owner;
+    }
+
+    // This static function scans the entire grid (via GridManager) and returns a list of BuildingRecords.
+    public static List<BuildingRecord> GetAllBuildingsOnBoard()
+    {
+        List<BuildingRecord> records = new List<BuildingRecord>();
+        GridManager gm = GridManager.Instance;
+        if (gm == null)
+        {
+            Debug.LogWarning("BuildingSlot: GridManager not found when retrieving buildings.");
+            return records;
+        }
+
+        int totalRows = gm.GetRowCount();
+        int totalCols = gm.GetColCount();
+        for (int r = 0; r < totalRows; r++)
+        {
+            for (int c = 0; c < totalCols; c++)
+            {
+                GameObject cell = gm.GetCell(r, c);
+                if (cell != null)
+                {
+                    BuildingSlot slot = cell.GetComponent<BuildingSlot>();
+                    if (slot != null && slot.HasBuilding() && slot.currentBuildingType != BuildingType.None)
+                    {
+                        BuildingRecord record = new BuildingRecord
+                        {
+                            buildingType = slot.currentBuildingType,
+                            row = r,
+                            col = c,
+                            owner = slot.GetOwner()
+                        };
+                        records.Add(record);
+                    }
+                }
+            }
+        }
+        return records;
     }
 }

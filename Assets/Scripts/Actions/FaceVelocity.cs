@@ -25,6 +25,6 @@ public class FaceLastDirection : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angle);
 
         // Debug log to see the current target velocity and calculated angle.
-        Debug.Log($"Target Velocity: {movementScript?.CurrentTargetVelocity}, Facing direction: {lastDirection}, Angle: {angle}");
+        // Debug.Log($"Target Velocity: {movementScript?.CurrentTargetVelocity}, Facing direction: {lastDirection}, Angle: {angle}");
     }
 }

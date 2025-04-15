@@ -9,6 +9,9 @@ TagManager:
   - Fireball
   - Gold
   - Diamond
+  - BlueFlag
+  - RedFlag
+  - Cell
   layers:
   - Default
   - TransparentFX

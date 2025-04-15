@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
             {
                 GameObject newResource = Instantiate(spawn_obj, spawnPos, Quaternion.identity);
                 spawnedResources.Add(newResource);
-                Debug.Log($"Spawner: Spawned object at {spawnPos}");
+                // Debug.Log($"Spawner: Spawned object at {spawnPos}");
                 return; // success, exit early
             }
         }

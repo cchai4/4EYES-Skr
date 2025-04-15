@@ -4908,8 +4908,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4400b9a8b05f341a0b84edcc583d0a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingGold: 10
-  startingRunes: 0
+  startingGold: 50
+  startingRunes: 5
   gold_count: 0
   diamond_count: 0
   red_gold: {fileID: 1858246203}
