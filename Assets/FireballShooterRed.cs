@@ -8,16 +8,21 @@ public class FireballShooterRed : MonoBehaviour
     public float fireballSpeed = 10f;
 
     [Header("Firing Controls")]
-    public PlayerControlsSO controls; // Reference to the shared key config asset
+    public PlayerControlsSO controls; 
 
     // Cooldown handling
     public float fireballCooldown = 1f;
     private float lastFireTime = -Mathf.Infinity;
 
+    [Header("Sound Effect")]
+    public AudioClip fireballShootSfx;  
+    [Range(0f, 1f)]
+    public float shootVolume = 1.0f;      
+
     void Update()
     {
-        // Use the dashDoubleTapKey for firing if you want (or add another field to PlayerControlsSO)
-        if (Input.GetKey(controls.cancelKey)) // You can swap this if you'd rather use dash key
+        
+        if (Input.GetKey(controls.cancelKey))
         {
             if (Time.time - lastFireTime < fireballCooldown)
                 return;
@@ -35,9 +40,20 @@ public class FireballShooterRed : MonoBehaviour
     {
         yield return new WaitForSeconds(0.01f);
 
+        
+        if (fireballShootSfx != null)
+        {
+            AudioSource.PlayClipAtPoint(fireballShootSfx, firePoint.position, shootVolume);
+        }
+        else
+        {
+            Debug.LogWarning("FireballShooterRed: No fireball shoot sound assigned!");
+        }
+
         GameObject fireball = Instantiate(fireballPrefab, firePoint.position, firePoint.rotation);
         fireball.tag = "Fireball";
 
+        
         fireball.transform.Rotate(0, 0, 90);
 
         SpriteRenderer fireballRenderer = fireball.GetComponent<SpriteRenderer>();

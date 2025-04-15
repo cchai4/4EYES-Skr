@@ -103,6 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   maxHP: 10
+  destructionSfx: {fileID: 8300000, guid: 308c6d50765127c45bf7b6beac6f6f14, type: 3}
+  destructionVolume: 1
   troopPrefab: {fileID: 5973627949811252596, guid: 7378b37398e18b64a983088b77771b33, type: 3}
   spawnInterval: 3
 --- !u!61 &5646526094806260813

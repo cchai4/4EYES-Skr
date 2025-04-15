@@ -139,6 +139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   maxHP: 20
+  destructionSfx: {fileID: 8300000, guid: 308c6d50765127c45bf7b6beac6f6f14, type: 3}
+  destructionVolume: 1
   cannonballPrefab: {fileID: 8712394805136771531, guid: 09e613f378f42ac4a97a67d9384df423, type: 3}
   shootInterval: 1.5
   projectileSpeed: 8

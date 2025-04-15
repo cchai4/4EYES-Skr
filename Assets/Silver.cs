@@ -16,7 +16,7 @@ public class diamond : MonoBehaviour
             {
                 collected = true;
 
-                if (collision.gameObject.layer == 6) // Blue
+                if (collision.gameObject.layer == 6)
                 {
                     Blue_Inventory blueInv = Blue_Inventory.Instance;
                     if (blueInv != null)
@@ -29,7 +29,7 @@ public class diamond : MonoBehaviour
                         Debug.LogWarning("Blue Inventory singleton not found!");
                     }
                 }
-                else if (collision.gameObject.layer == 7) // Red
+                else if (collision.gameObject.layer == 7) 
                 {
                     RedInventory redInv = RedInventory.Instance;
                     if (redInv != null)

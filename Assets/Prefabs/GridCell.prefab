@@ -163,6 +163,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e5bf788d5b20894186d94ae1003bbfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  redHighlight: {r: 1, g: 0.6, b: 0.6, a: 1}
+  blueHighlight: {r: 0.6, g: 0.6, b: 1, a: 1}
+  purpleHighlight: {r: 1, g: 0.5, b: 1, a: 1}
 --- !u!114 &-143011721664834153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,6 +179,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a386a59830bba67449b3f340df7c32cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enterSound: {fileID: 8300000, guid: 06a408f1247629745885f8e8a7588282, type: 3}
+  enterVolume: 1
+  exitSound: {fileID: 8300000, guid: 06a408f1247629745885f8e8a7588282, type: 3}
+  exitVolume: 1
 --- !u!114 &-7214775590970718258
 MonoBehaviour:
   m_ObjectHideFlags: 0

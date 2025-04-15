@@ -2,9 +2,14 @@ using UnityEngine;
 
 public class Gold : MonoBehaviour
 {
+    [Header("Sound Effect")]
+    public AudioClip goldPickupClip;
+    [Range(0f, 1f)]
+    public float volume = 1.0f;   
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 6) // Blue
+        if (collision.gameObject.layer == 6) 
         {
             Blue_Inventory blue_inven = Blue_Inventory.Instance;
             if (blue_inven != null)
@@ -17,7 +22,7 @@ public class Gold : MonoBehaviour
                 Debug.LogWarning("Blue Inventory singleton not found!");
             }
         }
-        else if (collision.gameObject.layer == 7) // Red
+        else if (collision.gameObject.layer == 7) 
         {
             RedInventory red_inven = RedInventory.Instance;
             if (red_inven != null)
@@ -31,6 +36,17 @@ public class Gold : MonoBehaviour
             }
         }
 
-        Destroy(gameObject); // always destroy self after pickup
+        
+        if (goldPickupClip != null)
+        {
+            AudioSource.PlayClipAtPoint(goldPickupClip, transform.position, volume);
+        }
+        else
+        {
+            Debug.LogWarning("Gold pickup clip is not assigned in the Inspector!");
+        }
+
+        
+        Destroy(gameObject);
     }
 }

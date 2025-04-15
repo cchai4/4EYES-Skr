@@ -11,6 +11,8 @@ public class LogicScript : MonoBehaviour
     public Text Story_text;
     public GameObject Main_dialogue;
     public GameObject Story;
+    public AudioClip main_audio;
+    public AudioSource audioSource;
     public string[] storyLines = {
         "Centuries ago, the world of Elarion was vibrant with magic and life. But greed fractured the balance—two mighty sorcerers, once allies, sought to bend the Primordial Flame to their will. The flame, source of all creation and destruction, shattered under the strain.",
         "What followed was The Sundering—a magical cataclysm that reduced the realm to ash and void. Civilizations crumbled. The skies split. Oceans boiled. Yet from the wreckage, two figures emerged—the last surviving sorcerers: Vaelgor the Architect, and Nyssara the Shardbinder.",
@@ -23,7 +25,7 @@ public class LogicScript : MonoBehaviour
         "It didn't have to be this way, Nyssara. We could have saved it—together.",
         "Save it? We were its gods, Vaelgor! And it spat in our faces. Let it burn. I’ll rebuild it in my image—without weakness.",
         "Then we are no longer allies. This world deserves a future forged in wisdom, not vengeance.",
-        "Let the ashes decide."
+        "Then we shall fight for this land. Let the ashes decide."
     };
 
     private int story_lines_typed = 0;
@@ -38,6 +40,22 @@ public class LogicScript : MonoBehaviour
         Story_text.text = "";
         Red_text.text = "";
         Blue_text.text = "";
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+
+        audioSource.clip = main_audio;
+        audioSource.playOnAwake = false;
+        audioSource.loop = false;
+
+        if (main_audio != null)
+        {
+            audioSource.Play();
+        }
     }
 
     void Update()
@@ -106,11 +124,19 @@ public class LogicScript : MonoBehaviour
 
     public void previous_scene()
     {
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
         SceneManager.LoadScene("Home Tab");
     }
 
     public void next_scene()
     {
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
         if (GameManager.Instance != null)
         {
             if(GameManager.Instance.isMultiplayer)

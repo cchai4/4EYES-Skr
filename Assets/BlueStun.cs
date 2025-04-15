@@ -5,17 +5,14 @@ public class BlueStun : MonoBehaviour
     public bool isStunned = false;
     private float stunTimer = 1;
 
-    // Call this method to (re)apply a stun.
     public void Stun(float duration)
     {
-        stunTimer = duration; // Reset the timer.
+        stunTimer = duration; 
 
         if (!isStunned)
         {
             isStunned = true;
             Debug.Log("Blue is stunned for " + duration + " seconds.");
-
-            // ADDED: Immediately zero out velocity at the moment of stun.
             Rigidbody2D rb = GetComponent<Rigidbody2D>();
             if (rb != null)
             {

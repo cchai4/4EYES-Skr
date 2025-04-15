@@ -5,7 +5,6 @@ public class MovementWASD : MonoBehaviour
     [Header("Key Assignments")]
     public PlayerControlsSO controls;
 
-    // Reference to the RedStun component
     private RedStun redStun;
     public float acceleration = 10f;
     public float maxSpeed = 5f;
@@ -19,7 +18,6 @@ public class MovementWASD : MonoBehaviour
 
     void Update()
     {
-        // If stunned, skip input-based movement
         if (redStun != null && redStun.isStunned)
         {
             return;

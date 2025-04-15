@@ -8,14 +8,19 @@ public class FireballShooterBlue : MonoBehaviour
     public float fireballSpeed = 10f;
 
     [Header("Firing Controls")]
-    public PlayerControlsSO controls; // Assign BlueControls asset here
+    public PlayerControlsSO controls; 
 
     public float fireballCooldown = 1f;
     private float lastFireTime = -Mathf.Infinity;
 
+    [Header("Sound Effect")]
+    public AudioClip fireballShootSfx;   
+    [Range(0f, 1f)]
+    public float shootVolume = 1.0f;     
+
     void Update()
     {
-        if (Input.GetKey(controls.cancelKey)) // This should be RightShift for Blue
+        if (Input.GetKey(controls.cancelKey)) 
         {
             if (Time.time - lastFireTime < fireballCooldown)
                 return;
@@ -32,6 +37,16 @@ public class FireballShooterBlue : MonoBehaviour
     IEnumerator ShootFireballWithDelay()
     {
         yield return new WaitForSeconds(0.01f);
+
+        
+        if (fireballShootSfx != null)
+        {
+            AudioSource.PlayClipAtPoint(fireballShootSfx, firePoint.position, shootVolume);
+        }
+        else
+        {
+            Debug.LogWarning("FireballShooterBlue: No fireball shoot sound assigned!");
+        }
 
         GameObject fireball = Instantiate(fireballPrefab, firePoint.position, firePoint.rotation);
         fireball.tag = "Fireball";

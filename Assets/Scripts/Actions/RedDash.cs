@@ -14,20 +14,25 @@ public class RedDash : MonoBehaviour
     [Header("Knockback Settings")]
     public float knockbackForce = 10f;
 
-    [Header("References")]
-    public GameObject dashHitbox; // Child hitbox object
+    [Header("Sound Effect")]
+    public AudioClip dashSfx;  
+    [Range(0f, 1f)]
+    public float dashVolume = 1.0f;  
 
-    // Reference the RedStun script.
+    [Header("References")]
+    public GameObject dashHitbox; 
+
+    
     private RedStun redStun;
 
     private Rigidbody2D rb;
-    private float lastDashKeyTime = -1f; // was lastSpaceTime
+    private float lastDashKeyTime = -1f;
     private bool isDashing;
     private float dashTimer;
     private bool dashOnCooldown;
     private float cooldownTimer;
 
-    // Store last movement input direction (WASD)
+    
     private Vector2 lastInputDir = Vector2.up;
     [HideInInspector] public Vector2 dashDirection;
 
@@ -41,7 +46,7 @@ public class RedDash : MonoBehaviour
 
     void Update()
     {
-        // Read directional input from controls
+        
         Vector2 input = Vector2.zero;
         if (Input.GetKey(controls.upKey)) input += Vector2.up;
         if (Input.GetKey(controls.downKey)) input += Vector2.down;
@@ -50,11 +55,11 @@ public class RedDash : MonoBehaviour
         if (input.sqrMagnitude > 0.001f)
             lastInputDir = input.normalized;
 
-        // If stunned, skip dash logic
+        
         if (redStun && redStun.isStunned)
             return;
 
-        // If on cooldown, track time
+        
         if (dashOnCooldown)
         {
             cooldownTimer += Time.deltaTime;
@@ -65,7 +70,7 @@ public class RedDash : MonoBehaviour
             }
         }
 
-        // Double-tap dash key
+        
         if (!isDashing && !dashOnCooldown && Input.GetKeyDown(controls.dashDoubleTapKey))
         {
             float t = Time.time;
@@ -76,11 +81,17 @@ public class RedDash : MonoBehaviour
                 dashTimer = 0f;
                 dashOnCooldown = true;
                 if (dashHitbox) dashHitbox.SetActive(true);
+
+                
+                if (dashSfx != null)
+                {
+                    AudioSource.PlayClipAtPoint(dashSfx, transform.position, dashVolume);
+                }
             }
             lastDashKeyTime = t;
         }
 
-        // If currently dashing, apply velocity
+        
         if (isDashing)
         {
             dashTimer += Time.deltaTime;

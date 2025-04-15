@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
-    public int gridSize = 6;             // Creates a gridSize x gridSize grid.
-    public GameObject gridCellPrefab;    // Assign in Inspector
-    public Transform gridParent;         // Assign in Inspector
+    public int gridSize = 6;             
+    public GameObject gridCellPrefab;   
+    public Transform gridParent;         
 
     private GameObject[,] cells;
     public int rows, cols;
@@ -47,19 +47,16 @@ public class GridManager : MonoBehaviour
                     -row * cellSize - cellSize / 2f,
                     0f);
 
-                // Instantiate each cell
                 GameObject cell = Instantiate(gridCellPrefab, pos, Quaternion.identity, gridParent);
                 cell.transform.localScale = new Vector3(cellSize, cellSize, 1f);
                 cell.name = $"GridCell_{row}_{col}";
 
-                // 1) If there's a GridCellActivation script, set its coords
                 var activation = cell.GetComponent<GridCellActivation>();
                 if (activation != null)
                 {
                     activation.SetCoords(row, col);
                 }
 
-                // 2) If there's a TerritoryTint script, set its coords
                 var tint = cell.GetComponent<TerritoryTint>();
                 if (tint != null)
                 {
@@ -71,9 +68,6 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Returns the grid cell at (row,col), or null if out of bounds
-    /// </summary>
     public GameObject GetCell(int row, int col)
     {
         if (row < 0 || row >= rows || col < 0 || col >= cols)
@@ -84,9 +78,6 @@ public class GridManager : MonoBehaviour
     public int GetRowCount() => rows;
     public int GetColCount() => cols;
 
-    /// <summary>
-    /// For territory refresh, if needed. (Optional if you already do a recompute from scratch.)
-    /// </summary>
     public void RefreshAllTerritories()
     {
         Debug.Log("GridManager: RefreshAllTerritories called.");
@@ -98,7 +89,6 @@ public class GridManager : MonoBehaviour
                 GameObject cell = cells[r, c];
                 if (cell != null)
                 {
-                    // Log the cell being refreshed.
                     Debug.Log($"Refreshing territory on cell at row {r}, col {c} (named {cell.name}).");
                     var tint = cell.GetComponent<TerritoryTint>();
                     if (tint != null)

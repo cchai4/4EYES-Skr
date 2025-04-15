@@ -139,3 +139,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   maxHP: 30
+  destructionSfx: {fileID: 8300000, guid: 308c6d50765127c45bf7b6beac6f6f14, type: 3}
+  destructionVolume: 1

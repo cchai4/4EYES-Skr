@@ -5,9 +5,6 @@ public class TerritoryManager : MonoBehaviour
 {
     public GridManager gridManager;
 
-    /// <summary>
-    /// Returns the total number of grid cells occupied by buildings of the specified team.
-    /// </summary>
     public int GetTerritoryCount(Team team)
     {
         if (gridManager == null)
@@ -30,7 +27,6 @@ public class TerritoryManager : MonoBehaviour
                     BuildingSlot slot = cell.GetComponent<BuildingSlot>();
                     if (slot != null && slot.HasBuilding())
                     {
-                        // Map ColorType to Team: assume Red -> Team.Red, Blue -> Team.Blue.
                         if (MapColorToTeam(slot.GetOwner()) == team)
                             count++;
                     }

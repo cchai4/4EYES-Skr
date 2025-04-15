@@ -5,11 +5,16 @@ public enum Team { Red, Blue }
 
 public abstract class BuildingBase : MonoBehaviour
 {
-    public Team team;         // Assigned by BuildingSlot when placed.
+    public Team team;         
     [SerializeField] private int maxHP = 10;
     protected int currentHP;
 
-    // Flag to check if destruction was handled through our controlled method.
+    [Header("Destruction Sound")]
+    public AudioClip destructionSfx;
+    [Range(0f, 1f)]
+    public float destructionVolume = 1f;
+
+    
     private bool destructionHandled = false;
 
     protected virtual void Awake()
@@ -18,7 +23,7 @@ public abstract class BuildingBase : MonoBehaviour
         Debug.Log($"{name}: Awake, currentHP = {currentHP}");
     }
 
-    // When damage is taken, if HP reaches or falls below 0, destroy the building.
+    
     public virtual void TakeDamage(int dmg)
     {
         currentHP -= dmg;
@@ -30,16 +35,19 @@ public abstract class BuildingBase : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Use this method for controlled destruction so that territory refresh happens.
-    /// This method clears the reference from its parent BuildingSlot before destroying itself.
-    /// </summary>
+   
     protected virtual void DestroyBuilding()
     {
         destructionHandled = true;
         Debug.Log($"BuildingBase: Destroying {name} (Team {team}).");
 
-        // Clear the parent's building reference.
+        
+        if (destructionSfx != null)
+        {
+            AudioSource.PlayClipAtPoint(destructionSfx, transform.position, destructionVolume);
+        }
+
+        
         if (transform.parent != null)
         {
             var slot = transform.parent.GetComponent<BuildingSlot>();
@@ -58,7 +66,7 @@ public abstract class BuildingBase : MonoBehaviour
             Debug.LogWarning($"{name}: No parent found to clear building reference from.");
         }
 
-        // Immediately refresh territory.
+        
         if (GridManager.Instance != null)
         {
             Debug.Log($"{name}: Immediately refreshing territory via GridManager.");
@@ -69,15 +77,14 @@ public abstract class BuildingBase : MonoBehaviour
             Debug.LogWarning($"{name}: GridManager.Instance is null, cannot refresh territory.");
         }
 
-        // Now schedule destruction.
+        
         Destroy(gameObject);
     }
-
 
     private IEnumerator DelayedTerritoryRefresh()
     {
         Debug.Log($"{name}: Waiting one frame for territory refresh.");
-        yield return null; // Wait one frame.
+        yield return null; 
         if (GridManager.Instance != null)
         {
             Debug.Log($"{name}: Refreshing territory via GridManager.");
@@ -89,8 +96,7 @@ public abstract class BuildingBase : MonoBehaviour
         }
     }
 
-    // Fallback: if this building is destroyed directly (without calling DestroyBuilding()),
-    // then refresh territory here.
+    
     private void OnDestroy()
     {
         if (!destructionHandled)

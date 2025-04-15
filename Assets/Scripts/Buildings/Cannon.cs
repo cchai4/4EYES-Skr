@@ -4,10 +4,10 @@ using System.Linq;
 public class Cannon : BuildingBase
 {
     [Header("Cannon Settings")]
-    public GameObject cannonballPrefab;   // Assign the Cannonball prefab in the Inspector.
-    public float shootInterval = 2f;      // Seconds between shots.
-    public float projectileSpeed = 8f;    // Speed for the fired cannonball.
-    public float projectileKnockback = 4f; // Knockback force applied by the cannonball.
+    public GameObject cannonballPrefab;   
+    public float shootInterval = 2f;      
+    public float projectileSpeed = 8f;    
+    public float projectileKnockback = 4f; 
 
     private float shootTimer = 0f;
     private Transform currentTarget;
@@ -16,7 +16,7 @@ public class Cannon : BuildingBase
     {
         shootTimer += Time.deltaTime;
 
-        // Look for the closest enemy troop each frame
+        
         currentTarget = FindClosestEnemyTroop();
 
         if (currentTarget != null)
@@ -31,7 +31,7 @@ public class Cannon : BuildingBase
         }
         else
         {
-            // No valid target ? stop firing
+            
             shootTimer = 0f;
         }
     }

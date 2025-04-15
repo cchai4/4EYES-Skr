@@ -3,7 +3,7 @@ using UnityEngine;
 public class BlueDash : MonoBehaviour
 {
     [Header("Key Assignments")]
-    public PlayerControlsSO controls; // This will store dashDoubleTapKey, etc.
+    public PlayerControlsSO controls; 
 
     [Header("Dash Settings")]
     public float dashSpeed = 7f;
@@ -14,8 +14,13 @@ public class BlueDash : MonoBehaviour
     [Header("Knockback Settings")]
     public float knockbackForce = 10f;
 
+    [Header("Sound Effect")]
+    public AudioClip dashSfx;         
+    [Range(0f, 1f)]
+    public float dashVolume = 1.0f;   
+
     [Header("References")]
-    public GameObject dashHitboxBlue; // Child hitbox object
+    public GameObject dashHitboxBlue; 
 
     private BlueStun blueStun;
     private Rigidbody2D rb;
@@ -26,7 +31,7 @@ public class BlueDash : MonoBehaviour
     private bool dashOnCooldown;
     private float cooldownTimer;
 
-    private Vector2 lastInputDir = Vector2.up; // last arrow-key direction
+    private Vector2 lastInputDir = Vector2.up; 
     [HideInInspector] public Vector2 dashDirection;
 
     void Awake()
@@ -39,7 +44,7 @@ public class BlueDash : MonoBehaviour
 
     void Update()
     {
-        // always allow turning
+        
         Vector2 input = Vector2.zero;
         if (Input.GetKey(controls.upKey)) input += Vector2.up;
         if (Input.GetKey(controls.downKey)) input += Vector2.down;
@@ -49,11 +54,11 @@ public class BlueDash : MonoBehaviour
         if (input.sqrMagnitude > 0.001f)
             lastInputDir = input.normalized;
 
-        // skip dash logic if stunned
+        
         if (blueStun && blueStun.isStunned)
             return;
 
-        // dash cooldown
+        
         if (dashOnCooldown)
         {
             cooldownTimer += Time.deltaTime;
@@ -64,7 +69,7 @@ public class BlueDash : MonoBehaviour
             }
         }
 
-        // double-tap dash
+        
         if (!isDashing && !dashOnCooldown && Input.GetKeyDown(controls.dashDoubleTapKey))
         {
             float t = Time.time;
@@ -75,11 +80,17 @@ public class BlueDash : MonoBehaviour
                 dashTimer = 0f;
                 dashOnCooldown = true;
                 if (dashHitboxBlue) dashHitboxBlue.SetActive(true);
+
+                
+                if (dashSfx != null)
+                {
+                    AudioSource.PlayClipAtPoint(dashSfx, transform.position, dashVolume);
+                }
             }
             lastShiftTime = t;
         }
 
-        // perform dash
+        
         if (isDashing)
         {
             dashTimer += Time.deltaTime;

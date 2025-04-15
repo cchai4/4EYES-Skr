@@ -5,9 +5,9 @@ public class Spawner : MonoBehaviour
     public GameObject goldPrefab;
     public GameObject silverPrefab;
 
-    public float spawnRadius = 5f;           // Radius to check for overlap
-    public LayerMask resourceLayer;              // Layer where gold/silver exist
-    public int maxRetries = 10;                  // Prevent infinite attempts
+    public float spawnRadius = 5f;        
+    public LayerMask resourceLayer;         
+    public int maxRetries = 10;                  
     public float spawnRangeXMin = -8.6f;
     public float spawnRangeXMax = -2f;
     public float spawnRangeYMin = -3f;
@@ -21,11 +21,10 @@ public class Spawner : MonoBehaviour
             float rand_y_pos = Random.Range(spawnRangeYMin, spawnRangeYMax);
             Vector2 spawnPos = new Vector2(rand_x_pos, rand_y_pos);
 
-            // Only spawn if position is clear (no overlap with gold/silver)
             if (!Physics2D.OverlapCircle(spawnPos, spawnRadius, resourceLayer))
             {
                 Instantiate(spawn_obj, spawnPos, Quaternion.identity);
-                return; // success, exit early
+                return; 
             }
         }
 
