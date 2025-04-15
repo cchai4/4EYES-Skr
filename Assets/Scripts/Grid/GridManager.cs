@@ -7,7 +7,7 @@ public class GridManager : MonoBehaviour
     public Transform gridParent;         // Assign in Inspector
 
     private GameObject[,] cells;
-    private int rows, cols;
+    public int rows, cols;
 
     void Start()
     {

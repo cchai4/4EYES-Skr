@@ -42,10 +42,10 @@ public class TimerMult : MonoBehaviour
             }
             else
             {
-                GameObject[] goldObjects = GameObject.FindGameObjectsWithTag("Gold"); // New
+                GameObject[] goldObjects = GameObject.FindGameObjectsWithTag("Gold");
                 GameObject[] taggedObjects = GameObject.FindGameObjectsWithTag("Diamond");
                 int num_objects = taggedObjects.Length;
-                int gold_count = goldObjects.Length; // New
+                int gold_count = goldObjects.Length;
                 int randInt = Random.Range(0, resource_options.Length);
 
                 if (randInt == 0 && gold_count < maxGold) // Check gold limit
@@ -59,13 +59,23 @@ public class TimerMult : MonoBehaviour
                 }
                 timer = 0;
             }
-
         }
         else
         {
             // Time is up
             time_text.text = "Game Over";
             gameOverScreen_mult.SetActive(true);
+
+            // NEW: Call the territory-count code in GameEndManager (if present):
+            GameEndManager gem = Object.FindFirstObjectByType<GameEndManager>();
+            if (gem != null)
+            {
+                gem.OnGameEnd();
+            }
+            else
+            {
+                Debug.LogWarning("TimerMult: No GameEndManager found in the scene, cannot call OnGameEnd!");
+            }
         }
     }
 
@@ -74,6 +84,7 @@ public class TimerMult : MonoBehaviour
         // Reload the current active scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
     public void Exit()
     {
         SceneManager.LoadScene("Home Tab");
