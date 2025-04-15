@@ -15,7 +15,7 @@ public class FlagInitializer : MonoBehaviour
     IEnumerator WaitForGridAndPlaceFlags()
     {
         // Find the GridManager.
-        GridManager gm = Object.FindAnyObjectByType<GridManager>();
+        newGridManager gm = Object.FindAnyObjectByType<newGridManager>();
         if (gm == null)
         {
             Debug.LogError("FlagInitializer: GridManager not found!");

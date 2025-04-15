@@ -347,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      runeidle_0: -71732500682526657
+      runeidle_1: -63671617669430351
+      runeidle_2: -257349426195492888
+      runeidle_3: -4559637109180961496
+      runeidle_4: 3350235449099578275
+      runeidle_5: -7096067540856844932
+      runeidle_6: -1059720356717370705
+      runeidle_7: -303598201901297087
+      runeidle_8: 4147609243491466452
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
